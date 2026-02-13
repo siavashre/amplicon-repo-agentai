@@ -12,7 +12,7 @@ ALLOWED_SOURCES: set[str] = set(SourceType.__args__)
 
 def extract_usage_metadata(response, source: SourceType) -> dict[str, int | None]:
     """Extract token usage from LLM response. Supports Chat Completions and Responses API (e.g. gpt-5)."""
-    empty = {"prompt_tokens": None, "completion_tokens": None, "total_tokens": None}
+    empty = {"prompt_tokens": None, "completion_tokens": None, "total_tokens": None, "cached_tokens": None}
 
     try:
         if source not in ("OpenAI", "AzureOpenAI", "Gemini", "Groq", "Custom"):
@@ -29,17 +29,29 @@ def extract_usage_metadata(response, source: SourceType) -> dict[str, int | None
             pt = um.get("input_tokens") or um.get("prompt_tokens")
             ct = um.get("output_tokens") or um.get("completion_tokens")
             tt = um.get("total_tokens")
+            # Cached tokens are in input_token_details.cache_read (Responses API)
+            input_details = um.get("input_token_details", {})
+            cached = input_details.get("cache_read") if isinstance(input_details, dict) else None
             if pt is not None or ct is not None or tt is not None:
-                return {"prompt_tokens": pt, "completion_tokens": ct, "total_tokens": tt}
+                return {"prompt_tokens": pt, "completion_tokens": ct, "total_tokens": tt, "cached_tokens": cached}
 
         # Chat Completions API: response_metadata["token_usage"]
         meta = getattr(response, "response_metadata", None) or {}
         usage = (meta.get("token_usage") or meta.get("usage")) or {}
         if usage:
+            prompt_details = usage.get("prompt_tokens_details", {})
+            input_details = usage.get("input_token_details", {})
+            cached = None
+            if isinstance(prompt_details, dict):
+                cached = prompt_details.get("cached_tokens")
+            if cached is None and isinstance(input_details, dict):
+                cached = input_details.get("cache_read")
+            
             return {
                 "prompt_tokens": usage.get("prompt_tokens") or usage.get("input_tokens"),
                 "completion_tokens": usage.get("completion_tokens") or usage.get("output_tokens"),
                 "total_tokens": usage.get("total_tokens"),
+                "cached_tokens": cached,
             }
         return {**empty, "note": "No token usage in response"}
     except Exception as e:
