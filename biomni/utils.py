@@ -2435,7 +2435,15 @@ class TokenLogger:
             # Write token usage header if available
             if token_info:
                 f.write("=== TOKEN USAGE ===\n")
-                f.write(f"Prompt Tokens: {token_info.get('prompt_tokens', 'N/A')}\n")
+                prompt_tokens = token_info.get('prompt_tokens', 'N/A')
+                cached_tokens = token_info.get('cached_tokens', 'N/A')
+                # Calculate new tokens if both are available
+                if prompt_tokens != 'N/A' and cached_tokens != 'N/A' and cached_tokens is not None:
+                    new_tokens = prompt_tokens - cached_tokens
+                    f.write(f"Prompt Tokens: {prompt_tokens} ({new_tokens} new)\n")
+                else:
+                    f.write(f"Prompt Tokens: {prompt_tokens}\n")
+                f.write(f"Cached Tokens: {cached_tokens}\n")
                 f.write(f"Completion Tokens: {token_info.get('completion_tokens', 'N/A')}\n")
                 f.write(f"Total Tokens: {token_info.get('total_tokens', 'N/A')}\n")
                 if token_info.get("note"):
@@ -2448,25 +2456,27 @@ class TokenLogger:
         print(f"📝 Logged turn {self.turn_counter} to {self.session_dir.name}")
 
     def print_tokens(self, turn_number: int, token_info: dict[str, int | None]) -> None:
-        """Print token usage in a formatted box to console."""
-
-        def _fmt(v):
-            return str(v).rjust(10) if v not in (None, "N/A") else "N/A".rjust(10)
-
-        prompt_str = _fmt(token_info.get("prompt_tokens", "N/A"))
-        completion_str = _fmt(token_info.get("completion_tokens", "N/A"))
-        total_str = _fmt(token_info.get("total_tokens", "N/A"))
-
-        print("\n╔════════════════════════════════════════╗")
-        print(f"║      Turn {turn_number} Token Usage            ║")
-        print("╠════════════════════════════════════════╣")
-        print(f"║  Prompt Tokens:    {prompt_str}        ║")
-        print(f"║  Completion Tokens:{completion_str}        ║")
-        print(f"║  Total Tokens:     {total_str}        ║")
-
+        """Print token usage to console."""
+        
+        prompt_tokens = token_info.get("prompt_tokens", "N/A")
+        cached_tokens = token_info.get("cached_tokens", "N/A")
+        completion_tokens = token_info.get("completion_tokens", "N/A")
+        total_tokens = token_info.get("total_tokens", "N/A")
+        
+        print(f"\n=== Turn {turn_number} Token Usage ===")
+        
+        # Calculate new tokens if both prompt and cached are available
+        if prompt_tokens != "N/A" and cached_tokens != "N/A" and cached_tokens is not None:
+            new_tokens = prompt_tokens - cached_tokens
+            print(f"Prompt Tokens: {prompt_tokens} ({new_tokens} new)")
+        else:
+            print(f"Prompt Tokens: {prompt_tokens}")
+        
+        print(f"Cached Tokens: {cached_tokens}")
+        print(f"Completion Tokens: {completion_tokens}")
+        print(f"Total Tokens: {total_tokens}")
+        
         if token_info.get("note"):
-            print("╠════════════════════════════════════════╣")
-            note = token_info["note"][:34]  # Truncate if too long
-            print(f"║  {note.ljust(38)} ║")
-
-        print("╚════════════════════════════════════════╝\n")
+            print(f"Note: {token_info['note']}")
+        
+        print("=" * 30 + "\n")
