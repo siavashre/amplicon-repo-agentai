@@ -2,9 +2,10 @@
 Amplicon Query Tool for querying the Amplicon Repository.
 
 This module provides a function to retrieve amplicon records from a local
-aggregated CSV file, supporting various filtering options for tissue of origin,
-classification, gene annotations, genomic location, and copy number features.
-Gene-related and location filters support lists for SQL-like IN clause matching.
+aggregated CSV file, supporting various filtering options for sample name, amplicon
+number, tissue of origin, classification, gene annotations, genomic location, and
+copy number features. Gene-related and location filters support lists for SQL-like
+IN clause matching.
 """
 
 import os
@@ -130,6 +131,9 @@ def _gene_in_field(gene: str, field_value: str) -> bool:
 
 
 def query_amplicons(
+    sample_name: str | list[str] | None = None,
+    sample_name_match: str | None = None,
+    aa_amplicon_number: int | list[int] | None = None,
     tissue_of_origin: str | list[str] | None = None,
     classification: str | list[str] | None = None,
     gene: str | list[str] | None = None,
@@ -160,6 +164,13 @@ def query_amplicons(
         tissue_of_origin: Cancer tissue of origin (e.g., breast, lung, ovary).
             Can be a single string or list of strings for OR matching.
             Case-insensitive matching.
+        sample_name: Sample name(s) to filter. Can be a single string or list
+            of strings for OR matching.
+        sample_name_match: Match mode for sample_name. One of:
+            'exact', 'startswith', 'contains' (default: 'contains').
+            Case-insensitive matching.
+        aa_amplicon_number: Amplicon number(s) to filter. Can be a single integer
+            or list of integers for OR matching.
         classification: Amplicon classification. Can be a single string or list of
             strings for OR matching. Valid values include 'ecDNA', 'BFB', 'Linear',
             'Complex-non-cyclic'.
@@ -211,11 +222,19 @@ def query_amplicons(
         add_normalized_columns = True
     if gene_field is None:
         gene_field = "either"
+    if sample_name_match is None:
+        sample_name_match = "contains"
 
     # Validate parameters
     if limit is not None:
         limit = max(1, limit)  # Ensure at least 1 if specified
     offset = max(0, offset)
+
+    valid_sample_name_match = ["exact", "startswith", "contains"]
+    if sample_name_match not in valid_sample_name_match:
+        raise ValueError(
+            f"Invalid sample_name_match '{sample_name_match}'. Must be one of: {valid_sample_name_match}"
+        )
 
     valid_classifications = ["ecDNA", "BFB", "Linear", "Complex-non-cyclic"]
     if classification is not None:
@@ -260,6 +279,35 @@ def query_amplicons(
 
     # Apply filters
     mask = pd.Series([True] * len(df))
+
+    # Sample name filter (supports list for OR matching)
+    if sample_name is not None:
+        if "Sample name" in df.columns:
+            name_list = [sample_name] if isinstance(sample_name, str) else sample_name
+            name_mask = pd.Series([False] * len(df))
+            if sample_name_match == "exact":
+                for name in name_list:
+                    name_mask |= df["Sample name"].str.lower() == str(name).lower()
+            elif sample_name_match == "startswith":
+                for name in name_list:
+                    name_mask |= df["Sample name"].str.lower().str.startswith(str(name).lower())
+            else:
+                for name in name_list:
+                    name_mask |= df["Sample name"].str.lower().str.contains(str(name).lower(), regex=False)
+            mask &= name_mask
+            filters_applied["sample_name"] = sample_name
+            filters_applied["sample_name_match"] = sample_name_match
+        else:
+            raise ValueError("Column 'Sample name' not found in the data")
+
+    # AA amplicon number filter (supports list for OR matching)
+    if aa_amplicon_number is not None:
+        if "AA amplicon number" in df.columns:
+            num_list = [aa_amplicon_number] if isinstance(aa_amplicon_number, int) else aa_amplicon_number
+            mask &= df["AA amplicon number"].isin(num_list)
+            filters_applied["aa_amplicon_number"] = aa_amplicon_number
+        else:
+            raise ValueError("Column 'AA amplicon number' not found in the data")
 
     # Tissue of origin filter (supports list for OR matching)
     if tissue_of_origin is not None:
@@ -454,6 +502,10 @@ def query_amplicons(
 
     # Generate summary
     filter_desc = []
+    if sample_name:
+        filter_desc.append(f"sample_name={sample_name}")
+    if aa_amplicon_number is not None:
+        filter_desc.append(f"aa_amplicon_number={aa_amplicon_number}")
     if tissue_of_origin:
         filter_desc.append(f"tissue={tissue_of_origin}")
     if classification:

@@ -1,10 +1,10 @@
-# CCLE Amplicon Repository Data Analysis
+# Amplicon Repository Table Analysis
 
 ---
 
 ## Metadata
 
-**Short Description**: Guide to analyzing ecDNA and amplicon data from the Cancer Cell Line Encyclopedia (CCLE) using Python and pandas.
+**Short Description**: Guide to analyzing ecDNA and amplicon data from Amplicon Repository tables using Python and pandas.
 
 **Authors**: Amplicon Repository Team
 
@@ -16,13 +16,13 @@
 
 **Commercial Use**: ✅ Allowed
 
-**Data Source**: CCLE amplicon analysis pipeline results (AmpliconArchitect + AmpliconClassifier)
+**Data Source**: Amplicon Repository analysis pipeline results (AmpliconArchitect + AmpliconClassifier)
 
 ---
 
 ## Overview
 
-This guide covers amplicon and ecDNA data from the CCLE: **1,234** amplicon features across ~1,157 cancer cell lines, with classifications (ecDNA, Linear, BFB, Complex-non-cyclic), gene annotations, copy numbers, and tissue metadata. The dataset is loaded from **CCLE.csv** in the agent data path (same as the `query_amplicons` tool): data path is the agent path (default `./data`), or `BIOMNI_PATH` / `BIOMNI_DATA_PATH` if set.
+This guide covers amplicon and ecDNA data from Amplicon Repository tables, with classifications (ecDNA, Linear, BFB, Complex-non-cyclic), gene annotations, copy numbers, and tissue metadata. The dataset is loaded from a CSV in the agent data path (same as the `query_amplicons` tool): data path is the agent path (default `./data`), or `BIOMNI_PATH` / `BIOMNI_DATA_PATH` if set. You can also point `CCLE_AMPLICON_CSV` to any amplicon table CSV to override the default.
 
 ```python
 import pandas as pd
@@ -30,11 +30,11 @@ import os
 
 # Same path resolution as query_amplicons in amplicon_table.py
 data_path = os.getenv("BIOMNI_PATH") or os.getenv("BIOMNI_DATA_PATH") or "./data"
-csv_path = os.path.join(data_path, "CCLE.csv")
-df = pd.read_csv(csv_path)  # Shape: (1234, 30)
+csv_path = os.getenv("CCLE_AMPLICON_CSV") or os.path.join(data_path, "CCLE.csv")
+df = pd.read_csv(csv_path)  # Shape varies by table
 ```
 
-Below is a walkthrough of all **30 columns** in the dataset.
+Below is a walkthrough of all **30 columns** in the standard amplicon table schema.
 
 ---
 
@@ -46,7 +46,7 @@ Below is a walkthrough of all **30 columns** in the dataset.
 Sequential index from original data. Can be ignored; pandas will create its own index.
 
 **`Sample name`** (str)
-Unique identifier for cell line sample. Format: `{CELL_LINE}_{TISSUE}` (e.g. `"22RV1_PROSTATE"`). Primary key for grouping analyses by cell line.
+Unique identifier for a sample. Format: `{SAMPLE}_{TISSUE}` (e.g. `"22RV1_PROSTATE"`). Primary key for grouping analyses by sample.
 
 **`AA amplicon number`** (float/NaN)
 AmpliconArchitect's amplicon number for this feature. NaN for samples with no detected amplicons. Used to identify multiple amplicons within the same sample.
@@ -57,7 +57,7 @@ Unique identifier combining sample and amplicon. Format: `{SAMPLE_NAME}_{AMPLICO
 ### Classification Column
 
 **`Classification`** (str)
-Amplicon structural classification from AmpliconClassifier. **Values**: `"ecDNA"` (297), `"Linear"` (550), `"BFB"` (114), `"Complex-non-cyclic"` (196), `NaN` (77 = no amplicon). Most important column for categorizing amplicon types.
+Amplicon structural classification from AmpliconClassifier. **Values**: `"ecDNA"`, `"Linear"`, `"BFB"`, `"Complex-non-cyclic"`, `NaN` (no amplicon). Most important column for categorizing amplicon types.
 
 ### Genomic Location and Genes
 
@@ -104,7 +104,7 @@ Software versions: AmpliconSuite-pipeline, AmpliconArchitect, AmpliconClassifier
 ### Sample Metadata
 
 **`Tissue of origin`** (str)
-Tissue type of the cancer cell line (e.g. `"prostate"`, `"lung"`, `"breast"`). Lowercase, standardized. Important for tissue-specific analyses.
+Tissue type of the sample (e.g. `"prostate"`, `"lung"`, `"breast"`). Lowercase, standardized. Important for tissue-specific analyses.
 
 **`Sample type`** (str)
 Type of sample; `"cell line"` for all samples in this dataset.
@@ -335,4 +335,4 @@ ecdna = df[df['Classification'] == 'ecDNA']
 amplicons_only = df[df['Classification'].notna()]
 ```
 
-If `CCLE_AMPLICON_CSV` is not set, set it to the path of your `aggregated_results.csv`.
+If `CCLE_AMPLICON_CSV` is not set, set it to the path of your amplicon table CSV (for example, `aggregated_results.csv`).

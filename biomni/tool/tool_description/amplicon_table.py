@@ -8,8 +8,9 @@ description = [
             "ground-truth amplicon data including counts, examples, tissue distribution, "
             "classification (ecDNA, BFB, Linear, Complex-non-cyclic), genomic location, "
             "gene annotations, copy-number features, and amplicon complexity. Supports "
-            "flexible filtering by tissue, classification, genes, genomic location, "
-            "copy number thresholds, and complexity scores. Use csv_path to specify "
+            "flexible filtering by sample name, amplicon number, tissue, classification, "
+            "genes, genomic location, copy number thresholds, and complexity scores. "
+            "Use csv_path to specify "
             "any compatible amplicon CSV file. The agent should call this tool before "
             "answering any amplicon-related question. You can apply multiple filters in "
             "a single query to narrow results (e.g., filter by gene, classification, "
@@ -17,6 +18,24 @@ description = [
         ),
         "required_parameters": [],
         "optional_parameters": [
+            {
+                "name": "sample_name",
+                "type": ["string", "array"],
+                "items": {"type": "string"},
+                "description": "Sample name(s) to filter. Accepts a single value or a list of values for OR matching.",
+            },
+            {
+                "name": "sample_name_match",
+                "type": "string",
+                "enum": ["exact", "startswith", "contains"],
+                "description": "Match mode for sample_name. Use 'contains' (default), 'startswith', or 'contains'. Case-insensitive.",
+            },
+            {
+                "name": "aa_amplicon_number",
+                "type": ["integer", "array"],
+                "items": {"type": "integer"},
+                "description": "AA amplicon number(s) to filter. Accepts a single integer or a list of integers for OR matching.",
+            },
             {
                 "name": "tissue_of_origin",
                 "type": ["string", "array"],
