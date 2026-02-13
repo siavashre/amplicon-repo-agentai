@@ -221,6 +221,20 @@ class A1:
         self.token_logger = None  # Will be created when session starts
         self.logs_dir = default_config.logs_dir
         self.llm_source = source if source is not None else default_config.source
+        
+        # Auto-detect source from model name if still None (for token counting)
+        if self.llm_source is None:
+            if llm.startswith("gpt-") and "oss" not in llm:
+                self.llm_source = "OpenAI"
+            elif llm.startswith("claude-"):
+                self.llm_source = "Anthropic"
+            elif llm.startswith("azure-"):
+                self.llm_source = "AzureOpenAI"
+            elif llm.startswith("gemini-"):
+                self.llm_source = "Gemini"
+            elif "groq" in llm.lower():
+                self.llm_source = "Groq"
+        
         self.thread_loggers = {}  # For gradio multi-thread logging
 
         if self.use_tool_retriever:
