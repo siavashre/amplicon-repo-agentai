@@ -35,8 +35,8 @@ QUESTIONS = [
 # agent.go("For ecDNA vs BFB, how does size relate to max copy number? (scatter + correlation) at CCLE data")
 # agent.go("return all samples in breast cancer containign BFB. tell me In which samples? Use the amplicon_table tool and CCLE.csv. Be efficient.")
 # agent.go("show me all BFBs in CCLE at breast cancer samples using amplicon_table and CCLE.csv")
-agent.go("Among samples with ecDNA, what are the most common co-amplified oncogene pairs?")
+# agent.go("Among samples with ecDNA, what are the most common co-amplified oncogene pairs?")
 
-# for idx, question in enumerate(QUESTIONS, start=1):
-#     print(f"\n=== QUESTION {idx} ===")
-#     agent.go(question)
+for idx, question in enumerate(QUESTIONS, start=1):
+    print(f"\n=== QUESTION {idx} ===")
+    agent.go(question)
