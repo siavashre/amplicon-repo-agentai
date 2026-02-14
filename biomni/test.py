@@ -19,7 +19,7 @@ QUESTIONS = [
     "What is the largest amplicon (by size) per class?",
     "Which tissues show highest amplification complexity (median)?",
     "For a given gene EGFR, list all co-amplified genes (same feature)",
-    "Which oncogenes are exclusive to ecDNA (never BFB or Linear)?",
+    "Which oncogenes are exclusive to ecDNA?",
     "Which chromosomes are most frequently amplified?",
     "Which oncogenes are most recurrent across unique samples (any class)?",
     "For each tissue, what are the top 5 amplified oncogenes (any class, by #unique samples)?",
@@ -35,7 +35,7 @@ QUESTIONS = [
 # agent.go("For ecDNA vs BFB, how does size relate to max copy number? (scatter + correlation) at CCLE data")
 # agent.go("return all samples in breast cancer containign BFB. tell me In which samples? Use the amplicon_table tool and CCLE.csv. Be efficient.")
 # agent.go("show me all BFBs in CCLE at breast cancer samples using amplicon_table and CCLE.csv")
-agent.go("Which chromosomes are most frequently amplified? give me the list")
+agent.go("Among samples with ecDNA, what are the most common co-amplified oncogene pairs?")
 
 # for idx, question in enumerate(QUESTIONS, start=1):
 #     print(f"\n=== QUESTION {idx} ===")
