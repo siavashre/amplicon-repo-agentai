@@ -30,6 +30,7 @@ QUESTIONS = [
 ]
 # Execute biomedical tasks using natural language
 # Execute biomedical tasks using natural language
+agent.go("For a given gene EGFR, list all co-amplified genes (same feature) in the CCLE data.")
 # agent.go("Is NCBI gen ID NR_119377 amplified as ecDNA or BFB in CCLE? In which samples? Use the amplicon_table tool and CCLE.csv. Be efficient.")
 # agent.go("Is YES1 amplified as ecDNA or BFB in CCLE? In which samples? ")
 # agent.go("For ecDNA vs BFB, how does size relate to max copy number? (scatter + correlation) at CCLE data")
@@ -37,6 +38,6 @@ QUESTIONS = [
 # agent.go("show me all BFBs in CCLE at breast cancer samples using amplicon_table and CCLE.csv")
 # agent.go("Among samples with ecDNA, what are the most common co-amplified oncogene pairs?")
 
-for idx, question in enumerate(QUESTIONS, start=1):
-    print(f"\n=== QUESTION {idx} ===")
-    agent.go(question)
+# for idx, question in enumerate(QUESTIONS, start=1):
+#     print(f"\n=== QUESTION {idx} ===")
+#     agent.go(question)

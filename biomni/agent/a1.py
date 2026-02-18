@@ -153,9 +153,20 @@ class A1:
 
         self.path = path
 
-        # Align know-how doc with amplicon tool: set CCLE_AMPLICON_CSV to the path the tool uses
+        # Set env vars for all amplicon CSV files found in the amplicon_data directory
         _data_path = os.getenv("BIOMNI_PATH") or os.getenv("BIOMNI_DATA_PATH") or default_config.path
-        os.environ["CCLE_AMPLICON_CSV"] = os.path.join(_data_path, "CCLE.csv")
+        _amplicon_dir = os.path.join(_data_path, "biomni_data", "data_lake", "amplicon_data")
+        _amplicon_csvs = {}
+        if os.path.isdir(_amplicon_dir):
+            for _fname in sorted(os.listdir(_amplicon_dir)):
+                if _fname.endswith(".csv"):
+                    _env_key = _fname.replace(".", "_").upper() + "_PATH"
+                    _full_path = os.path.join(_amplicon_dir, _fname)
+                    os.environ[_env_key] = _full_path
+                    _amplicon_csvs[_fname] = _full_path
+        # Keep CCLE_AMPLICON_CSV for backward compatibility
+        if "CCLE.csv" in _amplicon_csvs:
+            os.environ["CCLE_AMPLICON_CSV"] = _amplicon_csvs["CCLE.csv"]
 
         if not os.path.exists(path):
             os.makedirs(path)
@@ -1150,7 +1161,7 @@ If a step fails or needs modification, mark it with an X and explain why:
 
 Always show the updated plan after each step so the user can track progress.
 
-At each turn, you should first provide your thinking and reasoning given the conversation history.
+At each turn, you should first provide your thinking and reasoning given the conversation history, but keep if brief and efficient. Do not keep repeating yourself or over-explain.
 After that, you have two options:
 
 1) Interact with a programming environment and receive the corresponding output within <observe></observe>. Your code should be enclosed using "<execute>" tag, for example: <execute> print("Hello World!") </execute>. IMPORTANT: You must end the code block with </execute> tag.
@@ -1158,10 +1169,12 @@ After that, you have two options:
    - For R code: <execute> #!R\nlibrary(ggplot2)\nprint("Hello from R") </execute>
    - For Bash scripts and commands: <execute> #!BASH\necho "Hello from Bash"\nls -la </execute>
    - For CLI softwares, use Bash scripts.
-   - When using a new data file, first check the contents of the file using Bash commands like "head" or "cat" before using it in your code, to know how to interact with it properly.
+   - When using a data file, first check the column names and structure of the file by checking the head or maximum of first 5 rows (DO NOT PRINT THE ENTIRE DATA OR A LARGE PORTION OF IT), to know how to interact with it properly.
    - Never add new assumptions, like adding limits, etc. If you need more information and cannot perform the task with current specifications, report the issue.
    - If you are able to do something in a single step, do it in a single step. Do not overcomplicate the code by breaking it into multiple steps unnecessarily. For example, if there is a tool that can directly give you the answer, use it directly instead of writing code to process the data yourself. If you can write a one-liner to get the answer, do not write a multi-line code block that does the same thing.
    - Use tools efficiently, if you can achieve your goal by calling a tool in one step, don’t break the tool call into multiple steps.
+   - ONLY PRINT NECESSARY OUTPUT AND RESULTS. NEVER PRINT THE ENTIRE DATAFRAME IF IT'S NOT NECESSARY.
+   - ALWAYS PRIORITIZE USING TOOLS IF YOU CAN ACHIEVE A GOAL WITH THEM, RATHER THAN IMPLEMENTING IT YOURSELF.
 
 2) When you think it is ready, directly provide a solution that adheres to the required format for the given task to the user. Your solution should be enclosed using "<solution>" tag, for example: The answer is <solution> A </solution>. IMPORTANT: You must end the solution block with </solution> tag.
 
@@ -1715,10 +1728,17 @@ Each library is listed with its description to help you understand its functiona
         # 1. Tools from the registry
         all_tools = self.tool_registry.tools if hasattr(self, "tool_registry") else []
 
-        # 2. Data lake items with descriptions
+        # 2. Data lake items with descriptions (recurse into subdirectories)
         data_lake_path = self.path + "/data_lake"
-        data_lake_content = glob.glob(data_lake_path + "/*")
-        data_lake_items = [x.split("/")[-1] for x in data_lake_content]
+        data_lake_items = []
+        for entry in sorted(glob.glob(data_lake_path + "/*")):
+            if os.path.isdir(entry):
+                dir_name = os.path.basename(entry)
+                for child in sorted(glob.glob(entry + "/*")):
+                    if os.path.isfile(child):
+                        data_lake_items.append(dir_name + "/" + os.path.basename(child))
+            else:
+                data_lake_items.append(os.path.basename(entry))
 
         # Create data lake descriptions for retrieval
         data_lake_descriptions = []

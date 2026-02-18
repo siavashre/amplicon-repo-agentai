@@ -22,16 +22,20 @@
 
 ## Overview
 
-This guide covers amplicon and ecDNA data from Amplicon Repository tables, with classifications (ecDNA, Linear, BFB, Complex-non-cyclic), gene annotations, copy numbers, and tissue metadata. The dataset is loaded from a CSV in the agent data path (same as the `query_amplicons` tool): data path is the agent path (default `./data`), or `BIOMNI_PATH` / `BIOMNI_DATA_PATH` if set. You can also point `CCLE_AMPLICON_CSV` to any amplicon table CSV to override the default.
+This guide covers amplicon and ecDNA data from Amplicon Repository tables, with classifications (ecDNA, Linear, BFB, Complex-non-cyclic), gene annotations, copy numbers, and tissue metadata. All amplicon CSV files are stored in `<data_path>/biomni_data/data_lake/amplicon_data/` and share the same schema. Available datasets include CCLE, PCAWG, TCGA, and any other CSVs added to that directory. Environment variables are set automatically at startup (e.g., `CCLE_CSV_PATH`, `PCAWG_CSV_PATH`, `TCGA_CSV_PATH`). `CCLE_AMPLICON_CSV` is kept for backward compatibility.
 
 ```python
 import pandas as pd
 import os
+import glob
 
-# Same path resolution as query_amplicons in amplicon_table.py
+# Discover all amplicon CSV files
 data_path = os.getenv("BIOMNI_PATH") or os.getenv("BIOMNI_DATA_PATH") or "./data"
-csv_path = os.getenv("CCLE_AMPLICON_CSV") or os.path.join(data_path, "CCLE.csv")
-df = pd.read_csv(csv_path)  # Shape varies by table
+amplicon_dir = os.path.join(data_path, "biomni_data", "data_lake", "amplicon_data")
+csv_files = sorted(glob.glob(os.path.join(amplicon_dir, "*.csv")))
+
+# Load a specific file (e.g., CCLE)
+df = pd.read_csv(os.path.join(amplicon_dir, "CCLE.csv"))  # Shape varies by table
 ```
 
 Below is a walkthrough of all **30 columns** in the standard amplicon table schema.
@@ -328,11 +332,12 @@ tissue_stats_sorted = tissue_stats_filtered.sort_values('myc_rate', ascending=Fa
 ## Quick reference
 
 ```python
-df = pd.read_csv(os.environ['CCLE_AMPLICON_CSV'])
+# Load any amplicon CSV by its env var or direct path
+df = pd.read_csv(os.environ['CCLE_CSV_PATH'])  # or PCAWG_CSV_PATH, TCGA_CSV_PATH, etc.
 df['oncogenes_list'] = df['Oncogenes'].apply(parse_genes)
 
 ecdna = df[df['Classification'] == 'ecDNA']
 amplicons_only = df[df['Classification'].notna()]
 ```
 
-If `CCLE_AMPLICON_CSV` is not set, set it to the path of your amplicon table CSV (for example, `aggregated_results.csv`).
+Amplicon CSV environment variables are set automatically at startup for each file in the `amplicon_data/` directory (e.g., `CCLE_CSV_PATH`, `PCAWG_CSV_PATH`). `CCLE_AMPLICON_CSV` is kept for backward compatibility.

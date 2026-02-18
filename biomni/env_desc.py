@@ -1,6 +1,25 @@
+import glob as _glob
+import os as _os
+
+_AMPLICON_DESCRIPTION = (
+    "Cancer amplicon records from the Amplicon Repository containing classification "
+    "(ecDNA, BFB, Linear, Complex-non-cyclic), tissue of origin, oncogenes, gene "
+    "annotations, genomic intervals, copy number features, and complexity scores."
+)
+
+# Auto-discover all CSV files in the amplicon_data directory
+_amplicon_data_dir = _os.path.join(
+    _os.getenv("BIOMNI_PATH") or _os.getenv("BIOMNI_DATA_PATH") or "./data",
+    "biomni_data", "data_lake", "amplicon_data",
+)
+_amplicon_files = {
+    "amplicon_data/" + _os.path.basename(f): _AMPLICON_DESCRIPTION
+    for f in sorted(_glob.glob(_os.path.join(_amplicon_data_dir, "*.csv")))
+}
+
 # Data lake dictionary with detailed descriptions
 data_lake_dict = {
-    "CCLE.csv": "Cancer amplicon records from the Amplicon Repository containing classification (ecDNA, BFB, Linear, Complex-non-cyclic), tissue of origin, oncogenes, gene annotations, genomic intervals, copy number features, and complexity scores for cancer cell lines.",
+    **_amplicon_files,
     # "affinity_capture-ms.parquet": "Protein-protein interactions detected via affinity capture and mass spectrometry.",
     # "affinity_capture-rna.parquet": "Protein-RNA interactions detected by affinity capture.",
     # "BindingDB_All_202409.tsv": "Measured binding affinities between proteins and small molecules for drug discovery.",
