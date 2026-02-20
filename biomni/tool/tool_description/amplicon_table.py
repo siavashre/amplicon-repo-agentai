@@ -127,7 +127,8 @@ description = [
                 "type": "array",
                 "items": {"type": "string"},
                 "description": (
-                    "Columns to return (default: key identifying and feature columns). Useful for reducing output size."
+                    "Columns to return (default: key identifying and feature columns). Useful for reducing output size. "
+                    "Use exact column names from the CSV schema; unknown columns will raise an error."
                 ),
             },
             {

@@ -84,6 +84,7 @@ IMPORTANT GUIDELINES:
 7. For know-how documents, include those that provide relevant protocols, best practices, or troubleshooting guidance
 8. Don't exclude resources just because they're not explicitly mentioned in the query
 9. When in doubt about a database tool or molecular biology tool, include it rather than exclude it
+10. If the user, specifies a file explicitly, choose that
 """
 
         prompt = "\n".join(prompt_sections) + response_format

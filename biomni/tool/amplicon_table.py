@@ -253,21 +253,11 @@ def query_amplicons(
     if gene_field not in valid_gene_fields:
         raise ValueError(f"Invalid gene_field '{gene_field}'. Must be one of: {valid_gene_fields}")
 
-    # Determine CSV path
-    if csv_path is None:
-        # Try to get path from config
-        data_path = "/home/yasaman/amplicon-repo-agentai/data/biomni_data/data_lake/"
-        if default_config is not None:
-            data_path = default_config.path
-        # Also check environment variable
-        data_path = os.getenv("BIOMNI_PATH") or os.getenv("BIOMNI_DATA_PATH") or data_path
-        csv_path = os.path.join(data_path, "CCLE.csv")
-
     # Check if file exists
-    if not os.path.exists(csv_path):
+    if not os.path.exists(csv_path) or csv_path is None:
         raise FileNotFoundError(
             f"Amplicon data file not found at '{csv_path}'. "
-            "Please ensure the aggregated_results.csv file is available "
+            "Please ensure the file is available "
             "or specify a custom path using the csv_path parameter."
         )
 
