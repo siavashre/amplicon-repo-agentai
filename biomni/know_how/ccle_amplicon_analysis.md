@@ -22,16 +22,17 @@
 
 ## Overview
 
-This guide covers amplicon and ecDNA data from Amplicon Repository tables, with classifications (ecDNA, Linear, BFB, Complex-non-cyclic), gene annotations, copy numbers, and tissue metadata. The dataset is loaded from a CSV in the agent data path (same as the `query_amplicons` tool): data path is the agent path (default `./data`), or `BIOMNI_PATH` / `BIOMNI_DATA_PATH` if set. You can also point `CCLE_AMPLICON_CSV` to any amplicon table CSV to override the default.
+This guide covers amplicon and ecDNA data from Amplicon Repository tables, with classifications (ecDNA, Linear, BFB, Complex-non-cyclic), gene annotations, copy numbers, and tissue metadata. The dataset path is provided via the `CCLE_AMPLICON_CSV` environment variable, which is always set by the agent at startup.
+
+**IMPORTANT: Always use Python to load the data. Do NOT use bash to locate or inspect the CSV — bash cannot see environment variables set by the agent. Load directly in Python:**
 
 ```python
-import pandas as pd
 import os
+import pandas as pd
 
-# Same path resolution as query_amplicons in amplicon_table.py
-data_path = os.getenv("BIOMNI_PATH") or os.getenv("BIOMNI_DATA_PATH") or "./data"
-csv_path = os.getenv("CCLE_AMPLICON_CSV") or os.path.join(data_path, "CCLE.csv")
-df = pd.read_csv(csv_path)  # Shape varies by table
+csv_path = os.getenv("CCLE_AMPLICON_CSV")
+df = pd.read_csv(csv_path)
+print(df.shape, df.columns.tolist())
 ```
 
 Below is a walkthrough of all **30 columns** in the standard amplicon table schema.
@@ -328,11 +329,12 @@ tissue_stats_sorted = tissue_stats_filtered.sort_values('myc_rate', ascending=Fa
 ## Quick reference
 
 ```python
-df = pd.read_csv(os.environ['CCLE_AMPLICON_CSV'])
+import os
+import pandas as pd
+
+df = pd.read_csv(os.getenv("CCLE_AMPLICON_CSV"))
 df['oncogenes_list'] = df['Oncogenes'].apply(parse_genes)
 
 ecdna = df[df['Classification'] == 'ecDNA']
 amplicons_only = df[df['Classification'].notna()]
 ```
-
-If `CCLE_AMPLICON_CSV` is not set, set it to the path of your amplicon table CSV (for example, `aggregated_results.csv`).
