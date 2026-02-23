@@ -39,6 +39,7 @@ dataset
 logs
 scripts/gradio
 data_lake
+!biomni/data/biomni_data/data_lake/amplicon_data/
 __pycache__/
 *.py[cod]
 *$py.class
