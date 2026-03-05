@@ -11,10 +11,17 @@ import argparse
 import contextlib
 import json
 import re
+import signal
 from io import StringIO
 from pathlib import Path
 
 import nbformat
+
+CELL_TIMEOUT = 120  # seconds; cells that exceed this are skipped
+
+
+def _cell_timeout_handler(signum, frame):
+    raise TimeoutError(f"Cell execution exceeded {CELL_TIMEOUT}s")
 
 
 def _patch_data_paths(source: str) -> str:
@@ -51,17 +58,28 @@ def _patch_data_paths(source: str) -> str:
 
 def build_reference(notebook_path: str, output_path: str) -> list[dict]:
     """Execute all notebook cells in a shared namespace; save outputs to JSON."""
-    nb = nbformat.read(open(notebook_path, encoding="utf-8"), as_version=4)
+    with open(notebook_path, encoding="utf-8") as fh:
+        nb = nbformat.read(fh, as_version=4)
     cells = nb.cells
     print(f"Loaded {len(cells)} cells from {notebook_path}")
 
     namespace: dict = {}
 
+    # Force non-interactive matplotlib backend before any cell runs so that
+    # plt.show() / chart-drawing cells don't open GUI windows and block.
+    exec("import matplotlib; matplotlib.use('Agg')", namespace)  # noqa: S102
+
+    signal.signal(signal.SIGALRM, _cell_timeout_handler)
+
     # Cell 0: setup — run it to populate shared namespace (df, helpers, etc.)
     if cells[0].cell_type == "code":
         setup_src = _patch_data_paths(cells[0].source)
         print("Running setup cell...")
-        exec(compile(setup_src, "<setup>", "exec"), namespace)  # noqa: S102
+        signal.alarm(CELL_TIMEOUT)
+        try:
+            exec(compile(setup_src, "<setup>", "exec"), namespace)  # noqa: S102
+        finally:
+            signal.alarm(0)
         print("  Setup OK")
 
     pairs = []
@@ -73,13 +91,24 @@ def build_reference(notebook_path: str, output_path: str) -> list[dict]:
             idx = len(pairs)
 
             buf = StringIO()
+            exec_error = None
             try:
+                signal.alarm(CELL_TIMEOUT)
                 with contextlib.redirect_stdout(buf):
                     exec(compile(_patch_data_paths(code), f"<q{idx}>", "exec"), namespace)  # noqa: S102
                 output = buf.getvalue().strip() or "(no stdout)"
+            except TimeoutError as exc:
+                exec_error = exc
+                print(f"  [Q{idx}] SKIPPED (timeout): {exc}")
             except Exception as exc:
-                output = f"ERROR: {exc}"
-                print(f"  [Q{idx}] ERROR: {exc}")
+                exec_error = exc
+                print(f"  [Q{idx}] SKIPPED (execution error): {exc}")
+            finally:
+                signal.alarm(0)
+
+            if exec_error is not None:
+                i += 2
+                continue
 
             pairs.append({
                 "index": idx,
@@ -97,13 +126,17 @@ def build_reference(notebook_path: str, output_path: str) -> list[dict]:
     # short instruction to every question before that boundary.
     mix_start = next(
         (p["index"] for p in pairs if "mix dataset" in p["question"].lower()),
-        len(pairs),  # if not found, all questions are CCLE-only
+        None,
     )
+    if mix_start is None:
+        print("WARNING: No 'mix dataset' question found; tagging all questions as CCLE-only.")
+        mix_start = len(pairs)
+    else:
+        print(f"Tagged Q0-Q{mix_start - 1} as CCLE-only, Q{mix_start}+ as mixed datasets")
+
     for p in pairs:
         if p["index"] < mix_start:
             p["question"] = "(Use CCLE dataset only.) " + p["question"]
-
-    print(f"Tagged Q0-Q{mix_start - 1} as CCLE-only, Q{mix_start}+ as mixed datasets")
 
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(pairs, f, indent=2)
