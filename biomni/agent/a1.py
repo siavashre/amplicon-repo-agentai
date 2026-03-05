@@ -156,6 +156,7 @@ class A1:
         # Set env vars for all amplicon CSV files found in the amplicon_data directory
         _data_path = os.getenv("BIOMNI_PATH") or os.getenv("BIOMNI_DATA_PATH") or default_config.path
         _amplicon_dir = os.path.join(_data_path, "biomni_data", "data_lake", "amplicon_data")
+        os.environ["AMPLICON_DATA_DIR"] = _amplicon_dir
         _amplicon_csvs = {}
         if os.path.isdir(_amplicon_dir):
             for _fname in sorted(os.listdir(_amplicon_dir)):
@@ -164,9 +165,6 @@ class A1:
                     _full_path = os.path.join(_amplicon_dir, _fname)
                     os.environ[_env_key] = _full_path
                     _amplicon_csvs[_fname] = _full_path
-        # Keep CCLE_AMPLICON_CSV for backward compatibility
-        if "CCLE.csv" in _amplicon_csvs:
-            os.environ["CCLE_AMPLICON_CSV"] = _amplicon_csvs["CCLE.csv"]
 
         if not os.path.exists(path):
             os.makedirs(path)
