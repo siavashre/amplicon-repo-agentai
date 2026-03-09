@@ -81,7 +81,25 @@ description = [
             {
                 "name": "is_truncated",
                 "type": "boolean",
-                "description": "If True, return only truncated genes. If False, return only non-truncated genes. Omit to return all.",
+                "description": (
+                    "Filter by truncation status. The truncated column indicates which end(s) of the gene "
+                    "have been lost: None (not truncated), '5p' (5-prime end lost), '3p' (3-prime end lost), "
+                    "or '5p_3p' (both ends lost). "
+                    "If True, return only genes with any truncation (5p, 3p, or 5p_3p). "
+                    "If False, return only non-truncated genes (None). Omit to return all."
+                ),
+            },
+            {
+                "name": "truncated",
+                "type": ["string", "array"],
+                "items": {"type": "string"},
+                "enum": ["5p", "3p", "5p_3p"],
+                "description": (
+                    "Filter by specific truncation type(s). Accepts a single value or a list for OR matching. "
+                    "Valid values: '5p' (5-prime end lost), '3p' (3-prime end lost), '5p_3p' (both ends lost). "
+                    "Use this when you need a specific truncation side rather than just any/none. "
+                    "Example: truncated='3p' returns only genes truncated at the 3-prime end."
+                ),
             },
             {
                 "name": "gene_cn_min",

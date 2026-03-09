@@ -32,7 +32,9 @@ QUESTIONS = [
 # Execute biomedical tasks using natural language
 # agent.go("For aa given gene EGFR, list all co-amplified genes (same feature) in the CCLE data.")
 # agent.go("Is NCBI gen ID NR_119377 amplified as ecDNA or BFB in CCLE? In which samples? Use the amplicon_table tool and CCLE.csv. Be efficient.")
-agent.go("Is YES1 amplified as ecDNA or BFB in CCLE? In which samples? ")
+# agent.go("Is YES1 amplified as ecDNA or BFB in CCLE? In which samples? ")
+# agent.go("in CCLE dataset, show me all cases that are Heavily rearranged unichromosomal amplifications. return the sample name and amplicon number and feature number. ")
+agent.go("in CCLE dataset, show me all cases has foldback sv on chromosome 9 from 105054355 to 105055066. return the sample name and amplicon number and feature number. ")
 # agent.go("For ecDNA vs BFB, how does size relate to max copy number? (scatter + correlation) at CCLE data")
 # agent.go("return all samples in breast cancer containign BFB. tell me In which samples? Use the amplicon_table tool and CCLE.csv. Be efficient.")
 # agent.go("show me all BFBs in CCLE at breast cancer samples using amplicon_table and CCLE.csv")

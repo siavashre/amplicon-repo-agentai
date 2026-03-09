@@ -50,6 +50,36 @@ description = [
                 "description": "Amplicon classification. Accepts a single value or a list of values from: ecDNA, BFB, Linear, or Complex-non-cyclic.",
             },
             {
+                "name": "ecDNA_context",
+                "type": ["string", "array"],
+                "items": {"type": "string"},
+                "enum": [
+                    "Simple circular simple background",
+                    "Simple circular complex background",
+                    "BFB-like",
+                    "Two-foldback",
+                    "Heavily rearranged unichromosomal",
+                    "Heavily rearranged multichromosomal",
+                    "Unknown",
+                ],
+                "description": (
+                    "Filter by ecDNA focal amplification genome context classification. Only populated for ecDNA features. "
+                    "Accepts a single value or a list for OR matching. Valid values:\n"
+                    "  - 'Simple circular simple background': A simple ecDNA cycle with minimal rearrangements in "
+                    "the surrounding genome. Likely not derived from chromothripsis.\n"
+                    "  - 'Simple circular complex background': A simple ecDNA cycle however there are genomic "
+                    "rearrangements in the vicinity outside the ecDNA region.\n"
+                    "  - 'BFB-like': ecDNA possibly derived from a BFB.\n"
+                    "  - 'Two-foldback': ecDNA being flanked by two foldback-like SVs. Likely not derived from "
+                    "chromothripsis, but possibly from ODIRA.\n"
+                    "  - 'Heavily rearranged unichromosomal': ecDNA from a heavily rearranged genome on one "
+                    "chromosome. Possibly due to chromothripsis.\n"
+                    "  - 'Heavily rearranged multichromosomal': ecDNA from a heavily rearranged genome involving "
+                    "multiple chromosomes. Possibly due to chromothripsis and chromoplexy.\n"
+                    "  - 'Unknown': Does not match any of the classes above."
+                ),
+            },
+            {
                 "name": "gene",
                 "type": "array",
                 "items": {"type": "string"},
