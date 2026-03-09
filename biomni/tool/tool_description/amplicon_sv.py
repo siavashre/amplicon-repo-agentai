@@ -108,6 +108,38 @@ description = [
                 ),
             },
             {
+                "name": "pos1_range",
+                "type": ["integer", "array"],
+                "items": {"type": "integer"},
+                "description": (
+                    "Filter for the first breakpoint position. Accepts either an exact integer value "
+                    "(e.g., 48905218) or a [min, max] range (e.g., [48000000, 49000000]). "
+                    "Exact value returns rows where pos1 == value; range returns rows where pos1 falls "
+                    "within [min, max] (inclusive)."
+                ),
+            },
+            {
+                "name": "pos2_range",
+                "type": ["integer", "array"],
+                "items": {"type": "integer"},
+                "description": (
+                    "Filter for the second breakpoint position. Accepts either an exact integer value "
+                    "(e.g., 18695135) or a [min, max] range (e.g., [18000000, 19000000]). "
+                    "Exact value returns rows where pos2 == value; range returns rows where pos2 falls "
+                    "within [min, max] (inclusive)."
+                ),
+            },
+            {
+                "name": "genomic_region",
+                "type": ["string", "array"],
+                "items": {"type": "string"},
+                "description": (
+                    "Genomic region(s) in chrN:start-end format (e.g., 'chr8:48000000-49000000'). "
+                    "Returns SVs where either breakpoint (chrom1+pos1 or chrom2+pos2) falls within "
+                    "any of the specified regions. Accepts a single value or a list for OR matching."
+                ),
+            },
+            {
                 "name": "read_support_min",
                 "type": "integer",
                 "description": "Minimum number of reads supporting the SV (inclusive).",

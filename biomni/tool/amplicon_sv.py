@@ -14,6 +14,9 @@ import os
 import re
 from typing import Any
 
+# Regex for chrN:start-end genomic region format
+_REGION_PATTERN = re.compile(r"^(chr[0-9XYMa-z]+):(\d+)-(\d+)$", re.IGNORECASE)
+
 import pandas as pd
 
 try:
@@ -84,6 +87,9 @@ def query_amplicon_svs(
     chrom1: str | list[str] | None = None,
     chrom2: str | list[str] | None = None,
     orientation: str | list[str] | None = None,
+    pos1_range: int | list[int] | None = None,
+    pos2_range: int | list[int] | None = None,
+    genomic_region: str | list[str] | None = None,
     read_support_min: int | None = None,
     read_support_max: int | None = None,
     homology_length_min: float | None = None,
@@ -120,6 +126,16 @@ def query_amplicon_svs(
         chrom2: Filter specifically on chrom2. Accepts a single value or list.
         orientation: Strand orientation of breakpoints. Valid values: '++', '+-',
             '-+', '--'. Accepts a single value or list for OR matching.
+        pos1_range: Filter for pos1. Accepts an exact integer (e.g., 48905218) or a
+            [min, max] range (e.g., [48000000, 49000000]). Exact value matches pos1 == value;
+            range matches pos1 within [min, max] (inclusive).
+        pos2_range: Filter for pos2. Accepts an exact integer (e.g., 18695135) or a
+            [min, max] range (e.g., [18000000, 19000000]). Exact value matches pos2 == value;
+            range matches pos2 within [min, max] (inclusive).
+        genomic_region: Genomic region(s) in chrN:start-end format
+            (e.g., 'chr8:48000000-49000000'). Returns SVs where either breakpoint
+            (chrom1+pos1 or chrom2+pos2) falls within any of the specified regions.
+            Accepts a single value or list for OR matching.
         read_support_min: Minimum read support (inclusive).
         read_support_max: Maximum read support (inclusive).
         homology_length_min: Minimum homology length at the breakpoint (inclusive).
@@ -304,6 +320,51 @@ def query_amplicon_svs(
         mask &= df["orientation"].isin(ori_list)
         filters_applied["orientation"] = orientation
 
+    # pos1 filter (exact value or [min, max] range)
+    if pos1_range is not None:
+        pos1_num = pd.to_numeric(df["pos1"], errors="coerce")
+        if isinstance(pos1_range, int):
+            mask &= pos1_num == pos1_range
+        elif len(pos1_range) == 2:
+            mask &= (pos1_num >= pos1_range[0]) & (pos1_num <= pos1_range[1])
+        else:
+            raise ValueError("pos1_range must be an integer or a list of exactly 2 integers: [min, max].")
+        filters_applied["pos1_range"] = pos1_range
+
+    # pos2 filter (exact value or [min, max] range)
+    if pos2_range is not None:
+        pos2_num = pd.to_numeric(df["pos2"], errors="coerce")
+        if isinstance(pos2_range, int):
+            mask &= pos2_num == pos2_range
+        elif len(pos2_range) == 2:
+            mask &= (pos2_num >= pos2_range[0]) & (pos2_num <= pos2_range[1])
+        else:
+            raise ValueError("pos2_range must be an integer or a list of exactly 2 integers: [min, max].")
+        filters_applied["pos2_range"] = pos2_range
+
+    # Genomic region filter — either breakpoint falls within any specified region
+    if genomic_region is not None:
+        region_list = [genomic_region] if isinstance(genomic_region, str) else genomic_region
+        parsed_regions = []
+        for region in region_list:
+            m = _REGION_PATTERN.match(region)
+            if m is None:
+                raise ValueError(
+                    f"Invalid genomic_region format '{region}'. "
+                    "Expected format: chrN:start-end (e.g., chr8:48000000-49000000)."
+                )
+            parsed_regions.append((m.group(1).lower(), int(m.group(2)), int(m.group(3))))
+
+        pos1_num = pd.to_numeric(df["pos1"], errors="coerce")
+        pos2_num = pd.to_numeric(df["pos2"], errors="coerce")
+        region_mask = pd.Series([False] * len(df))
+        for chrom_r, start_r, end_r in parsed_regions:
+            bp1_match = (df["chrom1"].str.lower() == chrom_r) & (pos1_num >= start_r) & (pos1_num <= end_r)
+            bp2_match = (df["chrom2"].str.lower() == chrom_r) & (pos2_num >= start_r) & (pos2_num <= end_r)
+            region_mask |= bp1_match | bp2_match
+        mask &= region_mask
+        filters_applied["genomic_region"] = genomic_region
+
     # Read support filters
     if read_support_min is not None:
         mask &= pd.to_numeric(df["read_support"], errors="coerce") >= read_support_min
@@ -359,6 +420,12 @@ def query_amplicon_svs(
         filter_parts.append(f"chrom2={chrom2}")
     if orientation:
         filter_parts.append(f"orientation={orientation}")
+    if pos1_range is not None:
+        filter_parts.append(f"pos1_range={pos1_range}")
+    if pos2_range is not None:
+        filter_parts.append(f"pos2_range={pos2_range}")
+    if genomic_region is not None:
+        filter_parts.append(f"genomic_region={genomic_region}")
     if read_support_min is not None:
         filter_parts.append(f"read_support_min={read_support_min}")
     if read_support_max is not None:
