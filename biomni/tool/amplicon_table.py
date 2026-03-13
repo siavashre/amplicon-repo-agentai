@@ -25,6 +25,7 @@ DEFAULT_COLUMNS = [
     "Sample name",
     "AA amplicon number",
     "Classification",
+    "ecDNA context",
     "Tissue of origin",
     "Oncogenes",
     "All genes",
@@ -136,6 +137,7 @@ def query_amplicons(
     aa_amplicon_number: int | list[int] | None = None,
     tissue_of_origin: str | list[str] | None = None,
     classification: str | list[str] | None = None,
+    ecDNA_context: str | list[str] | None = None,
     gene: str | list[str] | None = None,
     gene_field: str | None = None,
     ncbi_gene_id: str | list[str] | None = None,
@@ -174,6 +176,12 @@ def query_amplicons(
         classification: Amplicon classification. Can be a single string or list of
             strings for OR matching. Valid values include 'ecDNA', 'BFB', 'Linear',
             'Complex-non-cyclic'.
+        ecDNA_context: ecDNA focal amplification genome context classification.
+            Only populated for ecDNA features. Can be a single string or list for
+            OR matching. Valid values: 'Simple circular simple background',
+            'Simple circular complex background', 'BFB-like', 'Two-foldback',
+            'Heavily rearranged unichromosomal', 'Heavily rearranged multichromosomal',
+            'Unknown'.
         gene: Gene symbol(s) to search for. Can be a single string or list
             of strings for OR matching (e.g., 'MYC' or ['MYC', 'EGFR']).
         gene_field: Which gene column(s) to search. One of:
@@ -249,6 +257,21 @@ def query_amplicons(
         if invalid:
             raise ValueError(f"Invalid classification value(s) {invalid}. Must be one of: {valid_classifications}")
 
+    valid_ecDNA_contexts = [
+        "Simple circular simple background",
+        "Simple circular complex background",
+        "BFB-like",
+        "Two-foldback",
+        "Heavily rearranged unichromosomal",
+        "Heavily rearranged multichromosomal",
+        "Unknown",
+    ]
+    if ecDNA_context is not None:
+        ctx_list = [ecDNA_context] if isinstance(ecDNA_context, str) else ecDNA_context
+        invalid = [c for c in ctx_list if c not in valid_ecDNA_contexts]
+        if invalid:
+            raise ValueError(f"Invalid ecDNA_context value(s) {invalid}. Must be one of: {valid_ecDNA_contexts}")
+
     valid_gene_fields = ["oncogenes", "all_genes", "either"]
     if gene_field not in valid_gene_fields:
         raise ValueError(f"Invalid gene_field '{gene_field}'. Must be one of: {valid_gene_fields}")
@@ -322,6 +345,15 @@ def query_amplicons(
             filters_applied["classification"] = classification
         else:
             raise ValueError("Column 'Classification' not found in the data")
+
+    # ecDNA context filter (supports list for OR matching)
+    if ecDNA_context is not None:
+        if "ecDNA context" in df.columns:
+            ctx_list = [ecDNA_context] if isinstance(ecDNA_context, str) else ecDNA_context
+            mask &= df["ecDNA context"].isin(ctx_list)
+            filters_applied["ecDNA_context"] = ecDNA_context
+        else:
+            raise ValueError("Column 'ecDNA context' not found in the data")
 
     # Gene filter (supports list for OR matching)
     if gene is not None:
@@ -500,6 +532,8 @@ def query_amplicons(
         filter_desc.append(f"tissue={tissue_of_origin}")
     if classification:
         filter_desc.append(f"classification={classification}")
+    if ecDNA_context:
+        filter_desc.append(f"ecDNA_context={ecDNA_context}")
     if gene:
         gene_str = gene if isinstance(gene, str) else ",".join(gene)
         filter_desc.append(f"gene={gene_str}")
