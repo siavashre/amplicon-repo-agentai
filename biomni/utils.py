@@ -844,7 +844,7 @@ def textify_api_dict(api_dict):
 
 def read_module2api():
     fields = [
-        "amplicon_table",
+        # "amplicon_table",
         # "literature",
         # "biochemistry",
         # "bioimaging",

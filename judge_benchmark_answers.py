@@ -2,15 +2,15 @@
 Judge agent answers against reference outputs using GPT-4o-mini.
 
 Reads:
-  bench_runs_{run_name}.json    — manifest from run_agent_on_questions.py
-  bench_reference.json          — reference code + output from build_reference.py
+  bench/{run_name}/manifest.json   — manifest from run_agent_on_questions.py
+  bench/bench_reference.json       — reference code + output from build_reference.py
 
 Produces:
-  bench_results_{run_name}.json — full results with correct/explanation per question
+  bench/{run_name}/results.json    — full results with correct/explanation per question
 
 Usage:
     python judge_benchmark_answers.py --run-name baseline
-    python judge_benchmark_answers.py --run-name smoke --reference bench_reference.json
+    python judge_benchmark_answers.py --run-name smoke --reference bench/bench_reference.json
 """
 
 import argparse
@@ -168,12 +168,12 @@ def main():
     parser = argparse.ArgumentParser(description="Judge agent answers against reference outputs")
     parser.add_argument("--run-name", required=True,
                         help="Run name matching a bench_runs_{run_name}.json file")
-    parser.add_argument("--reference", default="bench_reference.json",
+    parser.add_argument("--reference", default="bench/bench_reference.json",
                         help="Path to bench_reference.json (built by build_reference.py)")
     args = parser.parse_args()
 
     # --- Load manifest ---
-    manifest_path = Path(f"bench_runs_{args.run_name}.json")
+    manifest_path = Path(f"bench/{args.run_name}/manifest.json")
     if not manifest_path.exists():
         print(f"ERROR: {manifest_path} not found. Run run_agent_on_questions.py first.")
         sys.exit(1)
@@ -192,7 +192,7 @@ def main():
         reference = {p["index"]: p for p in json.load(f)}
     print(f"Loaded {len(reference)} reference entries from {ref_path}")
 
-    results_path = f"bench_results_{args.run_name}.json"
+    results_path = f"bench/{args.run_name}/results.json"
     openai_client = OpenAI()
 
     results = []

@@ -148,8 +148,9 @@ def build_reference(notebook_path: str, output_path: str) -> list[dict]:
 def main():
     parser = argparse.ArgumentParser(description="Build bench_reference.json from Tests.ipynb")
     parser.add_argument("--notebook", default="Tests.ipynb")
-    parser.add_argument("--output", default="bench_reference.json")
+    parser.add_argument("--output", default="bench/bench_reference.json")
     args = parser.parse_args()
+    Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     build_reference(args.notebook, args.output)
 
 

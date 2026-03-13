@@ -22,14 +22,14 @@ def run_judge(run_name: str, reference: str) -> list[dict]:
     """Run the judge once and return parsed results."""
     cmd = [sys.executable, "judge_benchmark_answers.py", "--run-name", run_name, "--reference", reference]
     subprocess.run(cmd, check=True)
-    results_path = Path(f"bench_results_{run_name}.json")
+    results_path = Path(f"bench/{run_name}/results.json")
     with open(results_path, encoding="utf-8") as f:
         return json.load(f)
 
 
 def save_run_results(run_name: str, run_number: int):
-    src = Path(f"bench_results_{run_name}.json")
-    dst = Path(f"bench_results_{run_name}_run{run_number}.json")
+    src = Path(f"bench/{run_name}/results.json")
+    dst = Path(f"bench/{run_name}/results_run{run_number}.json")
     shutil.copy(src, dst)
 
 
@@ -91,7 +91,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run judge N times and compare results in a table")
     parser.add_argument("--run-name", required=True, help="Run name matching bench_runs_{name}.json")
     parser.add_argument("--runs", type=int, default=3, help="Number of judge runs (default: 3)")
-    parser.add_argument("--reference", default="bench_reference.json", help="Path to bench_reference.json")
+    parser.add_argument("--reference", default="bench/bench_reference.json", help="Path to bench_reference.json")
     parser.add_argument("--no-rerun", action="store_true",
                         help="Skip running the judge; load existing bench_results_{name}_runN.json files")
     args = parser.parse_args()
@@ -100,7 +100,7 @@ def main():
 
     if args.no_rerun:
         for i in range(1, args.runs + 1):
-            path = Path(f"bench_results_{args.run_name}_run{i}.json")
+            path = Path(f"bench/{args.run_name}/results_run{i}.json")
             if not path.exists():
                 print(f"ERROR: {path} not found. Run without --no-rerun first.")
                 sys.exit(1)
@@ -123,7 +123,7 @@ def main():
                 break
             save_run_results(args.run_name, i)
             all_runs.append(results)
-            print(f"\nRun {i} saved to bench_results_{args.run_name}_run{i}.json")
+            print(f"\nRun {i} saved to bench/{args.run_name}/results_run{i}.json")
 
     print_table(args.run_name, all_runs)
 

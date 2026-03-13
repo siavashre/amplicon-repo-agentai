@@ -2,8 +2,8 @@
 Run the A1 agent on benchmark questions and save session logs.
 
 Produces:
-  bench_logs/{run_name}/session_*/   — per-question agent logs
-  bench_runs_{run_name}.json         — manifest mapping index -> session_dir
+  bench/{run_name}/logs/session_*/   — per-question agent logs
+  bench/{run_name}/manifest.json     — manifest mapping index -> session_dir
 
 Run judge_benchmark_answers.py afterwards to score the results.
 
@@ -40,7 +40,7 @@ def main():
     parser.add_argument("--questions-range", nargs=2, type=int, metavar=("START", "END"),
                         default=None,
                         help="Inclusive range, e.g. --questions-range 0 23")
-    parser.add_argument("--reference", default="bench_reference.json",
+    parser.add_argument("--reference", default="bench/bench_reference.json",
                         help="Path to bench_reference.json (built by build_reference.py)")
     args = parser.parse_args()
 
@@ -69,8 +69,8 @@ def main():
 
     # --- Run identification ---
     run_name = args.run_name or datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    run_dir = f"bench_logs/{run_name}"
-    manifest_path = f"bench_runs_{run_name}.json"
+    run_dir = f"bench/{run_name}/logs"
+    manifest_path = f"bench/{run_name}/manifest.json"
     os.makedirs(run_dir, exist_ok=True)
 
     print(f"Run: {run_name}")
@@ -105,7 +105,7 @@ def main():
         default_config.logs_dir = run_dir
 
         try:
-            agent = A1(llm="gpt-5", expected_data_lake_files=[])
+            agent = A1(llm="gpt-5-mini", expected_data_lake_files=[])
             agent.go(question)
             session_dir = str(agent.token_logger.session_dir)
             error = None
