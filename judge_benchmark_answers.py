@@ -1,9 +1,9 @@
 """
-Judge agent answers against reference outputs using GPT-4o-mini.
+Judge agent answers against reference outputs using GPT-5-mini.
 
 Reads:
   bench/{run_name}/manifest.json   — manifest from run_agent_on_questions.py
-  bench/bench_reference.json       — reference code + output from build_reference.py
+  bench/bench_reference.json       — reference output from build_reference.py
 
 Produces:
   bench/{run_name}/results.json    — full results with correct/explanation per question
@@ -55,18 +55,6 @@ def extract_solution(session_dir) -> str | None:
     return match.group(1).strip() if match else None
 
 
-def extract_last_executed_code(session_dir) -> str | None:
-    """Return the last <execute>...</execute> block across all turn output files."""
-    output_files = sorted(Path(session_dir).glob("turn_*_output.txt"))
-    last_block = None
-    for f in output_files:
-        content = f.read_text(encoding="utf-8", errors="replace")
-        matches = re.findall(r"<execute>(.*?)</execute>", content, re.DOTALL)
-        if matches:
-            last_block = matches[-1].strip()
-    return last_block
-
-
 def extract_agent_tokens(session_dir) -> dict:
     """Sum token usage across all turns from the token headers in output files.
 
@@ -107,41 +95,28 @@ def extract_agent_tokens(session_dir) -> dict:
 JUDGE_SYSTEM = (
     "You are an expert judge evaluating whether an AI agent correctly answered "
     "a bioinformatics question about ecDNA amplicons.\n\n"
-    "You will receive five inputs:\n"
+    "You will receive three inputs:\n"
     "  1. QUESTION — the natural-language question that was asked.\n"
-    "  2. REFERENCE CODE — the correct Python code that solves the question.\n"
-    "  3. REFERENCE OUTPUT — the stdout produced by running that code (ground truth).\n"
-    "  4. AGENT LAST EXECUTED CODE — the last code block the agent actually ran.\n"
-    "  5. AGENT SOLUTION — the agent's final free-form answer.\n\n"
+    "  2. REFERENCE ANSWER — the ground-truth answer.\n"
+    "  3. AGENT ANSWER — the agent's final answer.\n\n"
     "Evaluation rules:\n"
-    "- The reference code tells you *what* was computed and *which columns/metrics* "
-    "were used. Use it to understand the ground truth, not to penalise the agent for "
-    "choosing a different-but-valid metric.\n"
-    "- If the reference code prints column X and the agent reports column Y "
-    "(e.g. max CN vs median CN), check whether both are reasonable answers to "
-    "the question. If so, do not penalise the agent for this difference.\n"
-    "- The agent's conclusion (sample names, gene names, classification, key "
-    "findings) must match the reference output. Minor formatting differences and "
-    "rounding are fine.\n"
+    "- The agent's answer (sample names, gene names, classification, key findings) "
+    "must match the reference answer. Minor formatting differences and rounding are fine.\n"
     "- Return correct=true only if the agent's core answer is substantively correct."
 )
 
 
 def judge_answer(
     question: str,
-    reference_code: str,
     reference_output: str,
-    last_executed_code: str | None,
     agent_solution: str,
     client: OpenAI,
 ) -> tuple[JudgeResult, dict]:
     """Returns (JudgeResult, judge_token_usage)."""
     user_msg = (
         f"QUESTION:\n{question}\n\n"
-        f"REFERENCE CODE:\n{reference_code}\n\n"
-        f"REFERENCE OUTPUT:\n{reference_output}\n\n"
-        f"AGENT LAST EXECUTED CODE:\n{last_executed_code or '(none found)'}\n\n"
-        f"AGENT SOLUTION:\n{agent_solution}"
+        f"REFERENCE ANSWER:\n{reference_output}\n\n"
+        f"AGENT ANSWER:\n{agent_solution}"
     )
     completion = client.beta.chat.completions.parse(
         model="gpt-5-mini",
@@ -216,9 +191,7 @@ def main():
             results.append({
                 "index": idx,
                 "question": question,
-                "reference_code": ref.get("reference_code"),
                 "reference_output": ref.get("reference_output"),
-                "last_executed_code": None,
                 "agent_solution": None,
                 "correct": None,
                 "explanation": f"Agent error: {run['error']}",
@@ -230,7 +203,6 @@ def main():
 
         # Extract from session logs
         agent_solution = extract_solution(session_dir)
-        last_executed_code = extract_last_executed_code(session_dir)
         agent_tokens = extract_agent_tokens(session_dir)
         total_agent_tokens += agent_tokens["total_tokens"]
 
@@ -248,9 +220,7 @@ def main():
             try:
                 judge, judge_tokens = judge_answer(
                     question,
-                    ref.get("reference_code", ""),
                     ref.get("reference_output", ""),
-                    last_executed_code,
                     agent_solution,
                     openai_client,
                 )
@@ -273,9 +243,7 @@ def main():
         results.append({
             "index": idx,
             "question": question,
-            "reference_code": ref.get("reference_code"),
             "reference_output": ref.get("reference_output"),
-            "last_executed_code": last_executed_code,
             "agent_solution": agent_solution,
             "correct": correct,
             "explanation": explanation,

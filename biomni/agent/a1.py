@@ -1174,7 +1174,7 @@ After that, you have two options:
    - ONLY PRINT NECESSARY OUTPUT AND RESULTS. NEVER PRINT THE ENTIRE DATAFRAME IF IT'S NOT NECESSARY.
    - ALWAYS PRIORITIZE USING TOOLS IF YOU CAN ACHIEVE A GOAL WITH THEM, RATHER THAN IMPLEMENTING IT YOURSELF.
 
-2) When you think it is ready, directly provide a solution that adheres to the required format for the given task to the user. Your solution should be enclosed using "<solution>" tag, for example: The answer is <solution> A </solution>. IMPORTANT: You must end the solution block with </solution> tag.
+2) When you think it is ready, directly provide a solution that adheres to the required format for the given task to the user. Your solution should be enclosed using "<solution>" tag, for example: The answer is <solution> A </solution>. IMPORTANT: You must end the solution block with </solution> tag. IMPORTANT: The <solution> block must contain only actual computed values and results — never Python variable names, format placeholders like {{variable}}, or descriptions of what was computed. If the answer is a table or list of numbers, include the literal values.
 
 You have many chances to interact with the environment to receive the observation. So you can decompose your code into multiple steps.
 Don't overcomplicate the code. Keep it simple and easy to understand.
