@@ -17,9 +17,29 @@ _amplicon_files = {
     for f in sorted(_glob.glob(_os.path.join(_amplicon_data_dir, "*.csv")))
 }
 
+_CYCLE_DESCRIPTION = (
+    "Annotated AmpliconArchitect (AA) cycle files describing the predicted structural "
+    "composition of each amplicon as cycles and linear paths. Each file contains a "
+    "segment coordinate table followed by a list of cycles with copy count, length, "
+    "cyclic/linear flag, cycle class (ecDNA-like, Linear, Rearranged, Invalid), and "
+    "the ordered segment list. These annotated files are filtered to remove "
+    "low-complexity overlaps, patch reference genome issues, and deduplicate entries."
+)
+
+_cycle_data_dir = _os.path.join(
+    _os.getenv("BIOMNI_PATH") or _os.getenv("BIOMNI_DATA_PATH") or "./data",
+    "biomni_data", "data_lake", "cycle_files",
+)
+_cycle_files = {
+    "cycle_files/" + _ds + "/": _CYCLE_DESCRIPTION
+    for _ds in sorted(_os.listdir(_cycle_data_dir))
+    if _os.path.isdir(_os.path.join(_cycle_data_dir, _ds))
+} if _os.path.isdir(_cycle_data_dir) else {}
+
 # Data lake dictionary with detailed descriptions
 data_lake_dict = {
     **_amplicon_files,
+    **_cycle_files,
     # "affinity_capture-ms.parquet": "Protein-protein interactions detected via affinity capture and mass spectrometry.",
     # "affinity_capture-rna.parquet": "Protein-RNA interactions detected by affinity capture.",
     # "BindingDB_All_202409.tsv": "Measured binding affinities between proteins and small molecules for drug discovery.",
