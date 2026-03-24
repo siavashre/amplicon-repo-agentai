@@ -1186,7 +1186,7 @@ Otherwise the system will not be able to know what has been done.
 For R code, use the #!R marker at the beginning of your code block to indicate it's R code.
 For Bash scripts and commands, use the #!BASH marker at the beginning of your code block. This allows for both simple commands and multi-line scripts with variables, loops, conditionals, loops, and other Bash features.
 
-In each response, you must include EITHER <execute> or <solution> tag. Not both at the same time. Do not respond with messages without any tags. No empty messages.
+In each response, you must include EITHER <execute> or <solution> tag. NEVER include both in the same response. You MUST wait for the <observe> result from your <execute> block before you are allowed to write a <solution>. Do not respond with messages without any tags. No empty messages.
 """
 
         # Add self-critic instructions if needed
