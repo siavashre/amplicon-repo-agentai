@@ -36,10 +36,45 @@ _cycle_files = {
     if _os.path.isdir(_os.path.join(_cycle_data_dir, _ds))
 } if _os.path.isdir(_cycle_data_dir) else {}
 
+_GRAPH_DESCRIPTION = (
+    "AmpliconArchitect (AA) graph files describing amplicon structure as sequence edges "
+    "(genomic segments with copy number and coverage) and breakpoint edges (discordant "
+    "structural variants, concordant reference connections, and source connections to "
+    "unknown positions). Files are named {sample_name}_{amplicon_number}_graph.txt."
+)
+
+_graph_data_dir = _os.path.join(
+    _os.getenv("BIOMNI_PATH") or _os.getenv("BIOMNI_DATA_PATH") or "./data",
+    "biomni_data", "data_lake", "graph_files",
+)
+_graph_files = {
+    "graph_files/" + _ds + "/": _GRAPH_DESCRIPTION
+    for _ds in sorted(_os.listdir(_graph_data_dir))
+    if _os.path.isdir(_os.path.join(_graph_data_dir, _ds))
+} if _os.path.isdir(_graph_data_dir) else {}
+
+_GENE_ANNOTATION_DESCRIPTION = (
+    "GENCODE gene annotation files for hg38 (v47) and hg19 (v19) reference genomes. "
+    "Contains gene coordinates (chrom, start, end, strand), Ensembl gene IDs, gene "
+    "biotypes, and transcript annotations. Used by the gene_annotation tool to look up "
+    "genomic coordinates for gene symbols."
+)
+
+_genes_dir = _os.path.join(
+    _os.getenv("BIOMNI_PATH") or _os.getenv("BIOMNI_DATA_PATH") or "./data",
+    "biomni_data", "data_lake", "genes",
+)
+_gene_files = {
+    "genes/" + _os.path.basename(f): _GENE_ANNOTATION_DESCRIPTION
+    for f in sorted(_glob.glob(_os.path.join(_genes_dir, "*.gtf.gz")))
+} if _os.path.isdir(_genes_dir) else {}
+
 # Data lake dictionary with detailed descriptions
 data_lake_dict = {
     **_amplicon_files,
     **_cycle_files,
+    **_graph_files,
+    **_gene_files,
     # "affinity_capture-ms.parquet": "Protein-protein interactions detected via affinity capture and mass spectrometry.",
     # "affinity_capture-rna.parquet": "Protein-RNA interactions detected by affinity capture.",
     # "BindingDB_All_202409.tsv": "Measured binding affinities between proteins and small molecules for drug discovery.",

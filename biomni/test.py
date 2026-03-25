@@ -35,11 +35,11 @@ QUESTIONS = [
 # agent.go("Is YES1 amplified as ecDNA or BFB in CCLE? In which samples? ")
 # agent.go("in CCLE dataset, show me all cases that are Heavily rearranged unichromosomal amplifications. return the sample name and amplicon number and feature number. ")
 # agent.go("In the CCLE dataset, find all samples that contain a foldback structural variant (SV) on chromosome 9 with breakpoints at chr9:105054355 and chr9:105055066(within the window of 50k bp). Return the following fields for each matching event: sample_name, amplicon_number, feature_number.")
-agent.go("What are all the ecDNA-like cycles in the CCLE dataset? For each one, tell me the sample name, amplicon number, copy count,length, and which chromosomes it spans.")
+# agent.go("In CCLE dataset, Identify the oncogenes most frequently appearing in BFB amplification features. Return the top 25 genes and their occurrence counts.")
 # agent.go("For ecDNA vs BFB, how does size relate to max copy number? (scatter + correlation) at CCLE data")
 # agent.go("return all samples in breast cancer containign BFB. tell me In which samples? Use the amplicon_table tool and CCLE.csv. Be efficient.")
 # agent.go("show me all BFBs in CCLE at breast cancer samples using amplicon_table and CCLE.csv")
-# agent.go("Among samples with ecDNA, what are the most common co-amplified oncogene pairs?")
+agent.go("in CCLE dataset,  Find all ecDNA where an SV interrupts PVT1 and joins upstream of Myc in the cycle structure.")
 
 # for idx, question in enumerate(QUESTIONS, start=1):
 #     print(f"\n=== QUESTION {idx} ===")
