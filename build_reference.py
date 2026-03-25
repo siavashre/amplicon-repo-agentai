@@ -11,17 +11,13 @@ import argparse
 import contextlib
 import json
 import re
-import signal
+import threading
 from io import StringIO
 from pathlib import Path
 
 import nbformat
 
 CELL_TIMEOUT = 120  # seconds; cells that exceed this are skipped
-
-
-def _cell_timeout_handler(signum, frame):
-    raise TimeoutError(f"Cell execution exceeded {CELL_TIMEOUT}s")
 
 
 def _patch_data_paths(source: str) -> str:
@@ -69,33 +65,65 @@ def build_reference(notebook_path: str, output_path: str) -> list[dict]:
     # plt.show() / chart-drawing cells don't open GUI windows and block.
     exec("import matplotlib; matplotlib.use('Agg')", namespace)  # noqa: S102
 
-    signal.signal(signal.SIGALRM, _cell_timeout_handler)
+    def _run_with_timeout(fn, timeout):
+        """Run fn() in a thread; raise TimeoutError if it exceeds timeout seconds."""
+        exc_box = [None]
+        def target():
+            try:
+                fn()
+            except Exception as e:
+                exc_box[0] = e
+        t = threading.Thread(target=target, daemon=True)
+        t.start()
+        t.join(timeout)
+        if t.is_alive():
+            raise TimeoutError(f"Cell execution exceeded {timeout}s")
+        if exc_box[0] is not None:
+            raise exc_box[0]
 
     # Cell 0: setup — run it to populate shared namespace (df, helpers, etc.)
     if cells[0].cell_type == "code":
         setup_src = _patch_data_paths(cells[0].source)
         print("Running setup cell...")
-        signal.alarm(CELL_TIMEOUT)
-        try:
-            exec(compile(setup_src, "<setup>", "exec"), namespace)  # noqa: S102
-        finally:
-            signal.alarm(0)
+        _run_with_timeout(
+            lambda: exec(compile(setup_src, "<setup>", "exec"), namespace),  # noqa: S102
+            CELL_TIMEOUT,
+        )
         print("  Setup OK")
 
     pairs = []
+    mix_start_idx: int | None = None  # index into pairs where multi-dataset section begins
     i = 1
     while i < len(cells) - 1:
         if cells[i].cell_type == "markdown" and cells[i + 1].cell_type == "code":
             question = cells[i].source.strip()
+            # Skip section-heading cells that aren't actual questions (no numbered item),
+            # but still execute the following code cell so it populates the namespace.
+            if not re.search(r"#\s*\d+\)", question):
+                setup_src = _patch_data_paths(cells[i + 1].source)
+                print(f"  Running non-question setup cell (after '{question[:50]}')...")
+                try:
+                    _run_with_timeout(
+                        lambda: exec(compile(setup_src, "<setup_mid>", "exec"), namespace),  # noqa: S102
+                        CELL_TIMEOUT,
+                    )
+                    # Mark boundary: the next real question starts the multi-dataset section
+                    if mix_start_idx is None and "mix dataset" in question.lower():
+                        mix_start_idx = len(pairs)
+                except Exception as exc:
+                    print(f"  WARNING: setup cell failed: {exc}")
+                i += 2
+                continue
             code = cells[i + 1].source.strip()
             idx = len(pairs)
 
             buf = StringIO()
             exec_error = None
             try:
-                signal.alarm(CELL_TIMEOUT)
-                with contextlib.redirect_stdout(buf):
-                    exec(compile(_patch_data_paths(code), f"<q{idx}>", "exec"), namespace)  # noqa: S102
+                def _exec_cell():
+                    with contextlib.redirect_stdout(buf):
+                        exec(compile(_patch_data_paths(code), f"<q{idx}>", "exec"), namespace)  # noqa: S102
+                _run_with_timeout(_exec_cell, CELL_TIMEOUT)
                 output = buf.getvalue().strip() or "(no stdout)"
             except TimeoutError as exc:
                 exec_error = exc
@@ -103,8 +131,6 @@ def build_reference(notebook_path: str, output_path: str) -> list[dict]:
             except Exception as exc:
                 exec_error = exc
                 print(f"  [Q{idx}] SKIPPED (execution error): {exc}")
-            finally:
-                signal.alarm(0)
 
             if exec_error is not None:
                 i += 2
@@ -121,13 +147,9 @@ def build_reference(notebook_path: str, output_path: str) -> list[dict]:
         else:
             i += 1
 
-    # Tag CCLE-only questions: find where the mixed-datasets section begins
-    # (detected by the first question containing "mix dataset") and prepend a
-    # short instruction to every question before that boundary.
-    mix_start = next(
-        (p["index"] for p in pairs if "mix dataset" in p["question"].lower()),
-        None,
-    )
+    # Tag CCLE-only questions: find where the mixed-datasets section begins and
+    # prepend a short instruction to every question before that boundary.
+    mix_start = mix_start_idx
     if mix_start is None:
         print("WARNING: No 'mix dataset' question found; tagging all questions as CCLE-only.")
         mix_start = len(pairs)

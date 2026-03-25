@@ -24,6 +24,63 @@
 
 # Biomni: A General-Purpose Biomedical AI Agent
 
+## Amplicon Benchmark Pipeline
+
+A three-step pipeline to evaluate agent performance on cancer amplicon questions (ecDNA, BFB, Linear, Complex-non-cyclic) across CCLE, TCGA, and PCAWG datasets.
+
+### Step 1 — Build the reference
+
+Parses `Tests.ipynb`, executes every question cell, and saves the reference outputs.
+
+```bash
+python build_reference.py
+```
+
+Output: `bench/bench_reference.json`
+
+---
+
+### Step 2 — Run the agent
+
+Runs the A1 agent on all (or a subset of) benchmark questions and saves session logs.
+
+```bash
+# Full run
+python run_agent_on_questions.py --run-name my_run
+
+# Subset by index range
+python run_agent_on_questions.py --run-name my_run --questions-range 0 23
+
+# Specific questions
+python run_agent_on_questions.py --run-name my_run --questions 0 1 5
+```
+
+Output folder structure:
+```
+bench/
+├── bench_reference.json          # reference answers (built in Step 1)
+└── my_run/
+    ├── manifest.json             # maps question index → session dir + errors
+    └── logs/
+        ├── session_<timestamp>/  # full agent log for question 0
+        ├── session_<timestamp>/  # full agent log for question 1
+        └── ...
+```
+
+---
+
+### Step 3 — Judge the answers
+
+Scores agent answers against the reference using a GPT judge.
+
+```bash
+python judge_benchmark_answers.py --run-name my_run
+```
+
+Output: `bench/my_run/results.json`
+
+---
+
 ## Overview
 
 
