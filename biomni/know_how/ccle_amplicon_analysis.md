@@ -41,6 +41,15 @@ df = pd.read_csv(csv_path)
 print(df.shape, df.columns.tolist())
 ```
 
+> **⚠️ CRITICAL — Always filter to feature rows before any analysis:**
+> The raw CSV contains ~77 rows where `Classification` is NaN (samples with no detected amplicons). These are **not amplicon features** and must be excluded before computing any statistics, counts, fractions, or gene lists. Failing to filter them will produce wrong counts and skewed results.
+>
+> ```python
+> df_feat = df[df["Classification"].notna()].copy()  # use df_feat for ALL analyses
+> ```
+>
+> Only use the raw `df` if you explicitly need to count samples that have no amplicons.
+
 Below is a walkthrough of all **30 columns** in the standard amplicon table schema.
 
 ---
@@ -326,7 +335,7 @@ tissue_stats_sorted = tissue_stats_filtered.sort_values('myc_rate', ascending=Fa
 
 - **String-encoded lists**: Parse with `ast.literal_eval()` before searching (e.g. for `'MYC'`).
 - **Empty genes**: `["''"]` has length 1; filter with `[g for g in lst if g != "''"]`.
-- **77 NaN classifications**: Use `value_counts(dropna=False)` or `df['Classification'].notna()` as needed.
+- **77 NaN-Classification rows**: These are non-amplicon rows and must be removed before any analysis — `df_feat = df[df['Classification'].notna()]`. Using the raw `df` directly will inflate sample counts, distort tissue fractions, and corrupt gene frequency rankings.
 - **Tissue names**: Stored lowercase; match with `== 'lung'` or `.str.lower()`.
 - **Copy number NaN**: Filter to amplicons first or use `.notna()` before comparisons.
 
@@ -338,8 +347,9 @@ tissue_stats_sorted = tissue_stats_filtered.sort_values('myc_rate', ascending=Fa
 import os
 csv_path = os.path.join(os.environ['AMPLICON_DATA_DIR'], "CCLE.csv")  # or TCGA.csv, PCAWG.csv
 df = pd.read_csv(csv_path)
-df['oncogenes_list'] = df['Oncogenes'].apply(parse_genes)
+df_feat = df[df["Classification"].notna()].copy()  # ALWAYS use df_feat — excludes ~77 non-amplicon rows
+df_feat['oncogenes_list'] = df_feat['Oncogenes'].apply(parse_genes)
 
-ecdna = df[df['Classification'] == 'ecDNA']
-amplicons_only = df[df['Classification'].notna()]
+ecdna = df_feat[df_feat['Classification'] == 'ecDNA']
+bfb   = df_feat[df_feat['Classification'] == 'BFB']
 ```
