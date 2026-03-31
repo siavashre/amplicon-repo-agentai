@@ -1,0 +1,7 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr1	236532411	chr1	238273428	inversion	17	ecDNA	--	236532412	238273429	None	None
+chr1	238279907	chr4	10922230	interchromosomal	18	None	--	238279908	10922231	None	None
+chr1	204267314	chr1	238531531	duplication-like	11	None	-+	204267315	238531530	None	None
+chr1	236661973	chr1	238531796	inversion	19	ecDNA	++	236661972	238531795	None	None
+chr4	11235313	chr4	11384590	inversion	11	unknown	++	11235312	11384589	None	None
+chr4	12158010	chr4	12158984	deletion-like	5	unknown	+-	12158009	12158985	None	None

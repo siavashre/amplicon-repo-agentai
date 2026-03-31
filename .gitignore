@@ -38,8 +38,10 @@ data
 dataset
 logs
 scripts/gradio
-data_lake
-!biomni/data/biomni_data/data_lake/amplicon_data/
+!biomni/data/
+!biomni/data/biomni_data/
+!biomni/data/biomni_data/data_lake/
+!biomni/data/biomni_data/data_lake/**
 __pycache__/
 *.py[cod]
 *$py.class

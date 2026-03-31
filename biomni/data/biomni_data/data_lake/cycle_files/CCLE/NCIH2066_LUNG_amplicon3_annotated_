@@ -1,0 +1,6 @@
+List of cycle segments
+Segment	1	chr3	150940565	151010565
+Segment	2	chr3	150959088	151000102
+Segment	3	chr3	151000321	151010001
+Cycle=1;Copy_count=2.91448698946;Length=70001;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+
+Cycle=2;Copy_count=1.30238358251;Length=50696;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2+,3-

@@ -1,0 +1,21 @@
+List of cycle segments
+Segment	1	chr6	18339651	18401858
+Segment	2	chr6	18348955	18349496
+Segment	3	chr6	18348955	18401858
+Segment	4	chr6	18349575	18401858
+Segment	5	chr6	18368179	18401858
+Segment	6	chr6	18402635	18556806
+Segment	7	chr6	18402635	18557715
+Segment	8	chr6	18402635	18574652
+Segment	9	chr6	18402635	18669645
+Segment	10	chr6	18557399	18557715
+Segment	11	chr6	18573546	18660429
+Segment	12	chr6	18574685	18608155
+Segment	13	chr6	18607989	18660901
+Segment	14	chr6	18660481	18669645
+Cycle=1;Copy_count=3.86495863574;Length=329219;IsCyclicPath=False;CycleClass=Linear;Segments=0+,9-,1-,0+
+Cycle=2;Copy_count=1.47575921957;Length=86884;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=11+
+Cycle=3;Copy_count=1.40180962466;Length=52913;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=13+
+Cycle=4;Copy_count=0.904629393635;Length=206240;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2-,5+,8+
+Cycle=5;Copy_count=0.808374266097;Length=249409;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,12-,6-,4-,10+,14+,0+
+Cycle=6;Copy_count=0.36135396051;Length=438473;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,14-,7-,5-,3+,6+,12+,0+

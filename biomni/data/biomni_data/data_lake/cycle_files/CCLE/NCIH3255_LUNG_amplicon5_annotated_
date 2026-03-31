@@ -1,0 +1,36 @@
+List of cycle segments
+Segment	1	chr7	50564697	51188358
+Segment	2	chr7	50564697	51218251
+Segment	3	chr7	50660700	51225485
+Segment	4	chr7	50660700	51526614
+Segment	5	chr7	51221986	52103403
+Segment	6	chr7	51530992	54601280
+Segment	7	chr7	52103604	52329840
+Segment	8	chr7	52329687	52331322
+Segment	9	chr7	52330227	54601280
+Segment	10	chr7	52952665	52953007
+Segment	11	chr7	52957922	52957926
+Segment	12	chr7	53089085	53837099
+Segment	13	chr7	53243357	54601280
+Segment	14	chr7	53840301	54876599
+Segment	15	chr7	54314400	55219064
+Segment	16	chr7	54601846	55219064
+Segment	17	chr7	54723600	56924660
+Segment	18	chr7	54724799	55219064
+Segment	19	chr7	54726532	55219064
+Segment	20	chr7	55221367	55498383
+Segment	21	chr7	55221367	55505399
+Segment	22	chr7	55221367	56433299
+Segment	23	chr7	55221367	56584796
+Segment	24	chr7	56590822	56924660
+Cycle=1;Copy_count=7.53251740002;Length=3896001;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,24-,23-,18-,19+,22+,0+
+Cycle=2;Copy_count=7.00761445801;Length=348;IsCyclicPath=True;CycleClass=Invalid;Segments=10+,11-
+Cycle=3;Copy_count=5.50802854711;Length=4837456;IsCyclicPath=False;CycleClass=Linear;Segments=0+,21-,16-,6-,4-,0+
+Cycle=4;Copy_count=3.15946949808;Length=3165290;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=9+,16+,20+
+Cycle=5;Copy_count=2.97317088156;Length=226237;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=7+
+Cycle=6;Copy_count=2.81812284073;Length=883054;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=5+,8+
+Cycle=7;Copy_count=2.55909671681;Length=1371677;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,12-,1-,0+
+Cycle=8;Copy_count=2.3812574352;Length=3751862;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,22-,16-,13-,3-,0+
+Cycle=9;Copy_count=1.97394734046;Length=2201061;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,17-,0+
+Cycle=10;Copy_count=1.59200332749;Length=2116598;IsCyclicPath=False;CycleClass=Linear;Segments=0+,22-,15-,0+
+Cycle=11;Copy_count=0.893265074476;Length=1689854;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,14-,2-,0+

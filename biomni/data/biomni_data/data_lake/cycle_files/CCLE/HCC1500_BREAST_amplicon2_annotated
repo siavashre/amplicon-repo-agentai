@@ -1,0 +1,39 @@
+List of cycle segments
+Segment	1	chr8	36363886	37193366
+Segment	2	chr8	36464150	38018611
+Segment	3	chr8	36466728	37193366
+Segment	4	chr8	36597453	38018611
+Segment	5	chr8	36602305	37193366
+Segment	6	chr8	36731987	37193366
+Segment	7	chr8	36737700	37977444
+Segment	8	chr8	37001100	37193366
+Segment	9	chr8	37001100	37645427
+Segment	10	chr8	37001100	37993837
+Segment	11	chr8	37001100	38118857
+Segment	12	chr8	37194364	37238859
+Segment	13	chr8	37194364	37993837
+Segment	14	chr8	37194364	38018611
+Segment	15	chr8	37222626	38018611
+Segment	16	chr8	37635005	38018611
+Segment	17	chr8	37639528	37806599
+Segment	18	chr8	37639528	37993837
+Segment	19	chr8	37786646	37977444
+Segment	20	chr8	37797600	37971899
+Segment	21	chr8	37797600	37993837
+Segment	22	chr8	37806064	37806599
+Segment	23	chr18	67728898	67931346
+Segment	24	chr18	67731013	67943887
+Segment	25	chr18	67931347	67943887
+Cycle=1;Copy_count=13.1559429438;Length=191335;IsCyclicPath=True;CycleClass=BFB-like;Segments=22-,19+
+Cycle=2;Copy_count=2.50428514551;Length=1117758;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,11-,0+
+Cycle=3;Copy_count=2.16409650088;Length=202449;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,23-,0+
+Cycle=4;Copy_count=1.7309154337;Length=644328;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,9-,0+
+Cycle=5;Copy_count=1.70332311025;Length=12541;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,25-,0+
+Cycle=6;Copy_count=1.64714147476;Length=174300;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,20-,0+
+Cycle=7;Copy_count=1.44564269056;Length=1205099;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,24-,15+,21-,0+
+Cycle=8;Copy_count=2.22949331805;Length=3080575;IsCyclicPath=True;CycleClass=BFB-like;Segments=13-,3-,2+
+Cycle=9;Copy_count=2.22949331805;Length=2811695;IsCyclicPath=True;CycleClass=BFB-like;Segments=13-,5-,4+
+Cycle=10;Copy_count=1.2679807978;Length=1243793;IsCyclicPath=True;CycleClass=BFB-like;Segments=6+,12+,18+,16-
+Cycle=11;Copy_count=0.925271202866;Length=2280794;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,7+,17-,12-,1-,0+
+Cycle=12;Copy_count=0.202525028791;Length=2008256;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,8+,14+,13-,8-,0+
+Cycle=13;Copy_count=0.202525028791;Length=2001599;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,24-,15+,10-,0+

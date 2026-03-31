@@ -1,0 +1,17 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr7	107823623	chr7	107824294	deletion-like	41	unknown	+-	107823622	107824295	None	None
+chr7	109595619	chr7	113237302	deletion-like	3	unknown	+-	109595618	113237303	None	None
+chr7	113776120	chr7	113782151	deletion-like	21	unknown	+-	113776119	113782152	None	None
+chr7	113879703	chr7	113888301	deletion-like	4	unknown	+-	113879702	113888302	None	None
+chr7	111115583	chr7	114897084	inversion	7	unknown	++	111115582	114897083	None	None
+chr7	111115557	chr7	114897084	inversion	4	unknown	++	111115556	114897083	None	None
+chr7	116502095	chr7	116502787	foldback	21	BFB	--	116502096	116502788	None	None
+chr7	117371091	chr7	117373257	foldback	37	BFB	--	117371092	117373258	None	None
+chr7	117371293	chr7	117373262	foldback	64	BFB	++	117371292	117373261	None	None
+chr7	118129961	chr7	118131417	foldback	6	BFB	++	118129960	118131416	None	None
+chr7	118449990	chr7	118803621	duplication-like	7	BFB	-+	118449991	118803620	None	None
+chr7	119191193	chr7	119194699	deletion-like	50	BFB	+-	119191192	119194700	None	None
+chr7	120315412	chr7	120316668	foldback	13	BFB	--	120315413	120316669	None	None
+chr7	111062892	chr7	120435724	duplication-like	6	None	-+	111062893	120435723	None	None
+chr7	111075357	chr7	120516963	deletion-like	8	None	+-	111075356	120516964	None	None
+chr7	120701358	chr7	120702369	foldback	11	BFB	++	120701357	120702368	None	None

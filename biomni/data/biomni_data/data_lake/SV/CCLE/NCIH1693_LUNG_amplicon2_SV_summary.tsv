@@ -1,0 +1,17 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr22	19563624	chr22	19569480	foldback	13	Complex-non-cyclic	--	19563625	19569481	None	None
+chr22	19584065	chr22	19585578	deletion-like	50	Complex-non-cyclic	+-	19584064	19585579	None	None
+chr22	20356129	chr22	20358889	deletion-like	20	Complex-non-cyclic	+-	20356128	20358890	None	None
+chr22	20356567	chr22	20360602	deletion-like	21	Complex-non-cyclic	+-	20356566	20360603	None	None
+chr22	20356410	chr22	20361054	duplication-like	31	Complex-non-cyclic	-+	20356411	20361053	None	None
+chr22	20596336	chr22	20599552	deletion-like	59	Complex-non-cyclic	+-	20596335	20599553	None	None
+chr22	19027130	chr22	21363623	inversion	9	Complex-non-cyclic	++	19027129	21363622	None	None
+chrX	106161886	chr22	19072078	interchromosomal	11	None	++	106161885	19072077	None	None
+chrX	151146014	chr6	24883735	interchromosomal	10	None	-+	151146015	24883734	None	None
+chrX	154658488	chrX	154665917	deletion-like	2	None	+-	154658487	154665918	None	None
+chrX	155688799	chrX	155692064	deletion-like	2	None	+-	155688798	155692065	None	None
+chrX	154598604	chrX	155803793	deletion-like	3	None	+-	154598603	155803794	None	None
+chrX	155641503	chrX	155958197	duplication-like	6	None	-+	155641504	155958196	None	None
+chrX	155960931	chr22	19514730	interchromosomal	13	None	+-	155960930	19514731	None	None
+chrX	155803597	chrX	155984338	deletion-like	3	None	+-	155803596	155984339	None	None
+chrX	155803654	chrX	155987072	duplication-like	8	None	-+	155803655	155987071	None	None

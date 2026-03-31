@@ -1,0 +1,14 @@
+List of cycle segments
+Segment	1	chr1	105376096	106435823
+Segment	2	chr1	105385125	106435823
+Segment	3	chr1	105386031	106435823
+Segment	4	chr1	105509100	106435823
+Segment	5	chr1	106438967	109030609
+Segment	6	chr1	106438967	110511152
+Segment	7	chr1	109032558	109644503
+Segment	8	chr1	109032558	109646743
+Segment	9	chr1	109032558	109648201
+Segment	10	chr1	109648776	110511152
+Cycle=1;Copy_count=1.80382970008;Length=8532572;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,1+,5+,8+,9-,5-,1-,0+
+Cycle=2;Copy_count=1.10802956808;Length=4992690;IsCyclicPath=False;CycleClass=Linear;Segments=0+,10-,7-,5-,4-,0+
+Cycle=3;Copy_count=0.573113667786;Length=10244864;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,6-,3-,2+,6+,0+

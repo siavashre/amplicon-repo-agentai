@@ -1,0 +1,21 @@
+List of cycle segments
+Segment	1	chr20	535022	1400290
+Segment	2	chr20	537320	1400290
+Segment	3	chr20	537320	1408501
+Segment	4	chr20	538261	1408501
+Segment	5	chr20	1400208	1403254
+Segment	6	chr20	1403264	1408501
+Segment	7	chr20	1403264	1580395
+Segment	8	chr20	1410170	1573199
+Segment	9	chr20	1410170	1580395
+Segment	10	chr20	1606200	1805081
+Segment	11	chr20	1613533	1803827
+Segment	12	chr20	1613533	1804924
+Segment	13	chr20	1613533	1805081
+Segment	14	chr20	1804925	1805081
+Cycle=1;Copy_count=4.90758253043;Length=3047;IsCyclicPath=True;CycleClass=Invalid;Segments=5+
+Cycle=2;Copy_count=2.51348450216;Length=2460589;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=12+,11-,9-,6-,2-,4+,9+
+Cycle=3;Copy_count=1.65032780029;Length=198882;IsCyclicPath=False;CycleClass=Linear;Segments=0+,10-,0+
+Cycle=4;Copy_count=1.51097107743;Length=157;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,14-,0+
+Cycle=5;Copy_count=1.46975350544;Length=2266228;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,13-,9-,3-,4+,8+,0+
+Cycle=6;Copy_count=0.707635776709;Length=1233950;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,13-,7-,1-,0+

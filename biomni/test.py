@@ -39,7 +39,7 @@ QUESTIONS = [
 # agent.go("For ecDNA vs BFB, how does size relate to max copy number? (scatter + correlation) at CCLE data")
 # agent.go("return all samples in breast cancer containign BFB. tell me In which samples? Use the amplicon_table tool and CCLE.csv. Be efficient.")
 # agent.go("show me all BFBs in CCLE at breast cancer samples using amplicon_table and CCLE.csv")
-agent.go("in CCLE dataset,  Find all ecDNA where an SV interrupts PVT1 and joins upstream of Myc in the cycle structure.")
+agent.go("In CCLE dataset,Compute the Pearson correlation between captured interval length and feature maximum copy number for ecDNA and BFB amplification features. Return the Pearson correlation coefficient and number of features for each classification.")
 
 # for idx, question in enumerate(QUESTIONS, start=1):
 #     print(f"\n=== QUESTION {idx} ===")

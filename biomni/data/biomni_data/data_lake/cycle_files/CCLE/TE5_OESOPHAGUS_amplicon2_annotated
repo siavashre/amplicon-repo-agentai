@@ -1,0 +1,22 @@
+List of cycle segments
+Segment	1	chr7	86466489	91401767
+Segment	2	chr7	86565764	88015199
+Segment	3	chr7	86565764	91401767
+Segment	4	chr7	86567018	88015199
+Segment	5	chr7	86567018	88556699
+Segment	6	chr7	87857100	88887093
+Segment	7	chr7	88887348	88889634
+Segment	8	chr7	88889550	90387920
+Segment	9	chr7	90403603	93912503
+Segment	10	chr7	91413269	93787628
+Segment	11	chr7	91413269	93912503
+Segment	12	chr7	93793802	93912503
+Segment	13	chr7	93913227	96846588
+Segment	14	chr7	93913227	97484478
+Segment	15	chr7	93913227	97486358
+Segment	16	chr7	96852682	97486358
+Cycle=1;Copy_count=2.76696142915;Length=10995380;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,16-,13-,12-,10-,1-,0+
+Cycle=2;Copy_count=1.45926484407;Length=2287;IsCyclicPath=True;CycleClass=Invalid;Segments=7+
+Cycle=3;Copy_count=1.26913877896;Length=2897618;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,2-,4+,0+
+Cycle=4;Copy_count=1.11143191228;Length=12898053;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,15-,11-,3-,5+,0+
+Cycle=5;Copy_count=0.543347418585;Length=9608518;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,14-,9-,8-,6-,0+

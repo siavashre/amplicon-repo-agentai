@@ -1,0 +1,14 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr5	682050	chr5	774645	duplication-like	19	ecDNA	-+	682051	774644	None	None
+chr5	683662	chr5	775796	duplication-like	10	ecDNA	-+	683663	775795	None	None
+chr5	684543	chr5	775994	deletion-like	11	ecDNA	+-	684542	775995	None	None
+chr5	697282	chr5	788251	deletion-like	13	ecDNA	+-	697281	788252	None	None
+chr5	699246	chr5	790623	duplication-like	16	ecDNA	-+	699247	790622	None	None
+chr5	711896	chr5	796008	deletion-like	18	ecDNA	+-	711895	796009	None	None
+chr5	728818	chr5	813176	duplication-like	9	ecDNA	-+	728819	813175	None	None
+chr5	733940	chr5	825149	deletion-like	7	ecDNA	+-	733939	825150	None	None
+chr5	742426	chr5	834041	deletion-like	9	ecDNA	+-	742425	834042	None	None
+chr5	741915	chr5	834765	duplication-like	13	ecDNA	-+	741916	834764	None	None
+chr5	752777	chr5	843551	deletion-like	14	ecDNA	+-	752776	843552	None	None
+chr5	754617	chr5	846636	deletion-like	37	ecDNA	+-	754616	846637	None	None
+chr5	754047	chr5	847028	duplication-like	17	ecDNA	-+	754048	847027	None	None

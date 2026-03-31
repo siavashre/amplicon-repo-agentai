@@ -1,0 +1,6 @@
+List of cycle segments
+Segment	1	chr9	111205040	111593374
+Segment	2	chr9	111205040	111596104
+Segment	3	chr9	111595539	111596104
+Cycle=1;Copy_count=3.61041652924;Length=391065;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,0+
+Cycle=2;Copy_count=1.58128481165;Length=388901;IsCyclicPath=False;CycleClass=Linear;Segments=0+,3-,1-,0+

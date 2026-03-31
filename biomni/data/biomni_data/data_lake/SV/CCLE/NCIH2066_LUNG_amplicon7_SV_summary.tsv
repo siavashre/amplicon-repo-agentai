@@ -1,0 +1,4 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr17	76217904	chr6	66468180	interchromosomal	7	None	+-	76217903	66468181	None	None
+chr17	82000402	chr6	66528038	interchromosomal	15	None	-+	82000403	66528037	None	None
+chr17	76221754	chr17	82058213	duplication-like	15	None	-+	76221755	82058212	None	None

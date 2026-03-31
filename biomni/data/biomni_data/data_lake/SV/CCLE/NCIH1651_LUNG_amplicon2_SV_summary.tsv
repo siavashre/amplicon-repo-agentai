@@ -1,0 +1,8 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr1	168055340	chr19	23850381	interchromosomal	9	None	-+	168055341	23850380	None	None
+chr1	168056358	chr19	23850375	interchromosomal	13	None	+-	168056357	23850376	None	None
+chr3	194407985	chr3	194408953	foldback	18	None	++	194407984	194408952	None	None
+chr3	194408959	chr19	23588136	interchromosomal	13	None	--	194408960	23588137	None	None
+chr19	23515654	chr19	23518306	foldback	11	BFB	--	23515655	23518307	None	None
+chr19	23725776	chr19	23730035	foldback	12	BFB	++	23725775	23730034	None	None
+chr19	23853499	chr19	23855413	foldback	16	BFB	++	23853498	23855412	None	None

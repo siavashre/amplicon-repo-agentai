@@ -1,0 +1,21 @@
+List of cycle segments
+Segment	1	chr11	69545643	69644432
+Segment	2	chr11	69569400	70940689
+Segment	3	chr11	69575798	69644432
+Segment	4	chr11	69575798	69645360
+Segment	5	chr11	69644236	69644432
+Segment	6	chr11	69644236	69645360
+Segment	7	chr11	69644236	70774858
+Segment	8	chr11	69645363	70778999
+Segment	9	chr11	69645363	70781895
+Segment	10	chr11	69645363	70940689
+Segment	11	chr11	69763200	70774858
+Segment	12	chr11	69763200	70781895
+Segment	13	chr11	70781896	70940689
+Cycle=1;Copy_count=4.39196367872;Length=1395242;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,10-,6+,1-,0+
+Cycle=2;Copy_count=2.98028906856;Length=138198;IsCyclicPath=True;CycleClass=BFB-like;Segments=3-,4+
+Cycle=3;Copy_count=2.33682759081;Length=2430286;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,8-,6+,5-,10+,0+
+Cycle=4;Copy_count=1.98021175397;Length=158794;IsCyclicPath=False;CycleClass=Linear;Segments=0+,13-,0+
+Cycle=5;Copy_count=1.05673988843;Length=2267156;IsCyclicPath=True;CycleClass=BFB-like;Segments=7-,9+
+Cycle=6;Copy_count=0.919796897845;Length=1371290;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,2-,0+
+Cycle=7;Copy_count=0.423440711398;Length=2030355;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,11+,12-,0+

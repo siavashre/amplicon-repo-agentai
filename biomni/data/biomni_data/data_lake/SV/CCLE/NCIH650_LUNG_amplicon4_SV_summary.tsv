@@ -1,0 +1,14 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr7	57898024	chr7	57899737	deletion-like	5	Complex-non-cyclic	+-	57898023	57899738	None	None
+chr7	57906102	chr7	57915464	deletion-like	5	Complex-non-cyclic	+-	57906101	57915465	None	None
+chr7	58017571	chr7	58019739	deletion-like	8	Complex-non-cyclic	+-	58017570	58019740	None	None
+chr7	58064240	chr7	60932777	duplication-like	3	Complex-non-cyclic	-+	58064241	60932776	None	None
+chr7	60932651	chr7	61026702	duplication-like	4	Complex-non-cyclic	-+	60932652	61026701	None	None
+chr7	61025295	chr7	61027354	deletion-like	7	None	+-	61025294	61027355	None	None
+chr7	58064413	chr7	61027500	deletion-like	4	Complex-non-cyclic	+-	58064412	61027501	None	None
+chr7	61037327	chr7	61047032	deletion-like	5	Complex-non-cyclic	+-	61037326	61047033	None	None
+chr7	60919303	chr7	61060237	inversion	3	Complex-non-cyclic	++	60919302	61060236	None	None
+chr7	61063593	chr7	62312703	duplication-like	5	Complex-non-cyclic	-+	61063594	62312702	None	None
+chr7	62297967	chr7	62338544	duplication-like	4	Complex-non-cyclic	-+	62297968	62338543	None	None
+chr7	58086957	chr7	62376360	duplication-like	7	Complex-non-cyclic	-+	58086958	62376359	None	None
+chr7	62307415	chr7	62408555	duplication-like	12	Complex-non-cyclic	-+	62307416	62408554	None	None

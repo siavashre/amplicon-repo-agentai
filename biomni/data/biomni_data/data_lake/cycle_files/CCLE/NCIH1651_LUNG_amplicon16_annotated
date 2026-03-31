@@ -1,0 +1,9 @@
+List of cycle segments
+Segment	1	chr12	6544888	6770502
+Segment	2	chr12	6544888	6789884
+Segment	3	chr12	6564412	6770502
+Segment	4	chr12	6770503	6789884
+Cycle=1;Copy_count=4.06857724026;Length=244997;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,0+
+Cycle=2;Copy_count=1.46223509515;Length=19382;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,4-,0+
+Cycle=3;Copy_count=1.4259258171;Length=225615;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=4;Copy_count=1.31581865855;Length=206091;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,3-,0+

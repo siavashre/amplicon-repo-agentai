@@ -1,0 +1,16 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr17	29485523	chr17	29488400	duplication-like	6	unknown	-+	29485524	29488399	None	None
+chr17	39909306	chr17	48392335	deletion-like	101	ecDNA	+-	39909305	48392336	None	None
+chr17	48538268	chr17	48539857	duplication-like	79	ecDNA	-+	48538269	48539856	None	None
+chr17	48538441	chr17	48539858	deletion-like	44	ecDNA	+-	48538440	48539859	None	None
+chr17	48568383	chr17	48638630	deletion-like	11	ecDNA	+-	48568382	48638631	None	None
+chr17	39392438	chr17	48939582	duplication-like	14	ecDNA	-+	39392439	48939581	None	None
+chr17	39643010	chr17	49613995	inversion	4	None	--	39643011	49613996	None	None
+chr17	49616605	chr17	49620376	foldback	8	unknown	--	49616606	49620377	None	None
+chr17	49617091	chr17	49630420	deletion-like	10	unknown	+-	49617090	49630421	None	None
+chr17	49749463	chr17	49750492	deletion-like	19	unknown	+-	49749462	49750493	None	None
+chr17	50024544	chr17	50024544	foldback	6	unknown	--	50024545	50024545	None	None
+chr17	29560468	chr17	51064798	inversion	27	ecDNA|unknown	--	29560469	51064799	None	None
+chr17	30503123	chr17	51184912	inversion	64	ecDNA	++	30503122	51184911	None	None
+chr17	29602258	chr17	55778196	duplication-like	8	None	-+	29602259	55778195	None	None
+chr17	29606480	chr17	55778220	deletion-like	6	None	+-	29606479	55778221	None	None

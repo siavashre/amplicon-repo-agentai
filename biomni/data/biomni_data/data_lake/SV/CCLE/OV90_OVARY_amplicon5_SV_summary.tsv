@@ -1,0 +1,10 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr11	132587972	chr22	21062547	interchromosomal	24	ecDNA	--	132587973	21062548	None	None
+chr11	132588137	chr22	21064134	interchromosomal	84	ecDNA	+-	132588136	21064135	None	None
+chr22	20386553	chr22	20388531	foldback	376	BFB	--	20386554	20388532	None	None
+chr22	20454352	chr22	20488523	deletion-like	125	BFB	+-	20454351	20488524	None	None
+chr22	20492702	chr22	20493659	foldback	2	BFB	--	20492703	20493660	None	None
+chr22	20534317	chr22	20535631	foldback	3	BFB	++	20534316	20535630	None	None
+chr22	20546274	chr22	20547310	foldback	167	BFB	++	20546273	20547309	None	None
+chr22	21101752	chr22	21102921	foldback	6	BFB|ecDNA	++	21101751	21102920	None	None
+chr22	21563612	chr22	21565070	foldback	275	BFB|ecDNA	++	21563611	21565069	None	None

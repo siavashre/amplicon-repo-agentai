@@ -1,0 +1,19 @@
+List of cycle segments
+Segment	1	chr3	195505559	195778928
+Segment	2	chr3	195505559	195842345
+Segment	3	chr3	195627000	195718799
+Segment	4	chr3	195780162	195786314
+Segment	5	chr3	195788173	195842345
+Segment	6	chr3	195788173	195927523
+Segment	7	chr3	195843061	195927523
+Segment	8	chr3	195843061	196025559
+Segment	9	chr3	195928492	196002651
+Segment	10	chr3	195928492	196025559
+Segment	11	chr3	195958217	196002651
+Segment	12	chr5	1622602	1633213
+Cycle=1;Copy_count=8.31999113916;Length=91800;IsCyclicPath=False;CycleClass=Linear;Segments=0+,3-,0+
+Cycle=2;Copy_count=3.18484115329;Length=516195;IsCyclicPath=False;CycleClass=Linear;Segments=0+,8-,5-,4-,1-,0+
+Cycle=3;Copy_count=2.68100879667;Length=55047;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,12-,11-,0+
+Cycle=4;Copy_count=2.0887037535;Length=518318;IsCyclicPath=False;CycleClass=Linear;Segments=0+,10-,7-,2-,0+
+Cycle=5;Copy_count=0.829349889983;Length=10612;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,12-,0+
+Cycle=6;Copy_count=0.567091602593;Length=503646;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,12-,9-,6-,4-,1-,0+

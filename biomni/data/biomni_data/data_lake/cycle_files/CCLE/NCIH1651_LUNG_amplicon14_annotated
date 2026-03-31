@@ -1,0 +1,12 @@
+List of cycle segments
+Segment	1	chr10	34599916	35021746
+Segment	2	chr10	34599916	35094915
+Segment	3	chr10	34601535	35094915
+Segment	4	chr10	35021747	35094915
+Segment	5	chr10	36389912	36894910
+Segment	6	chr10	36406943	36894910
+Cycle=1;Copy_count=4.08833103529;Length=981349;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,3-,6+,0+
+Cycle=2;Copy_count=2.21918497084;Length=504999;IsCyclicPath=False;CycleClass=Linear;Segments=0+,5-,0+
+Cycle=3;Copy_count=1.84382035759;Length=421831;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+
+Cycle=4;Copy_count=1.51673283858;Length=495000;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,0+
+Cycle=5;Copy_count=1.28665009213;Length=73169;IsCyclicPath=False;CycleClass=Linear;Segments=0+,4-,0+

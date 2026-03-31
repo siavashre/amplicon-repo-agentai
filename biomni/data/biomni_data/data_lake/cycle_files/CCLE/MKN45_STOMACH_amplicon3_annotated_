@@ -1,0 +1,8 @@
+List of cycle segments
+Segment	1	chr11	77034814	77408748
+Segment	2	chr11	77034814	77456666
+Segment	3	chr11	77034814	77459752
+Segment	4	chr11	77035508	77217599
+Cycle=1;Copy_count=3.90242364966;Length=424939;IsCyclicPath=False;CycleClass=Linear;Segments=0+,3-,0+
+Cycle=2;Copy_count=2.01943194542;Length=795788;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,2+,1-,0+
+Cycle=3;Copy_count=1.63386467761;Length=182092;IsCyclicPath=False;CycleClass=Linear;Segments=0+,4-,0+

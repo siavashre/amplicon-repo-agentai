@@ -1,0 +1,6 @@
+List of cycle segments
+Segment	1	chr8	90004179	90134178
+Segment	2	chr8	90005461	90134178
+Segment	3	chr8	90009304	90134178
+Cycle=1;Copy_count=1.9841715509;Length=130000;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=2;Copy_count=1.85470279416;Length=253593;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,3-,2+,0+

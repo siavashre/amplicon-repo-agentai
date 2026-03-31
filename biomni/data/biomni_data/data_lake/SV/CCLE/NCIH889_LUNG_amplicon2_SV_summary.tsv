@@ -1,0 +1,6 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr3	84591113	chr3	84591249	foldback	5	None	--	84591114	84591250	None	None
+chr3	84829653	chr13	48383246	interchromosomal	3	None	+-	84829652	48383247	None	None
+chr3	84862687	chr3	84892947	deletion-like	7	None	+-	84862686	84892948	None	None
+chr3	84892357	chr3	84893897	foldback	3	None	++	84892356	84893896	None	None
+chr13	48381679	chr13	48383200	foldback	4	None	++	48381678	48383199	None	None

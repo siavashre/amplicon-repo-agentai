@@ -1,0 +1,7 @@
+List of cycle segments
+Segment	1	chr20	11990558	12114299
+Segment	2	chr20	11990558	12125564
+Segment	3	chr20	11990778	12121222
+Cycle=1;Copy_count=3.06867501516;Length=130445;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=3+
+Cycle=2;Copy_count=1.93340032366;Length=135007;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,0+
+Cycle=3;Copy_count=1.15637475195;Length=123742;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+

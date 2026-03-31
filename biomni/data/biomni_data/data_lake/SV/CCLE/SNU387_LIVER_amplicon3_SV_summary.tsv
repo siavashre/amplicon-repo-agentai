@@ -1,0 +1,8 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr11	71124196	chrY	11048862	interchromosomal	32	None	-+	71124197	11048861	None	None
+chr11	71124221	chrY	11048097	interchromosomal	15	None	+-	71124220	11048098	None	None
+chr11	71444798	chr11	71445382	foldback	2	Complex-non-cyclic	++	71444797	71445381	None	None
+chr11	1599079	chr11	71526548	inversion	7	None	++	1599078	71526547	None	None
+chr11	1599161	chr11	71561127	inversion	5	None	--	1599162	71561128	None	None
+chr11	71561453	chr11	71563388	foldback	5	Complex-non-cyclic	++	71561452	71563387	None	None
+chr11	1598980	chr11	71564757	inversion	6	None	++	1598979	71564756	None	None

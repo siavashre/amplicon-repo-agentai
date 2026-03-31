@@ -1,0 +1,12 @@
+List of cycle segments
+Segment	1	chr13	19973103	20077304
+Segment	2	chr13	19973103	20081911
+Segment	3	chr13	19973103	20208102
+Segment	4	chr13	19992794	20081911
+Segment	5	chr13	19994989	20077304
+Segment	6	chr13	20146314	20208102
+Segment	7	chr13	20150304	20208102
+Cycle=1;Copy_count=2.60843113124;Length=235000;IsCyclicPath=False;CycleClass=Linear;Segments=0+,3-,0+
+Cycle=2;Copy_count=1.59861846803;Length=119588;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,6-,7+,0+
+Cycle=3;Copy_count=0.869250845066;Length=171434;IsCyclicPath=True;CycleClass=BFB-like;Segments=5-,4+
+Cycle=4;Copy_count=0.48096093879;Length=213011;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,2+,1-,0+

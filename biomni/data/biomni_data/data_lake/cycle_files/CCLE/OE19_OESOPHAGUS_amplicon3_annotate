@@ -1,0 +1,30 @@
+List of cycle segments
+Segment	1	chr12	37970252	38188288
+Segment	2	chr12	37990037	38188288
+Segment	3	chr12	38028342	38188288
+Segment	4	chr12	38783225	39101227
+Segment	5	chr12	38783225	39139962
+Segment	6	chr12	39103572	39139962
+Segment	7	chr12	42420255	42556199
+Segment	8	chr12	42456154	42481697
+Segment	9	chr12	42517908	42556199
+Segment	10	chr12	48744827	49384270
+Segment	11	chr12	48844827	49030323
+Segment	12	chr12	48844827	49384270
+Segment	13	chr12	49135927	49485260
+Segment	14	chr12	49137099	49384270
+Segment	15	chr21	13120821	13158299
+Segment	16	chr21	13120821	13585499
+Segment	17	chr21	13120821	14088525
+Segment	18	chr21	13120821	14465840
+Segment	19	chr21	13219800	14088525
+Segment	20	chr21	13799100	14088525
+Cycle=1;Copy_count=6.69578026026;Length=135945;IsCyclicPath=False;CycleClass=Linear;Segments=0+,7-,0+
+Cycle=2;Copy_count=3.9416296973;Length=464679;IsCyclicPath=False;CycleClass=Linear;Segments=0+,16-,0+
+Cycle=3;Copy_count=3.82155592785;Length=1403645;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,1+,5+,12+,20-,0+
+Cycle=4;Copy_count=2.09223724695;Length=928870;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,20+,10-,0+
+Cycle=5;Copy_count=1.71253283827;Length=740487;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2+,5+,11+
+Cycle=6;Copy_count=1.7095302112;Length=37479;IsCyclicPath=False;CycleClass=Linear;Segments=0+,15-,0+
+Cycle=7;Copy_count=1.69477562696;Length=1345020;IsCyclicPath=False;CycleClass=Linear;Segments=0+,18-,0+
+Cycle=8;Copy_count=1.47641706821;Length=1465232;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,13-,14+,19-,0+
+Cycle=9;Copy_count=0.81867456081;Length=2085326;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,9-,8-,3+,4+,6+,12+,17-,0+

@@ -1,0 +1,17 @@
+List of cycle segments
+Segment	1	chr19	29160986	29890799
+Segment	2	chr19	29262676	29459289
+Segment	3	chr19	29264548	29459289
+Segment	4	chr19	29282315	29317608
+Segment	5	chr19	29465260	29769299
+Segment	6	chr19	29465260	29897896
+Segment	7	chr19	29465260	30162270
+Segment	8	chr19	29902190	30160865
+Segment	9	chr19	29902190	30162270
+Segment	10	chr19	29953904	30261036
+Segment	11	chr19	29965527	30261036
+Cycle=1;Copy_count=4.97218974583;Length=1386709;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,8-,6-,2-,3+,5+,0+
+Cycle=2;Copy_count=4.17231452705;Length=35294;IsCyclicPath=True;CycleClass=Rearranged;Segments=4+
+Cycle=3;Copy_count=2.26452134865;Length=1781085;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,9-,6-,2-,3+,7+,0+
+Cycle=4;Copy_count=1.27311791014;Length=729814;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=5;Copy_count=1.05595573108;Length=602643;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,10-,11+,0+

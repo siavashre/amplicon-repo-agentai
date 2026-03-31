@@ -1,0 +1,7 @@
+List of cycle segments
+Segment	1	chr17	61061953	61146465
+Segment	2	chr17	61061953	61146955
+Segment	3	chr17	61080648	61146465
+Cycle=1;Copy_count=2.64881336588;Length=85003;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,0+
+Cycle=2;Copy_count=1.21620110187;Length=65818;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,3-,0+
+Cycle=3;Copy_count=0.699754194183;Length=84513;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+

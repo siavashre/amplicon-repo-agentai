@@ -1,0 +1,15 @@
+List of cycle segments
+Segment	1	chr8	33167666	33301261
+Segment	2	chr8	33169057	33301261
+Segment	3	chr8	33175800	33301261
+Segment	4	chr8	33302858	33711299
+Segment	5	chr8	33302858	33718221
+Segment	6	chr8	33302858	34254639
+Segment	7	chr20	34167237	34712257
+Segment	8	chr20	34283685	34285397
+Segment	9	chr20	34299250	34611095
+Segment	10	chr20	34305300	34605899
+Cycle=1;Copy_count=20.0827135485;Length=1946506;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=9-,8-,5-,1-,2+,6+
+Cycle=2;Copy_count=2.17938332058;Length=545021;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,7-,0+
+Cycle=3;Copy_count=1.53186310541;Length=300600;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,10-,0+
+Cycle=4;Copy_count=1.30926357925;Length=533904;IsCyclicPath=False;CycleClass=Linear;Segments=0+,4-,3-,0+

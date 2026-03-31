@@ -1,0 +1,3 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chrX	155803597	chrX	155984312	deletion-like	6	None	+-	155803596	155984313	None	None
+chrX	155803641	chrX	155987100	duplication-like	19	None	-+	155803642	155987099	None	None

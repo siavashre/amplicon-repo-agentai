@@ -1,0 +1,12 @@
+List of cycle segments
+Segment	1	chr8	72583578	72875539
+Segment	2	chr8	72601967	72875539
+Segment	3	chr8	72601967	73738634
+Segment	4	chr8	72605941	73199656
+Segment	5	chr8	72605941	73738634
+Segment	6	chr8	72881588	73738634
+Segment	7	chr8	73199657	73738634
+Cycle=1;Copy_count=3.97051851667;Length=1149009;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,6-,1-,0+
+Cycle=2;Copy_count=1.13845976789;Length=1724336;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,4-,2+,6+,0+
+Cycle=3;Copy_count=1.00352906909;Length=538978;IsCyclicPath=False;CycleClass=Linear;Segments=0+,7-,0+
+Cycle=4;Copy_count=0.54504847304;Length=2269362;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,5-,3+,0+

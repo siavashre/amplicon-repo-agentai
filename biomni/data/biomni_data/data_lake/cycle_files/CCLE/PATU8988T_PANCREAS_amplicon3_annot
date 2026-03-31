@@ -1,0 +1,11 @@
+List of cycle segments
+Segment	1	chr21	14875917	15216059
+Segment	2	chr21	14975711	15873588
+Segment	3	chr21	14975711	15975967
+Segment	4	chr21	14978444	15216059
+Segment	5	chr21	15219132	15873588
+Segment	6	chr21	15219132	15874477
+Segment	7	chr21	15219132	15975967
+Cycle=1;Copy_count=1.8740007359;Length=1990089;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,1+,5+,6-,1-,0+
+Cycle=2;Copy_count=0.781937047134;Length=1790840;IsCyclicPath=True;CycleClass=BFB-like;Segments=4-,2+,6-
+Cycle=3;Copy_count=0.526816957082;Length=1994709;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,3-,4+,7+,0+

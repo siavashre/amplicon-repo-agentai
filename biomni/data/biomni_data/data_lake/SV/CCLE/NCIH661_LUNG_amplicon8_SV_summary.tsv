@@ -1,0 +1,6 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr14	27139984	chr14	32733767	deletion-like	8	None	+-	27139983	32733768	None	None
+chr14	34334195	chr14	34337157	foldback	17	ecDNA	--	34334196	34337158	None	None
+chr14	35219816	chr14	35220282	duplication-like	6	ecDNA	-+	35219817	35220281	None	None
+chr14	35948053	chr14	35949210	duplication-like	5	ecDNA	-+	35948054	35949209	None	None
+chr14	36763127	chr14	36768554	foldback	5	ecDNA	++	36763126	36768553	None	None

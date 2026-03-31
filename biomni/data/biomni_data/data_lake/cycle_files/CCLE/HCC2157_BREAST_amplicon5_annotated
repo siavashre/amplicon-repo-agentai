@@ -1,0 +1,5 @@
+List of cycle segments
+Segment	1	chr4	179997986	180337990
+Segment	2	chr4	180016696	180318698
+Cycle=1;Copy_count=2.33680840849;Length=340005;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=2;Copy_count=2.28033366549;Length=302003;IsCyclicPath=True;CycleClass=Rearranged;Segments=2+

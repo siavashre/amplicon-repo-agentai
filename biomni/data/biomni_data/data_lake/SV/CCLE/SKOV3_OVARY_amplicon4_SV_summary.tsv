@@ -1,0 +1,7 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr8	127155211	chr19	18967077	interchromosomal	18	ecDNA	--	127155212	18967078	None	None
+chr8	127264743	chrX	13599938	interchromosomal	11	None	--	127264744	13599939	None	None
+chr8	127306694	chr19	19276827	interchromosomal	25	ecDNA	++	127306693	19276826	None	None
+chr19	19137985	chrX	13955361	interchromosomal	16	ecDNA	-+	19137986	13955360	None	None
+chr19	19143062	chrX	13943798	interchromosomal	4	ecDNA	+-	19143061	13943799	None	None
+chr19	18971014	chr19	19252868	deletion-like	7	ecDNA	+-	18971013	19252869	None	None

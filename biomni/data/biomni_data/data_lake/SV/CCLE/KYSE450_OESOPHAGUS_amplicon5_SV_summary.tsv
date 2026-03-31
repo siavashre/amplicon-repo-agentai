@@ -1,0 +1,3 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+chr8	121281762	chr8	121281762	foldback	6	Complex-non-cyclic	--	121281763	121281763	None	None
+chr8	121805208	chr8	121812395	foldback	8	Complex-non-cyclic	++	121805207	121812394	None	None

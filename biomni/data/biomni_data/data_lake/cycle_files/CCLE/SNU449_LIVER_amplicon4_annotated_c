@@ -1,0 +1,7 @@
+List of cycle segments
+Segment	1	chrX	107971361	108029640
+Segment	2	chrX	107971361	108031360
+Segment	3	chrX	107972934	108029640
+Cycle=1;Copy_count=1.80814635708;Length=60000;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,2-,0+
+Cycle=2;Copy_count=0.847351705234;Length=56707;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,3-,0+
+Cycle=3;Copy_count=0.301998858324;Length=58280;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
