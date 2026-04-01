@@ -14,7 +14,9 @@ description = [
             "Use this tool to answer questions about SV types, breakpoint locations, read support, "
             "foldback or interchromosomal events, co-occurrence of SVs with specific amplicon features "
             "(ecDNA, BFB, Linear, Complex-non-cyclic), or homology at breakpoints. "
-            "You can apply multiple filters in a single query to narrow results."
+            "You can apply multiple filters in a single query to narrow results. "
+            "Note that SVs in amplicons with copy number near the focal amplification threshold (4.5) "
+            "are less reliable — borderline amplicons may have noisier SV calls."
         ),
         "required_parameters": [],
         "optional_parameters": [
@@ -60,7 +62,8 @@ description = [
                 "enum": ["duplication-like", "deletion-like", "inversion", "foldback", "interchromosomal"],
                 "description": (
                     "SV type(s) to filter. Accepts a single value or a list for OR matching. "
-                    "Valid values: 'duplication-like', 'deletion-like', 'inversion', 'foldback', 'interchromosomal'."
+                    "Valid values: 'duplication-like', 'deletion-like', 'inversion', 'foldback', 'interchromosomal'. "
+                    "'foldback' SVs are a key structural indicator of BFB (breakage-fusion-bridge) amplification."
                 ),
             },
             {

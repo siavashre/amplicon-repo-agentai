@@ -1,0 +1,9 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+8	36586783	8	36587500	foldback	13	ecDNA	--	36586784	36587501	None	None
+8	37050884	8	37051853	deletion-like	76	ecDNA	+-	37050883	37051854	None	None
+8	37457993	8	37466344	deletion-like	61	ecDNA	+-	37457992	37466345	None	None
+8	36031130	8	38865780	duplication-like	33	ecDNA	-+	36031131	38865779	None	None
+8	37329438	8	38931132	duplication-like	45	ecDNA	-+	37329439	38931131	None	None
+8	37209450	8	38978429	duplication-like	18	ecDNA	-+	37209451	38978428	None	None
+21	46747034	8	36690913	interchromosomal	7	None	-+	46747035	36690912	None	None
+21	46747167	8	36742319	interchromosomal	7	None	--	46747168	36742320	None	None

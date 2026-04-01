@@ -120,8 +120,6 @@ demo = gr.ChatInterface(
         "What are all the ecDNA-like cycles in the CCLE dataset for sample AU565_BREAST?",
         "What are the genomic coordinates of MYC in hg38?",
     ],
-    theme=gr.themes.Soft(),
-    css="* { font-family: Arial, sans-serif !important; }",
 )
 
 print(f"\nLaunching Biomni Amplicon Agent demo...")

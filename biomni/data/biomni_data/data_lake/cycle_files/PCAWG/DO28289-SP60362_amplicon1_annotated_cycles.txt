@@ -1,0 +1,21 @@
+List of cycle segments
+Segment	1	12	20038205	20040002
+Segment	2	12	20040018	20048316
+Segment	3	12	20040018	20050769
+Segment	4	12	20041369	20048316
+Segment	5	12	20043637	20048316
+Segment	6	12	20049330	20050769
+Segment	7	12	20049330	20107503
+Segment	8	12	20050813	20103255
+Segment	9	12	20050813	20107503
+Segment	10	12	20050813	20620021
+Segment	11	12	24805711	25536173
+Segment	12	12	25010032	25436173
+Segment	13	12	25012034	25436173
+Cycle=1;Copy_count=5.43896055336;Length=2008178;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,10-,6+,2+,12-,13+,2-,6-,10+,0+
+Cycle=2;Copy_count=3.96225753641;Length=110617;IsCyclicPath=True;CycleClass=BFB-like;Segments=8-,7+
+Cycle=3;Copy_count=2.75887673513;Length=1798;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=4;Copy_count=2.51840733144;Length=861910;IsCyclicPath=True;CycleClass=BFB-like;Segments=5-,4+,13-,12+
+Cycle=5;Copy_count=2.1933837137;Length=10752;IsCyclicPath=True;CycleClass=Rearranged;Segments=3+
+Cycle=6;Copy_count=2.03274555619;Length=730463;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,11-,0+
+Cycle=7;Copy_count=1.47670301695;Length=978894;IsCyclicPath=True;CycleClass=BFB-like;Segments=2-,6-,8+,9-,6+,2+,13-,12+

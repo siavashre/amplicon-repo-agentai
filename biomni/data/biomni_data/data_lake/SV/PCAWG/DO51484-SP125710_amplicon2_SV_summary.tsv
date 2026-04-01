@@ -1,0 +1,7 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+19	28595259	19	28603465	deletion-like	11	None	+-	28595258	28603466	None	None
+19	32129850	19	32130902	deletion-like	12	Linear	+-	32129849	32130903	None	None
+19	28603373	19	32784900	inversion	11	Linear	++	28603372	32784899	None	None
+19	28599281	19	33725247	inversion	5	None	--	28599282	33725248	None	None
+19	28594323	19	33726215	duplication-like	10	None	-+	28594324	33726214	None	None
+19	34345170	19	34347551	foldback	3	None	++	34345169	34347550	None	None

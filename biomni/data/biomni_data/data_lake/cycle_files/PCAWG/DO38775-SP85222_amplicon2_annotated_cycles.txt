@@ -1,0 +1,75 @@
+List of cycle segments
+Segment	1	7	86471093	86481492
+Segment	2	8	18443851	18464250
+Segment	3	8	18453851	18454619
+Segment	4	8	18455944	18464250
+Segment	5	8	74597424	74900787
+Segment	6	8	74597894	74900787
+Segment	7	8	74597894	74920496
+Segment	8	8	75474654	75609883
+Segment	9	8	75574738	75609883
+Segment	10	8	75574738	75743371
+Segment	11	8	75610418	75743371
+Segment	12	8	75632149	75743371
+Segment	13	8	75632149	76032772
+Segment	14	8	75653347	75743371
+Segment	15	8	76008229	76088457
+Segment	16	8	76009950	76032772
+Segment	17	8	76033276	76056623
+Segment	18	8	76033276	76088457
+Segment	19	8	76033276	76092028
+Segment	20	8	76033276	76176130
+Segment	21	8	76091843	76176130
+Segment	22	8	76091843	76671809
+Segment	23	8	76091843	77337385
+Segment	24	8	76172112	76671809
+Segment	25	8	76173294	76671809
+Segment	26	8	76753387	77337385
+Segment	27	8	77157412	77275543
+Segment	28	8	77157412	77337385
+Segment	29	8	77157412	77501548
+Segment	30	8	77277958	77337385
+Segment	31	8	77338426	77407954
+Segment	32	8	77409629	77506894
+Segment	33	8	77409629	77761563
+Segment	34	8	77506895	77761563
+Segment	35	8	78692777	78713176
+Segment	36	11	67965360	69089699
+Segment	37	11	67965837	69089699
+Segment	38	11	68956607	68956629
+Segment	39	11	68977617	69089699
+Segment	40	11	69139800	69524619
+Segment	41	11	69139800	69571161
+Segment	42	11	69139800	69713099
+Segment	43	11	69139800	70262791
+Segment	44	11	69780600	70262875
+Segment	45	11	70262792	70262875
+Segment	46	11	70880706	70911106
+Segment	47	11	70893950	70901106
+Segment	48	11	70901952	70911106
+Segment	49	12	108611500	108621899
+Segment	50	12	108621500	108621547
+Cycle=1;Copy_count=4.64337400681;Length=1124340;IsCyclicPath=False;CycleClass=Linear;Segments=0+,36-,0+
+Cycle=2;Copy_count=4.32798230827;Length=573300;IsCyclicPath=False;CycleClass=Linear;Segments=0+,42-,0+
+Cycle=3;Copy_count=4.00249340558;Length=482276;IsCyclicPath=False;CycleClass=Linear;Segments=0+,44-,0+
+Cycle=4;Copy_count=3.99748670737;Length=461287;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,4-,3-,19-,9-,31-,30-,27-,12-,0+
+Cycle=5;Copy_count=2.35473335575;Length=10400;IsCyclicPath=False;CycleClass=Linear;Segments=0+,49-,0+
+Cycle=6;Copy_count=2.12078943695;Length=10400;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+
+Cycle=7;Copy_count=1.90374004031;Length=71;IsCyclicPath=True;CycleClass=Invalid;Segments=50+,38-
+Cycle=8;Copy_count=1.53742713077;Length=30401;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,46-,0+
+Cycle=9;Copy_count=1.42131849566;Length=1123863;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,37-,0+
+Cycle=10;Copy_count=1.37862071626;Length=418137;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=10+,28+,31+
+Cycle=11;Copy_count=1.30074721402;Length=1405400;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=9+,18+,23+,31+
+Cycle=12;Copy_count=1.25758467531;Length=801254;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,13+,32-,5-,0+
+Cycle=13;Copy_count=1.25115268323;Length=20400;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,2-,0+
+Cycle=14;Copy_count=1.18627409213;Length=715651;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,8+,18+,21+,17-,9-,31-,28-,11-,0+
+Cycle=15;Copy_count=1.10114007256;Length=20400;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,35-,0+
+Cycle=16;Copy_count=1.00573478898;Length=84;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,45-,0+
+Cycle=17;Copy_count=0.99208567815;Length=1975646;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,33-,6-,24-,25+,7+,0+
+Cycle=18;Copy_count=0.893704645994;Length=816182;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,40+,41-,0+
+Cycle=19;Copy_count=0.892761949507;Length=1250749;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,12+,28+,31+,9+,20+,17-,9-,31-,26-,0+
+Cycle=20;Copy_count=0.887133532972;Length=128395;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,48-,47+,39+,0+
+Cycle=21;Copy_count=0.878991084948;Length=1083179;IsCyclicPath=True;CycleClass=Invalid;Segments=32+,16-,15+,22+,6+
+Cycle=22;Copy_count=0.877877500486;Length=254669;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,34-,0+
+Cycle=23;Copy_count=0.768000747065;Length=1122992;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,43-,0+
+Cycle=24;Copy_count=0.763386701399;Length=434162;IsCyclicPath=True;CycleClass=Invalid;Segments=14+,29+

@@ -14,7 +14,10 @@ description = [
             "any compatible amplicon CSV file. The agent should call this tool before "
             "answering any amplicon-related question. You can apply multiple filters in "
             "a single query to narrow results (e.g., filter by gene, classification, "
-            "and tissue of origin simultaneously)."
+            "and tissue of origin simultaneously). "
+            "The default copy number threshold for focal amplification is 4.5. "
+            "Detection requires tumor purity (p) × ecDNA copy number (e) ≥ 2.5; "
+            "samples near this limit have reduced sensitivity and results should be interpreted cautiously."
         ),
         "required_parameters": [],
         "optional_parameters": [
@@ -47,7 +50,7 @@ description = [
                 "type": ["string", "array"],
                 "items": {"type": "string"},
                 "enum": ["ecDNA", "BFB", "Linear", "Complex-non-cyclic"],
-                "description": "Amplicon classification. Accepts a single value or a list of values from: ecDNA, BFB, Linear, or Complex-non-cyclic.",
+                "description": "Amplicon classification. Accepts a single value or a list of values from: ecDNA, BFB, Linear, Complex-non-cyclic, Virus, or composite values such as 'BFB + Complex-non-cyclic' (indicating multiple co-occurring structures). 'Complex-non-cyclic' is the current terminology for what was previously called 'heavily rearranged'. 'Virus' indicates a viral episome (e.g., HPV) not detected as integrated into the genome.",
             },
             {
                 "name": "ecDNA_context",

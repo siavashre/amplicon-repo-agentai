@@ -15,12 +15,16 @@ description = [
             "'source' (connection between a known genomic position and an unknown/out-of-amplicon "
             "position). Breakpoint edges include predicted copy number, number of supporting read pairs, "
             "and homology/insertion size and sequence at the breakpoint. "
+            "Coordinates in graph files are 0-based. "
             "Files are organized by dataset (e.g., CCLE) and named "
             "{sample_name}_{amplicon_number}_graph.txt, where sample_name and amplicon_number "
             "are parsed directly from the filename. "
             "Use this tool to answer questions about amplicon graph structure — such as which segments "
             "have high copy number, what discordant breakpoints are present, the coverage of specific "
             "genomic intervals, or the connectivity of amplicon segments. "
+            "Note that cycle files (query_amplicon_cycles) represent segments after merging consecutive "
+            "sequence edges from this graph — a single cycle segment may correspond to multiple graph "
+            "sequence edges. For sub-segment resolution, query sequence edges directly from this tool. "
             "Use the 'query_type' parameter to retrieve sequence edges, breakpoint edges, or both. "
             "You can apply multiple filters in a single query to narrow results."
         ),
@@ -84,7 +88,7 @@ description = [
                     "Filter breakpoint edges by type. Only applies when query_type is 'breakpoint' or 'all'. "
                     "'discordant': non-consecutive positions joined in the amplicon, representing structural variants (SVs) such as rearrangements, fusions, or novel adjacencies. "
                     "'concordant': consecutive reference positions confirming reference connectivity. "
-                    "'source': connection to an unknown or out-of-amplicon position. "
+                    "'source': connection to an unknown or out-of-amplicon position. These appear as red vertical lines in AA visualizations and may indicate potential integration sites or unlocalized SV destinations worth investigating with a more sensitive SV caller. "
                     "Accepts a single value or a list for OR matching."
                 ),
             },

@@ -17,14 +17,23 @@ description = [
             "chromosome, start, and end coordinate), followed by a list of cycles. Each cycle references "
             "its segments by ID and strand (e.g., '21+,34-'), and this tool resolves those IDs back to "
             "full genomic coordinates so each returned cycle row is self-contained. "
+            "Coordinates in cycle files are 0-based. "
             "Segment 0 is a reserved connection vertex — a cycle containing segment 0 is a linear path "
-            "whose endpoints connect to undetermined or out-of-amplicon positions. "
+            "whose endpoints connect to undetermined or out-of-amplicon positions. This is not an artifact; "
+            "it means AA could not resolve where those endpoints connect, often due to gaps in seed regions. "
+            "Linear paths are valid decomposition components representing genuinely linear or incompletely "
+            "resolved structures — they are not failed ecDNA detections. "
             "Use this tool to answer questions about amplicon structure, specifically the cycles and "
             "paths predicted by AA — such as which cycles are ecDNA-like, how many segments compose a "
             "cycle, what genomic regions a cycle spans, the copy count or length of specific cycles, "
             "whether a cycle is circular or linear, and how cycle classes are distributed across "
             "datasets, samples, or amplicons. "
-            "You can apply multiple filters in a single query to narrow results."
+            "The copy count of a cycle represents the number of times that path is traversed in the "
+            "graph decomposition — it is not directly the number of ecDNA molecules per cell, as the "
+            "decomposition is an abstract mathematical solution. "
+            "You can apply multiple filters in a single query to narrow results. "
+            "By default, cycles shorter than 10 kbp are excluded from classification. "
+            "AmpliconClassifier may merge overlapping ecDNA-like cycles from the same amplicon into a single larger collection."
         ),
         "required_parameters": [],
         "optional_parameters": [
@@ -85,7 +94,7 @@ description = [
                 "description": (
                     "Cycle classification(s) to filter. Accepts a single value or a list for OR matching. "
                     "Valid values: 'ecDNA-like' (circular amplicons), 'Linear' (linear paths), "
-                    "'Rearranged' (rearranged linear paths), 'Invalid' (low-complexity or artefact cycles)."
+                    "'Rearranged' (rearranged linear paths), 'Invalid' (low-complexity, artefact, or trivial single-segment cycles that do not represent meaningful amplification structures)."
                 ),
             },
             {

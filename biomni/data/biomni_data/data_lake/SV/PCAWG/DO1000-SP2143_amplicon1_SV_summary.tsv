@@ -1,0 +1,4 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+20	35024751	20	57263665	inversion	6	None	--	35024752	57263666	None	None
+20	35024554	20	57263713	inversion	6	None	++	35024553	57263712	None	None
+20	54011658	20	57351881	inversion	5	None	++	54011657	57351880	None	None

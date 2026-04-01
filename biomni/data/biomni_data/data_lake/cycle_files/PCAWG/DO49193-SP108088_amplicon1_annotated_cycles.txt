@@ -1,0 +1,42 @@
+List of cycle segments
+Segment	1	6	10986188	11789284
+Segment	2	6	11005833	11332417
+Segment	3	6	11430433	11788663
+Segment	4	6	25100477	25183360
+Segment	5	6	25100796	25182943
+Segment	6	6	30629308	31421502
+Segment	7	6	30648959	31169240
+Segment	8	6	30648959	31211630
+Segment	9	6	30710272	31169240
+Segment	10	6	30710272	31211630
+Segment	11	6	31213116	31421502
+Segment	12	6	31213116	31609569
+Segment	13	6	31424385	31609569
+Segment	14	6	31609570	31609602
+Segment	15	6	42838732	42968765
+Segment	16	6	42838732	42968773
+Segment	17	6	42838898	42968765
+Segment	18	6	43396045	44633565
+Segment	19	6	43396550	44534997
+Segment	20	6	43396550	44633175
+Segment	21	6	44012279	44013005
+Segment	22	6	46742409	46762935
+Segment	23	6	46757970	46762935
+Segment	24	6	47745006	47745770
+Segment	25	6	47745006	47765531
+Segment	26	6	52650902	53074705
+Segment	27	6	52672990	52883614
+Segment	28	6	52672990	53073999
+Segment	29	6	52764042	52883614
+Segment	30	6	52899847	52902201
+Segment	31	6	52899847	53073999
+Cycle=1;Copy_count=11.2324968801;Length=727;IsCyclicPath=True;CycleClass=Invalid;Segments=21+
+Cycle=2;Copy_count=2.85149266254;Length=2624911;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=20+,29+,5-,28-,9+,2-
+Cycle=3;Copy_count=1.71726927622;Length=82884;IsCyclicPath=False;CycleClass=Linear;Segments=0+,4-,0+
+Cycle=4;Copy_count=1.51431509599;Length=1237521;IsCyclicPath=False;CycleClass=Linear;Segments=0+,18-,0+
+Cycle=5;Copy_count=1.50762370568;Length=803097;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+
+Cycle=6;Copy_count=1.50134174896;Length=205712;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,13+,22-,0+
+Cycle=7;Copy_count=1.3726042432;Length=20526;IsCyclicPath=False;CycleClass=Linear;Segments=0+,25-,0+
+Cycle=8;Copy_count=1.30388504028;Length=130042;IsCyclicPath=False;CycleClass=Linear;Segments=0+,16-,0+
+Cycle=9;Copy_count=1.11812071027;Length=423804;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,26-,0+
+Cycle=10;Copy_count=0.967142521536;Length=33;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,14-,0+

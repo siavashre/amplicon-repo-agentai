@@ -1,0 +1,22 @@
+List of cycle segments
+Segment	1	12	67467337	70333499
+Segment	2	12	67486500	71602360
+Segment	3	12	67574100	70594864
+Segment	4	12	68415300	70594864
+Segment	5	12	68415300	72119513
+Segment	6	12	70597576	72119513
+Segment	7	12	70597576	72189158
+Segment	8	12	71604473	72356626
+Segment	9	12	72119749	72189158
+Segment	10	12	72190573	72356626
+Segment	11	12	72358127	75304499
+Segment	12	12	72358127	75411287
+Segment	13	15	73815949	73816482
+Segment	14	15	73815949	73826482
+Segment	15	15	73816421	73816482
+Cycle=1;Copy_count=4.54904666392;Length=7724775;IsCyclicPath=False;CycleClass=Linear;Segments=0+,11-,10-,7-,3-,0+
+Cycle=2;Copy_count=2.67903211226;Length=6883402;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,11-,10-,9-,15+,6-,4-,0+
+Cycle=3;Copy_count=1.63787140918;Length=10534;IsCyclicPath=False;CycleClass=Linear;Segments=0+,14-,0+
+Cycle=4;Copy_count=1.17240382818;Length=7921176;IsCyclicPath=False;CycleClass=Linear;Segments=0+,12-,8-,2-,0+
+Cycle=5;Copy_count=1.13277866357;Length=2866163;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=6;Copy_count=0.812631506687;Length=3704748;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,5+,13-,0+

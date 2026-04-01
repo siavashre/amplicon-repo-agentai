@@ -1,0 +1,22 @@
+List of cycle segments
+Segment	1	12	127900965	128390950
+Segment	2	12	127901844	128333395
+Segment	3	12	127901844	128390950
+Segment	4	12	127901844	128391943
+Segment	5	12	127901844	128425840
+Segment	6	12	128391192	128391943
+Segment	7	12	128391300	128446257
+Segment	8	12	128405355	128446257
+Segment	9	12	128422768	128446257
+Segment	10	12	133630843	133831634
+Segment	11	12	133730843	133754223
+Segment	12	12	133730843	133754594
+Segment	13	12	133730843	133765019
+Segment	14	12	133762212	133765019
+Segment	15	12	133765020	133831634
+Cycle=1;Copy_count=2.93215646255;Length=1005490;IsCyclicPath=True;CycleClass=BFB-like;Segments=5+,2-,12+,14-,11-
+Cycle=2;Copy_count=1.51466958697;Length=64393;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,8-,9+,0+
+Cycle=3;Copy_count=1.25196770923;Length=545696;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,7-,6+,1-,0+
+Cycle=4;Copy_count=1.19057200823;Length=200792;IsCyclicPath=False;CycleClass=Linear;Segments=0+,10-,0+
+Cycle=5;Copy_count=0.511231614529;Length=66615;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,15-,0+
+Cycle=6;Copy_count=0.465785912462;Length=1037136;IsCyclicPath=True;CycleClass=BFB-like_Invalid;Segments=4+,3-,13+,12-

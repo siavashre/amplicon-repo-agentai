@@ -1,0 +1,18 @@
+List of cycle segments
+Segment	1	6	21994985	21995625
+Segment	2	6	21994985	22005625
+Segment	3	6	21995510	21995625
+Segment	4	12	26988739	28693227
+Segment	5	12	27088705	28594665
+Segment	6	12	27088790	28592923
+Segment	7	12	27088790	28693227
+Segment	8	12	27089287	28592923
+Segment	9	12	27089294	28693227
+Segment	10	12	27097500	28594665
+Segment	11	12	28594666	28693227
+Cycle=1;Copy_count=2.92585795365;Length=10641;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,0+
+Cycle=2;Copy_count=1.53260667945;Length=1704489;IsCyclicPath=False;CycleClass=Linear;Segments=0+,4-,0+
+Cycle=3;Copy_count=1.18415936052;Length=3009598;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=8-,5+
+Cycle=4;Copy_count=1.04198909363;Length=3208488;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,7-,3-,9+,0+
+Cycle=5;Copy_count=0.592460495115;Length=98562;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,11-,0+
+Cycle=6;Copy_count=0.306485400227;Length=3001941;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1+,6+,10-,0+

@@ -1,0 +1,5 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+21	39766226	21	39771972	foldback	5	None	++	39766225	39771971	None	None
+21	39766226	21	39771972	foldback	4	None	++	39766225	39771971	None	None
+21	39766226	21	39775592	deletion-like	8	None	+-	39766225	39775593	None	None
+21	39771972	21	39775747	foldback	8	None	++	39771971	39775746	None	None

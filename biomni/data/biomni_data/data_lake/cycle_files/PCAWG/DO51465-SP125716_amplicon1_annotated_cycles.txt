@@ -1,0 +1,20 @@
+List of cycle segments
+Segment	1	9	35402502	36202163
+Segment	2	9	35502956	36066808
+Segment	3	9	35502956	36202154
+Segment	4	9	35504550	36072899
+Segment	5	9	35504550	36079004
+Segment	6	9	35872200	36202154
+Segment	7	9	36202155	36202163
+Segment	8	9	37204875	37324849
+Segment	9	9	37210132	37324849
+Segment	10	9	37213954	37429878
+Segment	11	9	37429240	37429878
+Segment	12	9	37429240	37478594
+Segment	13	9	37454543	37478156
+Cycle=1;Copy_count=2.63170277765;Length=799662;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+
+Cycle=2;Copy_count=2.62490436693;Length=1138308;IsCyclicPath=True;CycleClass=BFB-like;Segments=2-,5+
+Cycle=3;Copy_count=1.96009204362;Length=474183;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,8+,13+,11-,6-,0+
+Cycle=4;Copy_count=1.66373195609;Length=354257;IsCyclicPath=True;CycleClass=BFB-like;Segments=9-,10+,13-
+Cycle=5;Copy_count=0.923782118494;Length=1316904;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,12-,3-,4+,0+
+Cycle=6;Copy_count=0.656099622648;Length=9;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,7-,0+

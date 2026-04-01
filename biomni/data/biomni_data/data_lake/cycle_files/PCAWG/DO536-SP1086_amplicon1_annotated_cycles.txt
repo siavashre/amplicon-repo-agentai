@@ -1,0 +1,36 @@
+List of cycle segments
+Segment	1	1	157327375	158867532
+Segment	2	1	158068168	158330118
+Segment	3	1	158068168	158339099
+Segment	4	1	158068168	158867532
+Segment	5	1	158071978	158326473
+Segment	6	1	158071978	158867532
+Segment	7	1	158071978	159648707
+Segment	8	1	158869981	159648707
+Segment	9	1	159441000	159648707
+Segment	10	1	159649657	160283099
+Segment	11	1	159649657	160292165
+Segment	12	1	159649657	161521499
+Segment	13	1	159649657	162004754
+Segment	14	1	160292721	160315691
+Segment	15	1	160292870	161558699
+Segment	16	1	160836939	161521499
+Segment	17	1	161412300	161437799
+Segment	18	1	161412300	161558699
+Segment	19	1	161631000	162005999
+Segment	20	1	161631000	162230747
+Segment	21	1	162231280	164895781
+Segment	22	1	162244688	163182360
+Segment	23	1	162244688	164895781
+Segment	24	1	162253200	162369899
+Cycle=1;Copy_count=30.3699778066;Length=25500;IsCyclicPath=False;CycleClass=Linear;Segments=0+,17-,0+
+Cycle=2;Copy_count=4.33064209697;Length=3264250;IsCyclicPath=False;CycleClass=Linear;Segments=0+,21-,20-,0+
+Cycle=3;Copy_count=3.05336288336;Length=4190728;IsCyclicPath=False;CycleClass=Linear;Segments=0+,12-,8-,1-,0+
+Cycle=4;Copy_count=2.66211345916;Length=146400;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,18-,0+
+Cycle=5;Copy_count=1.85859212409;Length=516447;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2+,5-
+Cycle=6;Copy_count=1.71007816396;Length=3501311;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,23-,11-,9-,0+
+Cycle=7;Copy_count=1.64830123294;Length=375000;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,19-,0+
+Cycle=8;Copy_count=1.36205698557;Length=7087654;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=11-,8-,6-,4+,8+,13+,22-
+Cycle=9;Copy_count=0.821919875245;Length=1973362;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,16-,14-,15+,0+
+Cycle=10;Copy_count=0.622418590736;Length=116700;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,24-,0+
+Cycle=11;Copy_count=0.476005223508;Length=2481105;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,3-,7+,10+,0+

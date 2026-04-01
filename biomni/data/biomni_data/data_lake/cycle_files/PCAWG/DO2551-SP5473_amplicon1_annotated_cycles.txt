@@ -1,0 +1,35 @@
+List of cycle segments
+Segment	1	1	38330013	39072918
+Segment	2	1	38330013	39074463
+Segment	3	1	38330013	39180112
+Segment	4	1	38551893	39074463
+Segment	5	1	38555516	39072918
+Segment	6	1	38617500	39074463
+Segment	7	1	39054616	39070075
+Segment	8	1	39056565	39080021
+Segment	9	2	191959229	192765220
+Segment	10	2	192059731	192765220
+Segment	11	2	192059731	194425499
+Segment	12	2	192059731	194689501
+Segment	13	2	194698763	194817848
+Segment	14	2	198567226	198588011
+Segment	15	19	33648149	33745349
+Segment	16	19	33648149	33746060
+Segment	17	19	33648149	33747530
+Segment	18	19	37817672	41211979
+Segment	19	19	37913400	41211979
+Segment	20	19	37917938	38324999
+Segment	21	19	37917938	40879199
+Segment	22	19	39691500	40879199
+Cycle=1;Copy_count=11.0806090678;Length=38917;IsCyclicPath=True;CycleClass=BFB-like;Segments=7-,8+
+Cycle=2;Copy_count=6.02798421456;Length=3394308;IsCyclicPath=False;CycleClass=Linear;Segments=0+,18-,0+
+Cycle=3;Copy_count=3.65134303548;Length=99382;IsCyclicPath=False;CycleClass=Linear;Segments=0+,17-,0+
+Cycle=4;Copy_count=3.17342779792;Length=3598957;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,3-,12+,13+,0+
+Cycle=5;Copy_count=2.77190216462;Length=3948727;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,13-,12-,1+,6-,0+
+Cycle=6;Copy_count=2.7108558247;Length=1039974;IsCyclicPath=True;CycleClass=BFB-like;Segments=4+,5-
+Cycle=7;Copy_count=1.99551424145;Length=1213054;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,20-,9-,0+
+Cycle=8;Copy_count=1.65345219869;Length=20786;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,14-,0+
+Cycle=9;Copy_count=1.46183480007;Length=1187700;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,22-,0+
+Cycle=10;Copy_count=0.657738211222;Length=195113;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,15+,16-,0+
+Cycle=11;Copy_count=0.656235439862;Length=7519878;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,21-,10-,2+,1-,11+,0+
+Cycle=12;Copy_count=0.653496225127;Length=3298580;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,19-,0+
