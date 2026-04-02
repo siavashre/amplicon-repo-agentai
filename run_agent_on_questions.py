@@ -91,8 +91,8 @@ def main():
     print(f"Questions to run: {len(pairs)}")
 
     # --- Agent imports (mutate default_config before any A1 construction) ---
-    from biomni.config import default_config
-    from biomni.agent.a1 import A1
+    from amplicon.config import default_config
+    from amplicon.agent.a1 import A1
 
     for pair in pairs:
         idx = pair["index"]

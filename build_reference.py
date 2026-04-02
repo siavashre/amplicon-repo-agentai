@@ -24,8 +24,8 @@ def _patch_data_paths(source: str) -> str:
     """Patch hardcoded data directory/file paths that don't exist on disk.
 
     Handles both:
-      PATH = "biomni/data/.../CCLE.csv"   (single file)
-      DATA_DIR = "biomni/data/.../data_lake/"  (directory prefix)
+      PATH = "amplicon/data/.../CCLE.csv"   (single file)
+      DATA_DIR = "amplicon/data/.../data_lake/"  (directory prefix)
     """
     # Patch single-file PATH assignment
     m = re.search(r'\bPATH\s*=\s*["\']([^"\']+)["\']', source)

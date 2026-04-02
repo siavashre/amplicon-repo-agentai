@@ -144,12 +144,12 @@ def write_report(report_path: Path, results: list[dict[str, str | int | float]])
 def run_test_script(repo_root: Path) -> tuple[str, int]:
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo_root)
-    biomni_dir = repo_root / "biomni"
+    amplicon_dir = repo_root / "amplicon"
     cmd = [sys.executable, "test.py"]
     log(f"Running command: {' '.join(cmd)}")
     process = subprocess.Popen(
         cmd,
-        cwd=str(biomni_dir),
+        cwd=str(amplicon_dir),
         env=env,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,

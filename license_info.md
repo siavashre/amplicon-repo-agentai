@@ -40,7 +40,7 @@ To manage which datasets are used based on licensing, Biomni provides a configur
 ### Usage
 
 ```python
-from biomni.agent import A1
+from amplicon.agent import A1
 
 # For commercial use (excludes non-commercial datasets)
 agent = A1(commercial_mode=True)

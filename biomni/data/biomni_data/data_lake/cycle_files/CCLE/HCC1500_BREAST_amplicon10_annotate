@@ -1,9 +1,0 @@
-List of cycle segments
-Segment	1	chr18	58579346	63819090
-Segment	2	chr18	58581315	59890310
-Segment	3	chr18	58583488	63800061
-Segment	4	chr18	61343400	61518407
-Segment	5	chr18	61521816	63819090
-Cycle=1;Copy_count=2.42572012232;Length=5239745;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
-Cycle=2;Copy_count=1.92983052473;Length=6525570;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2-,3+
-Cycle=3;Copy_count=1.086632758;Length=2472283;IsCyclicPath=False;CycleClass=Linear;Segments=0+,5-,4-,0+

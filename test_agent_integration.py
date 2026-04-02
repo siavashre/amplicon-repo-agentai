@@ -9,12 +9,12 @@ from __future__ import annotations
 import os
 from typing import Any
 
-import biomni.agent.a1 as a1_module
-import biomni.llm as llm_module
-from biomni.agent import A1
+import amplicon.agent.a1 as a1_module
+import amplicon.llm as llm_module
+from amplicon.agent import A1
 from langchain_core.messages import AIMessage, HumanMessage
 
-CSV_PATH = "/home/oem/Desktop/amplicon-repo-agentai/biomni/data/biomni_data/data_lake/CCLE.csv"
+CSV_PATH = "/home/oem/Desktop/amplicon-repo-agentai/amplicon/data/amplicon_data/data_lake/CCLE.csv"
 
 
 def _assert(condition: bool, message: str) -> None:
@@ -151,7 +151,7 @@ def _base_code() -> str:
 import pandas as pd
 import numpy as np
 import ast
-from biomni.tool.amplicon_table import query_amplicons
+from amplicon.tool.amplicon_table import query_amplicons
 
 CSV_PATH = r"{CSV_PATH}"
 

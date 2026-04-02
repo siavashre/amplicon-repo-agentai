@@ -3,7 +3,7 @@
 
 import pandas as pd
 
-csv_path = "/Users/siavashraeisidehkordi/amplicon-repo-agentai/amplicon-repo-agentai/biomni/data/biomni_data/data_lake/CCLE.csv"
+csv_path = "/Users/siavashraeisidehkordi/amplicon-repo-agentai/amplicon-repo-agentai/amplicon/data/amplicon_data/data_lake/CCLE.csv"
 
 df = pd.read_csv(csv_path)
 

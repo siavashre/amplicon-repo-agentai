@@ -13,9 +13,9 @@ from __future__ import annotations
 
 import os
 
-from biomni.agent import A1
+from amplicon.agent import A1
 
-CSV_PATH = "/home/oem/Desktop/amplicon-repo-agentai/biomni/data/biomni_data/data_lake/CCLE.csv"
+CSV_PATH = "/home/oem/Desktop/amplicon-repo-agentai/amplicon/data/amplicon_data/data_lake/CCLE.csv"
 
 QUESTIONS = [
     "Is YES1 amplified as ecDNA or BFB in CCLE? In which samples?",
@@ -110,7 +110,7 @@ if __name__ == "__main__":
         raise SystemExit(f"CCLE.csv not found at {CSV_PATH}")
 
     # Help the tool find CCLE.csv via environment path
-    os.environ["BIOMNI_DATA_PATH"] = os.path.dirname(CSV_PATH)
+    os.environ["AMPLICON_DATA_PATH"] = os.path.dirname(CSV_PATH)
 
     # llm_model = os.getenv("LLM_MODEL")
     llm_model = "gpt-5-mini"

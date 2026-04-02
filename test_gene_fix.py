@@ -5,9 +5,9 @@ import sys
 
 sys.path.insert(0, "/Users/siavashraeisidehkordi/amplicon-repo-agentai/amplicon-repo-agentai")
 
-from biomni.tool.amplicon_table import query_amplicons
+from amplicon.tool.amplicon_table import query_amplicons
 
-csv_path = "/Users/siavashraeisidehkordi/amplicon-repo-agentai/amplicon-repo-agentai/biomni/data/biomni_data/data_lake/CCLE.csv"
+csv_path = "/Users/siavashraeisidehkordi/amplicon-repo-agentai/amplicon-repo-agentai/amplicon/data/amplicon_data/data_lake/CCLE.csv"
 
 print("=" * 60)
 print("Testing gene filter with quoted gene names")

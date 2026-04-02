@@ -1,9 +1,0 @@
-List of cycle segments
-Segment	1	1	88909920	89440536
-Segment	2	1	89009847	89340570
-Segment	3	11	68971232	69086099
-Segment	4	11	68971232	69681166
-Segment	5	11	69144600	69681166
-Cycle=1;Copy_count=14.4942758922;Length=982159;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,3-,2+,5-,0+
-Cycle=2;Copy_count=2.122343009;Length=530617;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
-Cycle=3;Copy_count=1.91420386804;Length=1040659;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=4+,2-
