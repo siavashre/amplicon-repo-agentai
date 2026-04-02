@@ -52,6 +52,7 @@ if os.path.exists(".env"):
 class AgentState(TypedDict):
     messages: list[BaseMessage]
     next_step: str | None
+    help_question: str | None  # Set when the agent wants to ask the user for input
 
 
 class A1:
@@ -214,7 +215,7 @@ class A1:
 
         self.llm = get_llm(
             llm,
-            stop_sequences=["</execute>", "</solution>"],
+            stop_sequences=["</execute>", "</solution>", "</help>"],
             source=source,
             base_url=base_url,
             api_key=api_key,
@@ -245,6 +246,7 @@ class A1:
                 self.llm_source = "Groq"
         
         self.thread_loggers = {}  # For gradio multi-thread logging
+        self._help_count = 0  # Tracks help requests for the current go() session
 
         if self.use_tool_retriever:
             self.tool_registry = ToolRegistry(module2api)
@@ -1160,33 +1162,39 @@ If a step fails or needs modification, mark it with an X and explain why:
 Always show the updated plan after each step so the user can track progress.
 
 At each turn, you should first provide your thinking and reasoning given the conversation history, but keep if brief and efficient. Do not keep repeating yourself or over-explain.
-After that, you have two options:
+After that, you have three options:
 
-1) Interact with a programming environment and receive the corresponding output within <observe></observe>. Your code should be enclosed using "<execute>" tag, for example: <execute> print("Hello World!") </execute>. IMPORTANT: You must end the code block with </execute> tag.
-   - For Python code (default): <execute> print("Hello World!") </execute>
-   - For R code: <execute> #!R\nlibrary(ggplot2)\nprint("Hello from R") </execute>
-   - For Bash scripts and commands: <execute> #!BASH\necho "Hello from Bash"\nls -la </execute>
-   - For CLI softwares, use Bash scripts.
-   - When using a data file, first check the column names and structure of the file by checking the head or maximum of first 5 rows (DO NOT PRINT THE ENTIRE DATA OR A LARGE PORTION OF IT), to know how to interact with it properly.
-   - Never add new assumptions, like adding limits, etc. If you need more information and cannot perform the task with current specifications, report the issue.
-   - If you are able to do something in a single step, do it in a single step. Do not overcomplicate the code by breaking it into multiple steps unnecessarily. For example, if there is a tool that can directly give you the answer, use it directly instead of writing code to process the data yourself. If you can write a one-liner to get the answer, do not write a multi-line code block that does the same thing.
-   - Use tools efficiently, if you can achieve your goal by calling a tool in one step, don’t break the tool call into multiple steps.
-   - ONLY PRINT NECESSARY OUTPUT AND RESULTS. NEVER PRINT THE ENTIRE DATAFRAME IF IT'S NOT NECESSARY.
-   - ALWAYS PRIORITIZE USING TOOLS IF YOU CAN ACHIEVE A GOAL WITH THEM, RATHER THAN IMPLEMENTING IT YOURSELF.
+1) Interact with a programming environment:
+   Enclose your code in <execute>...</execute>. You will receive the output inside <observe>...</observe>.
+   - For Python (default): <execute> print("Hello World!") </execute>
+   - For R: <execute> #!R\nprint("Hello") </execute>
+   - For Bash: <execute> #!BASH\necho "Hello" </execute>
+   - Check data structure (head/first 5 rows) before processing. Never print entire dataframes.
+   - ALWAYS PRIORITIZE USING TOOLS over writing your own implementation.
+   - NEVER put print() statements that ask the user a question inside <execute>. The user cannot reply to a print. If you need to ask something after running code, use <help> in your next response.
 
-2) When you think it is ready, directly provide a solution that adheres to the required format for the given task to the user. Your solution should be enclosed using "<solution>" tag, for example: The answer is <solution> A </solution>. IMPORTANT: You must end the solution block with </solution> tag. IMPORTANT: The <solution> block must contain only actual computed values and results — never Python variable names, format placeholders like {{variable}}, or descriptions of what was computed. If the answer is a table or list of numbers, include the literal values.
+2) Ask the user for input you cannot determine yourself:
+   Use <help>...</help> - the conversation pauses, the user replies, and then you continue.
+   Example: <help>Which dataset would you like to use: CCLE, TCGA, or PCAWG?</help>
+   After you write <help>question</help>, you will receive the user’s answer and can proceed.
+   Use <help> whenever the task says "ask the user" or when you genuinely need input that is not in the data.
+   IMPORTANT: Do NOT use <solution>, <observation> or <execute> to ask questions. <help> is the correct and only tag for this.
+
+3) Provide the final answer:
+   Enclose it in <solution>...</solution>. Use this ONLY when you have a finished result to report.
+   The <solution> block must contain only actual results — never questions, never "awaiting input", never descriptions of what you plan to do.
 
 You have many chances to interact with the environment to receive the observation. So you can decompose your code into multiple steps.
-Don't overcomplicate the code. Keep it simple and easy to understand.
+Don’t overcomplicate the code. Keep it simple and easy to understand.
 When writing the code, please print out the steps and results in a clear and concise manner, like a research log.
 When calling the existing python functions in the function dictionary, YOU MUST SAVE THE OUTPUT and PRINT OUT the result.
 For example, result = understand_scRNA(XXX) print(result)
 Otherwise the system will not be able to know what has been done.
 
-For R code, use the #!R marker at the beginning of your code block to indicate it's R code.
+For R code, use the #!R marker at the beginning of your code block to indicate it’s R code.
 For Bash scripts and commands, use the #!BASH marker at the beginning of your code block. This allows for both simple commands and multi-line scripts with variables, loops, conditionals, loops, and other Bash features.
 
-In each response, you must include EITHER <execute> or <solution> tag. NEVER include both in the same response. You MUST wait for the <observe> result from your <execute> block before you are allowed to write a <solution>. Do not respond with messages without any tags. No empty messages.
+In each response, include EXACTLY ONE of: <execute>, <help>, or <solution>. Never combine them. No empty messages.
 """
 
         # Add self-critic instructions if needed
@@ -1431,7 +1439,7 @@ Each library is listed with its description to help you understand its functiona
             if hasattr(self.llm, "model_name") and (
                 "gpt" in str(self.llm.model_name).lower() or "openai" in str(type(self.llm)).lower()
             ):
-                system_prompt += "\n\nIMPORTANT FOR GPT MODELS: You MUST use XML tags <execute> or <solution> in EVERY response. Do not use markdown code blocks (```) - use <execute> tags instead."
+                system_prompt += "\n\nIMPORTANT FOR GPT MODELS: You MUST use exactly one XML tag in EVERY response: <execute> to run code, <help> to ask the user a question, or <solution> to give a final answer. Do not use markdown code blocks (```) - use <execute> tags instead."
 
             messages = [SystemMessage(content=system_prompt)] + state["messages"]
             response = self.llm.invoke(messages)
@@ -1470,19 +1478,40 @@ Each library is listed with its description to help you understand its functiona
                 msg += "</solution>"
             if "<think>" in msg and "</think>" not in msg:
                 msg += "</think>"
+            if "<help>" in msg and "</help>" not in msg:
+                msg += "</help>"
 
             # More flexible pattern matching for different LLM styles
             think_match = re.search(r"<think>(.*?)</think>", msg, re.DOTALL | re.IGNORECASE)
             execute_match = re.search(r"<execute>(.*?)</execute>", msg, re.DOTALL | re.IGNORECASE)
             answer_match = re.search(r"<solution>(.*?)</solution>", msg, re.DOTALL | re.IGNORECASE)
+            help_match = re.search(r"<help>(.*?)</help>", msg, re.DOTALL | re.IGNORECASE)
 
             # Alternative patterns for OpenAI models that might use different formatting
             if not execute_match:
                 # Try to find code blocks that might be intended as execute blocks
                 code_block_match = re.search(r"```(?:python|bash|r)?\s*(.*?)```", msg, re.DOTALL)
-                if code_block_match and not answer_match:
+                if code_block_match and not answer_match and not help_match:
                     # If we found a code block and no solution, treat it as execute
                     execute_match = code_block_match
+
+            # If <help> appears alongside <execute> or <solution>, <help> takes priority —
+            # the agent is signalling it needs input before it can proceed.
+            if help_match and execute_match:
+                print("Warning: both <help> and <execute> found in the same response — dropping <execute>.")
+                msg = re.sub(r"<execute>.*?</execute>", "", msg, flags=re.DOTALL | re.IGNORECASE).strip()
+                execute_match = None
+            if help_match and answer_match:
+                print("Warning: both <help> and <solution> found in the same response — dropping <solution>.")
+                msg = re.sub(r"<solution>.*?</solution>", "", msg, flags=re.DOTALL | re.IGNORECASE).strip()
+                answer_match = None
+
+            # If both <execute> and <solution> appear together, strip <solution> — the agent
+            # must always observe execution results before producing a final answer.
+            if execute_match and answer_match:
+                print("Warning: both <execute> and <solution> found in the same response — dropping <solution>.")
+                msg = re.sub(r"<solution>.*?</solution>", "", msg, flags=re.DOTALL | re.IGNORECASE).strip()
+                answer_match = None
 
             # Add the message to the state before checking for errors
             state["messages"].append(AIMessage(content=msg.strip()))
@@ -1491,30 +1520,29 @@ Each library is listed with its description to help you understand its functiona
                 state["next_step"] = "end"
             elif execute_match:
                 state["next_step"] = "execute"
+            elif help_match:
+                self._help_count += 1
+                state["next_step"] = "help"
             elif think_match:
                 state["next_step"] = "generate"
             else:
                 print("parsing error...")
-
                 error_count = sum(
                     1 for m in state["messages"] if isinstance(m, AIMessage) and "There are no tags" in m.content
                 )
-
                 if error_count >= 2:
-                    # If we've already tried to correct the model twice, just end the conversation
                     print("Detected repeated parsing errors, ending conversation")
                     state["next_step"] = "end"
-                    # Add a final message explaining the termination
                     state["messages"].append(
                         AIMessage(
                             content="Execution terminated due to repeated parsing errors. Please check your input and try again."
                         )
                     )
                 else:
-                    # Try to correct it
                     state["messages"].append(
                         HumanMessage(
-                            content="Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again."
+                            content="Each response must include exactly one of: <execute>, <help>, or <solution>. None of these tags were found in the current response. Please fix and regenerate.",
+                            name="internal",
                         )
                     )
                     state["next_step"] = "generate"
@@ -1604,14 +1632,34 @@ Each library is listed with its description to help you understand its functiona
 
             return state
 
+        def ask_user(state: AgentState) -> AgentState:
+            """Record the agent's help question in state and stop the graph.
+            The actual input() call happens in go() after the stream ends."""
+            # Use help_question already set (e.g. from execute observation intercept),
+            # or fall back to extracting from a <help> tag in the last message.
+            question = state.get("help_question")
+            if not question:
+                last_message = state["messages"][-1].content
+                help_match = re.search(r"<help>(.*?)</help>", last_message, re.DOTALL | re.IGNORECASE)
+                question = help_match.group(1).strip() if help_match else "The agent needs your help to proceed."
+            state["help_question"] = question
+            state["next_step"] = "end"
+            return state
+
+        def routing_after_execute(state: AgentState) -> Literal["generate"]:
+            """After execution, always return to generate for the next step."""
+            return "generate"
+
         def routing_function(
             state: AgentState,
-        ) -> Literal["execute", "generate", "end"]:
+        ) -> Literal["execute", "generate", "help", "end"]:
             next_step = state.get("next_step")
             if next_step == "execute":
                 return "execute"
             elif next_step == "generate":
                 return "generate"
+            elif next_step == "help":
+                return "help"
             elif next_step == "end":
                 return "end"
             else:
@@ -1645,7 +1693,8 @@ Each library is listed with its description to help you understand its functiona
                 # Add feedback as a new message
                 state["messages"].append(
                     HumanMessage(
-                        content=f"Wait... this is not enough to solve the task. Here are some feedbacks for improvement:\n{feedback.content}"
+                        content=f"Wait... this is not enough to solve the task. Here are some feedbacks for improvement:\n{feedback.content}",
+                        name="internal",
                     )
                 )
                 self.critic_count += 1
@@ -1661,6 +1710,7 @@ Each library is listed with its description to help you understand its functiona
         # Add nodes
         workflow.add_node("generate", generate)
         workflow.add_node("execute", execute)
+        workflow.add_node("ask_user", ask_user)
 
         if self_critic:
             workflow.add_node("self_critic", execute_self_critic)
@@ -1671,6 +1721,7 @@ Each library is listed with its description to help you understand its functiona
                 path_map={
                     "execute": "execute",
                     "generate": "generate",
+                    "help": "ask_user",
                     "end": "self_critic",
                 },
             )
@@ -1684,9 +1735,14 @@ Each library is listed with its description to help you understand its functiona
             workflow.add_conditional_edges(
                 "generate",
                 routing_function,
-                path_map={"execute": "execute", "generate": "generate", "end": END},
+                path_map={"execute": "execute", "generate": "generate", "help": "ask_user", "end": END},
             )
-        workflow.add_edge("execute", "generate")
+        workflow.add_conditional_edges(
+            "execute",
+            routing_after_execute,
+            path_map={"ask_user": "ask_user", "generate": "generate"},
+        )
+        workflow.add_edge("ask_user", END)
         workflow.add_edge(START, "generate")
 
         # Compile the workflow
@@ -1838,6 +1894,7 @@ Each library is listed with its description to help you understand its functiona
 
         """
         self.critic_count = 0
+        self._help_count = 0
         self.user_task = prompt
 
         # Initialize token logging session if enabled
@@ -1854,28 +1911,64 @@ Each library is listed with its description to help you understand its functiona
             selected_resources_names = self._prepare_resources_for_retrieval(prompt)
             self.update_system_prompt_with_selected_resources(selected_resources_names)
 
-        inputs = {"messages": [HumanMessage(content=prompt)], "next_step": None}
+        inputs = {"messages": [HumanMessage(content=prompt)], "next_step": None, "help_question": None}
         config = {"recursion_limit": 500, "configurable": {"thread_id": 42}}
         self.log = []
 
         # Store the final conversation state for markdown generation
         final_state = None
+        message = None
 
-        for s in self.app.stream(inputs, stream_mode="values", config=config):
-            message = s["messages"][-1]
-            out = pretty_print(message)
-            self.log.append(out)
-            final_state = s  # Store the latest state
+        # Loop to support <help> interactions: each pass runs the graph until it either
+        # finishes normally or pauses to ask the user a question.
+        while True:
+            for s in self.app.stream(inputs, stream_mode="values", config=config):
+                message = s["messages"][-1]
+                # Skip internal system-injected messages (not from the actual user)
+                if isinstance(message, HumanMessage) and getattr(message, "name", None) == "internal":
+                    final_state = s
+                    continue
+                out = pretty_print(message)
+                self.log.append(out)
+                final_state = s
 
-            # Log turn if token logging is enabled
-            result = self._log_turn(self.token_logger, turn_counter, message)
-            if result is not None:
-                turn_counter = result
+                # Log turn if token logging is enabled
+                result = self._log_turn(self.token_logger, turn_counter, message)
+                if result is not None:
+                    turn_counter = result
+
+            # Check whether the graph paused to ask the user for input
+            help_question = (final_state or {}).get("help_question")
+            if not help_question:
+                break
+
+            # Print the question and wait for user input in the main thread
+            import sys
+            sys.stdout.write(f"\n[Agent] {help_question}\nYour response: ")
+            sys.stdout.flush()
+            try:
+                user_response = sys.stdin.readline().rstrip("\n").strip()
+            except EOFError:
+                user_response = ""
+            if not user_response:
+                user_response = "No additional information provided. Please proceed with your best judgment."
+
+            # Feed the user's response back as an observation so the model sees it
+            # in the same channel as code execution results and continues naturally.
+            observation_msg = AIMessage(content=f"<observation>{user_response}</observation>")
+            pretty_print(observation_msg)
+            self.log.append(str(observation_msg.content))
+
+            inputs = {
+                "messages": final_state["messages"] + [observation_msg],
+                "next_step": None,
+                "help_question": None,
+            }
 
         # Store the conversation state for markdown generation
         self._conversation_state = final_state
 
-        return self.log, message.content
+        return self.log, message.content if message is not None else ""
 
     def go_stream(self, prompt) -> Generator[dict, None, None]:
         """Execute the agent with the given prompt and return a generator that yields each step.
@@ -1890,13 +1983,14 @@ Each library is listed with its description to help you understand its functiona
             dict: Each step of the agent's execution containing the current message and state
         """
         self.critic_count = 0
+        self._help_count = 0
         self.user_task = prompt
 
         if self.use_tool_retriever:
             selected_resources_names = self._prepare_resources_for_retrieval(prompt)
             self.update_system_prompt_with_selected_resources(selected_resources_names)
 
-        inputs = {"messages": [HumanMessage(content=prompt)], "next_step": None}
+        inputs = {"messages": [HumanMessage(content=prompt)], "next_step": None, "help_question": None}
         config = {"recursion_limit": 500, "configurable": {"thread_id": 42}}
         self.log = []
 
@@ -2799,7 +2893,7 @@ Each library is listed with its description to help you understand its functiona
             agent_messages.append(HumanMessage(content=text_input))
 
             # Prepare inputs for the agent
-            inputs = {"messages": agent_messages, "next_step": None}
+            inputs = {"messages": agent_messages, "next_step": None, "help_question": None}
             config = {"recursion_limit": 500, "configurable": {"thread_id": thread_id}}
 
             # Stream the agent's responses
