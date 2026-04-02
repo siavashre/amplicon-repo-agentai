@@ -10,6 +10,36 @@ _persistent_namespace = {}
 _captured_plots = []
 
 
+def ask_user(question: str) -> str:
+    """Ask the user a question interactively and return their typed response.
+
+    Use this whenever you need input from the user that cannot be determined
+    from the available data or environment (e.g. which dataset to use, column
+    names, filter values). Call it from inside an <execute> block:
+
+        dataset = ask_user("Which dataset would you like: CCLE, TCGA, or PCAWG?")
+        print(f"User chose: {dataset}")
+
+    Args:
+        question: The question to display to the user.
+
+    Returns:
+        The user's response as a stripped string, or "" if no input is available.
+    """
+    # sys.stdout is captured by the REPL buffer; sys.stderr goes to the real terminal.
+    sys.stderr.write(f"\n[Agent question] {question}\nYour response: ")
+    sys.stderr.flush()
+    try:
+        response = sys.stdin.readline()
+        return response.rstrip("\n").strip() if response else ""
+    except EOFError:
+        return ""
+
+
+# Make ask_user available to all code executed in the persistent REPL namespace.
+_persistent_namespace["ask_user"] = ask_user
+
+
 def run_python_repl(command: str) -> str:
     """Executes the provided Python command in a persistent environment and returns the output.
     Variables defined in one execution will be available in subsequent executions.
