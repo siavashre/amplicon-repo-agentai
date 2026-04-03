@@ -12,6 +12,7 @@ import tempfile
 import threading
 from datetime import datetime
 
+import pandas as pd
 import gradio as gr
 
 os.environ.setdefault("BIOMNI_PATH", "biomni/data")
@@ -61,6 +62,31 @@ def _save_plot(b64_data: str) -> str:
     return tmp.name
 
 
+def _parse_markdown_table(text: str):
+    """Extract the first markdown table from text and return a DataFrame, or None."""
+    lines = text.splitlines()
+    table_lines = []
+    in_table = False
+    for line in lines:
+        if re.match(r"\s*\|.+\|", line):
+            in_table = True
+            table_lines.append(line.strip())
+        elif in_table:
+            break
+    if len(table_lines) < 2:
+        return None
+    # Remove separator row (---|---|---)
+    rows = [l for l in table_lines if not re.match(r"^\|[-| :]+\|$", l)]
+    if len(rows) < 1:
+        return None
+    headers = [c.strip() for c in rows[0].strip("|").split("|")]
+    data = [[c.strip() for c in r.strip("|").split("|")] for r in rows[1:]]
+    try:
+        return pd.DataFrame(data, columns=headers)
+    except Exception:
+        return None
+
+
 def _extract_answer(messages):
     full_text = "\n".join(messages) if isinstance(messages, list) else str(messages)
     solution_match = re.search(r"<solution>(.*?)</solution>", full_text, re.DOTALL)
@@ -84,9 +110,10 @@ agent = A1(
 
 # ── Agent handler ─────────────────────────────────────────────────────────────
 def respond(message, history, session_state):
-    """Handle a user message. Returns (history, gallery_update, new_session_state)."""
+    """Handle a user message. Returns (textbox, history, gallery, dataframe, session_state)."""
     history = history or []
     no_gallery = gr.update(visible=False, value=[])
+    no_table = gr.update(visible=False, value=None)
 
     # ── Continuing a clarification ────────────────────────────────────────────
     if session_state is not None:
@@ -101,14 +128,16 @@ def respond(message, history, session_state):
         if event["type"] == "help":
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": event["question"]})
-            return "", history, no_gallery, session_state
+            return "", history, no_gallery, no_table, session_state
         else:
             answer = result_container.get("answer", "")
             plots = result_container.get("plots", [])
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": answer})
             gallery = gr.update(visible=True, value=[_save_plot(b) for b in plots]) if plots else no_gallery
-            return "", history, gallery, None
+            df = _parse_markdown_table(answer)
+            table = gr.update(visible=True, value=df) if df is not None else no_table
+            return "", history, gallery, table, None
 
     # ── Fresh query ───────────────────────────────────────────────────────────
     clear_captured_plots()
@@ -145,14 +174,16 @@ def respond(message, history, session_state):
         history.append({"role": "user", "content": message})
         history.append({"role": "assistant", "content": event["question"]})
         new_state = {"response_q": response_q, "question_q": question_q, "result": result_container}
-        return "", history, no_gallery, new_state
+        return "", history, no_gallery, no_table, new_state
     else:
         answer = result_container.get("answer", "")
         plots = result_container.get("plots", [])
         history.append({"role": "user", "content": message})
         history.append({"role": "assistant", "content": answer})
         gallery = gr.update(visible=True, value=[_save_plot(b) for b in plots]) if plots else no_gallery
-        return "", history, gallery, None
+        df = _parse_markdown_table(answer)
+        table = gr.update(visible=True, value=df) if df is not None else no_table
+        return "", history, gallery, table, None
 
 
 # ── Gradio UI ─────────────────────────────────────────────────────────────────
@@ -176,6 +207,7 @@ with gr.Blocks(title="Biomni Amplicon Agent") as demo:
     session_state = gr.State(value=None)
 
     chatbot = gr.Chatbot(height=550, show_label=False)
+    data_table = gr.Dataframe(label="Results Table", visible=False, wrap=True)
     plot_gallery = gr.Gallery(label="Generated Plots", visible=False, columns=2, height=400)
 
     with gr.Row():
@@ -189,8 +221,9 @@ with gr.Blocks(title="Biomni Amplicon Agent") as demo:
 
     gr.Examples(examples=EXAMPLES, inputs=msg_box)
 
-    send_btn.click(respond, [msg_box, chatbot, session_state], [msg_box, chatbot, plot_gallery, session_state])
-    msg_box.submit(respond, [msg_box, chatbot, session_state], [msg_box, chatbot, plot_gallery, session_state])
+    outputs = [msg_box, chatbot, plot_gallery, data_table, session_state]
+    send_btn.click(respond, [msg_box, chatbot, session_state], outputs)
+    msg_box.submit(respond, [msg_box, chatbot, session_state], outputs)
 
 print(f"\nLaunching Biomni Amplicon Agent demo...")
 print(f"Interactions will be logged to: {DEMO_LOG}")

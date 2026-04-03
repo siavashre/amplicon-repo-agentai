@@ -1195,6 +1195,13 @@ For R code, use the #!R marker at the beginning of your code block to indicate i
 For Bash scripts and commands, use the #!BASH marker at the beginning of your code block. This allows for both simple commands and multi-line scripts with variables, loops, conditionals, loops, and other Bash features.
 
 In each response, include EXACTLY ONE of: <execute>, <help>, or <solution>. Never combine them. No empty messages.
+
+TABULAR DATA FORMATTING:
+When presenting tabular results (e.g., lists of amplicons, samples, genes, or any multi-column data), ALWAYS format them as a markdown table inside your <solution> tag. Use this format:
+| Column1 | Column2 | Column3 |
+|---------|---------|---------|
+| value1  | value2  | value3  |
+Limit tables to the most important columns (5-8 columns max) for readability. If there are many rows, show the top N and state the total count.
 """
 
         # Add self-critic instructions if needed
