@@ -1,10 +1,10 @@
+gradio>=6.0.0
 numpy==2.1
 pandas
 matplotlib
 scipy
 statsmodels
 scikit-learn
-gradio
 langchain
 langgraph==0.3.18
 langchain-openai
