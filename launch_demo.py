@@ -7,47 +7,17 @@ All interactions are logged to: logs/demo_interactions.log
 import os
 import re
 import base64
+import queue
 import tempfile
+import threading
 from datetime import datetime
 
 import gradio as gr
-from openai import OpenAI
 
 os.environ.setdefault("BIOMNI_PATH", "biomni/data")
 
 from biomni.agent import A1
 from biomni.tool.support_tools import get_captured_plots, clear_captured_plots
-
-# ── Topic filter ──────────────────────────────────────────────────────────────
-_openai_client = OpenAI()
-
-_FILTER_PROMPT = """You are a strict topic classifier for a cancer genomics assistant.
-The assistant ONLY answers questions about:
-- Cancer amplicons (ecDNA, BFB, Linear, Complex-non-cyclic)
-- Oncogenes and their amplification
-- Cancer datasets: CCLE, TCGA, PCAWG
-- Genomic coordinates of genes
-- Cancer biology related to amplification
-
-Reply with exactly one word: RELEVANT or IRRELEVANT."""
-
-
-def _is_cancer_question(question: str) -> bool:
-    """Return True if the question is relevant to cancer amplicon biology."""
-    try:
-        resp = _openai_client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": _FILTER_PROMPT},
-                {"role": "user", "content": question},
-            ],
-            max_tokens=5,
-            temperature=0,
-        )
-        verdict = resp.choices[0].message.content.strip().upper()
-        return verdict == "RELEVANT"
-    except Exception:
-        return True  # fail open — let agent handle it
 
 # ── Logging setup ────────────────────────────────────────────────────────────
 LOG_DIR = "logs"
@@ -91,6 +61,20 @@ def _save_plot(b64_data: str) -> str:
     return tmp.name
 
 
+def _extract_answer(messages):
+    full_text = "\n".join(messages) if isinstance(messages, list) else str(messages)
+    solution_match = re.search(r"<solution>(.*?)</solution>", full_text, re.DOTALL)
+    if solution_match:
+        return solution_match.group(1).strip()
+    for msg in reversed(messages):
+        if "Ai Message" in msg:
+            lines = msg.split("\n")
+            answer = "\n".join(l for l in lines if "===" not in l).strip()
+            if answer:
+                return answer
+    return str(messages[-1])
+
+
 # ── Agent setup ───────────────────────────────────────────────────────────────
 agent = A1(
     llm="gpt-5",
@@ -99,54 +83,76 @@ agent = A1(
 
 
 # ── Agent handler ─────────────────────────────────────────────────────────────
-def run_agent(message, history):
-    """Run the agent and return (answer, gallery_update)."""
-    if not _is_cancer_question(message):
-        return (
-            "I can only answer questions about cancer amplicon data (ecDNA, BFB, Linear, "
-            "Complex-non-cyclic) and related cancer genomics topics. Please ask something "
-            "related to cancer amplification, oncogenes, or the CCLE/TCGA/PCAWG datasets.",
-            gr.update(visible=False, value=[]),
-        )
+def respond(message, history, session_state):
+    """Handle a user message. Returns (history, gallery_update, new_session_state)."""
+    history = history or []
+    no_gallery = gr.update(visible=False, value=[])
 
+    # ── Continuing a clarification ────────────────────────────────────────────
+    if session_state is not None:
+        response_q: queue.Queue = session_state["response_q"]
+        question_q: queue.Queue = session_state["question_q"]
+        result_container: dict = session_state["result"]
+
+        response_q.put(message)
+
+        event = question_q.get()
+
+        if event["type"] == "help":
+            history.append({"role": "user", "content": message})
+            history.append({"role": "assistant", "content": event["question"]})
+            return "", history, no_gallery, session_state
+        else:
+            answer = result_container.get("answer", "")
+            plots = result_container.get("plots", [])
+            history.append({"role": "user", "content": message})
+            history.append({"role": "assistant", "content": answer})
+            gallery = gr.update(visible=True, value=[_save_plot(b) for b in plots]) if plots else no_gallery
+            return "", history, gallery, None
+
+    # ── Fresh query ───────────────────────────────────────────────────────────
     clear_captured_plots()
-    try:
-        result = agent.go(message)
-        messages = result[0] if isinstance(result, tuple) else result
-        full_text = "\n".join(messages) if isinstance(messages, list) else str(messages)
+    question_q: queue.Queue = queue.Queue()
+    response_q: queue.Queue = queue.Queue()
+    result_container: dict = {}
 
-        solution_match = re.search(r"<solution>(.*?)</solution>", full_text, re.DOTALL)
-        if solution_match:
-            answer = solution_match.group(1).strip()
-        else:
-            answer = ""
-            for msg in reversed(messages):
-                if "Ai Message" in msg:
-                    lines = msg.split("\n")
-                    answer = "\n".join(l for l in lines if "===" not in l).strip()
-                    if answer:
-                        break
-            if not answer:
-                answer = str(messages[-1])
+    def user_input_fn(help_question: str) -> str:
+        question_q.put({"type": "help", "question": help_question})
+        return response_q.get()
 
-        tool_log = _extract_tool_log(messages)
-        _log_interaction(message, tool_log, answer)
+    def run_in_thread():
+        try:
+            result = agent.go(message, user_input_fn=user_input_fn)
+            messages = result[0] if isinstance(result, tuple) else result
+            tool_log = _extract_tool_log(messages)
+            answer = _extract_answer(messages)
+            _log_interaction(message, tool_log, answer)
+            result_container["answer"] = answer
+            result_container["plots"] = get_captured_plots()
+            clear_captured_plots()
+        except Exception as e:
+            result_container["answer"] = f"Error: {str(e)}"
+            result_container["plots"] = []
+            _log_interaction(message, "(error)", result_container["answer"])
+        question_q.put({"type": "done"})
 
-        # Collect plots
-        plots = get_captured_plots()
-        clear_captured_plots()
-        if plots:
-            paths = [_save_plot(b) for b in plots]
-            gallery_update = gr.update(visible=True, value=paths)
-        else:
-            gallery_update = gr.update(visible=False, value=[])
+    thread = threading.Thread(target=run_in_thread, daemon=True)
+    thread.start()
 
-        return answer, gallery_update
+    event = question_q.get()
 
-    except Exception as e:
-        error_msg = f"Error: {str(e)}"
-        _log_interaction(message, "(error — no tool log)", error_msg)
-        return error_msg, gr.update(visible=False, value=[])
+    if event["type"] == "help":
+        history.append({"role": "user", "content": message})
+        history.append({"role": "assistant", "content": event["question"]})
+        new_state = {"response_q": response_q, "question_q": question_q, "result": result_container}
+        return "", history, no_gallery, new_state
+    else:
+        answer = result_container.get("answer", "")
+        plots = result_container.get("plots", [])
+        history.append({"role": "user", "content": message})
+        history.append({"role": "assistant", "content": answer})
+        gallery = gr.update(visible=True, value=[_save_plot(b) for b in plots]) if plots else no_gallery
+        return "", history, gallery, None
 
 
 # ── Gradio UI ─────────────────────────────────────────────────────────────────
@@ -160,20 +166,31 @@ EXAMPLES = [
 
 CSS = "* { font-family: Arial, sans-serif !important; }"
 
-plot_gallery = gr.Gallery(label="Generated Plots", visible=False, columns=2, height=400)
-
 with gr.Blocks(title="Biomni Amplicon Agent") as demo:
-    gr.ChatInterface(
-        fn=run_agent,
-        title="Biomni Amplicon Agent",
-        description=(
-            "Ask questions about cancer amplicon data (ecDNA, BFB, Linear, Complex-non-cyclic) "
-            "from CCLE, TCGA, and PCAWG datasets."
-        ),
-        examples=EXAMPLES,
-        additional_outputs=[plot_gallery],
+    gr.Markdown("# Biomni Amplicon Agent")
+    gr.Markdown(
+        "Ask questions about cancer amplicon data (ecDNA, BFB, Linear, Complex-non-cyclic) "
+        "from CCLE, TCGA, and PCAWG datasets."
     )
-    plot_gallery.render()
+
+    session_state = gr.State(value=None)
+
+    chatbot = gr.Chatbot(height=550, show_label=False)
+    plot_gallery = gr.Gallery(label="Generated Plots", visible=False, columns=2, height=400)
+
+    with gr.Row():
+        msg_box = gr.Textbox(
+            placeholder="Type your question here...",
+            show_label=False,
+            scale=9,
+            autofocus=True,
+        )
+        send_btn = gr.Button("Send", variant="primary", scale=1)
+
+    gr.Examples(examples=EXAMPLES, inputs=msg_box)
+
+    send_btn.click(respond, [msg_box, chatbot, session_state], [msg_box, chatbot, plot_gallery, session_state])
+    msg_box.submit(respond, [msg_box, chatbot, session_state], [msg_box, chatbot, plot_gallery, session_state])
 
 print(f"\nLaunching Biomni Amplicon Agent demo...")
 print(f"Interactions will be logged to: {DEMO_LOG}")

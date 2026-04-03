@@ -1923,11 +1923,14 @@ Each library is listed with its description to help you understand its functiona
         except Exception:
             return True  # fail open — let agent handle it
 
-    def go(self, prompt):
+    def go(self, prompt, user_input_fn=None):
         """Execute the agent with the given prompt.
 
         Args:
             prompt: The user's query
+            user_input_fn: Optional callable(question: str) -> str used to answer
+                <help> questions instead of reading from stdin. Useful for
+                embedding the agent inside a UI (e.g. Gradio).
 
         """
         if not self._is_cancer_question(prompt):
@@ -1982,14 +1985,17 @@ Each library is listed with its description to help you understand its functiona
             if not help_question:
                 break
 
-            # Print the question and wait for user input in the main thread
-            import sys
-            sys.stdout.write(f"\n[Agent] {help_question}\nYour response: ")
-            sys.stdout.flush()
-            try:
-                user_response = sys.stdin.readline().rstrip("\n").strip()
-            except EOFError:
-                user_response = ""
+            # Get the user's response — via callback (e.g. Gradio) or stdin
+            if user_input_fn is not None:
+                user_response = user_input_fn(help_question) or ""
+            else:
+                import sys
+                sys.stdout.write(f"\n[Agent] {help_question}\nYour response: ")
+                sys.stdout.flush()
+                try:
+                    user_response = sys.stdin.readline().rstrip("\n").strip()
+                except EOFError:
+                    user_response = ""
             if not user_response:
                 user_response = "No additional information provided. Please proceed with your best judgment."
 
