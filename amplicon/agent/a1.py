@@ -1886,6 +1886,43 @@ Each library is listed with its description to help you understand its functiona
 
         return selected_resources_names
 
+    # ── Topic filter ──────────────────────────────────────────────────────────
+    _FILTER_PROMPT = (
+        "You are a strict topic classifier for a cancer genomics assistant.\n"
+        "The assistant ONLY answers questions about:\n"
+        "- Cancer amplicons (ecDNA, BFB, Linear, Complex-non-cyclic)\n"
+        "- Oncogenes and their amplification\n"
+        "- Cancer datasets: CCLE, TCGA, PCAWG\n"
+        "- Genomic coordinates of genes\n"
+        "- Cancer biology related to amplification\n\n"
+        "Reply with exactly one word: RELEVANT or IRRELEVANT."
+    )
+
+    _OFF_TOPIC_REPLY = (
+        "I can only answer questions about cancer amplicon data (ecDNA, BFB, Linear, "
+        "Complex-non-cyclic) and related cancer genomics topics. Please ask something "
+        "related to cancer amplification, oncogenes, or the CCLE/TCGA/PCAWG datasets."
+    )
+
+    def _is_cancer_question(self, question: str) -> bool:
+        """Return True if the question is relevant to cancer amplicon biology."""
+        try:
+            from openai import OpenAI
+            client = OpenAI()
+            resp = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {"role": "system", "content": self._FILTER_PROMPT},
+                    {"role": "user", "content": question},
+                ],
+                max_tokens=5,
+                temperature=0,
+            )
+            verdict = resp.choices[0].message.content.strip().upper()
+            return verdict == "RELEVANT"
+        except Exception:
+            return True  # fail open — let agent handle it
+
     def go(self, prompt):
         """Execute the agent with the given prompt.
 
@@ -1893,6 +1930,9 @@ Each library is listed with its description to help you understand its functiona
             prompt: The user's query
 
         """
+        if not self._is_cancer_question(prompt):
+            return ([self._OFF_TOPIC_REPLY],)
+
         self.critic_count = 0
         self._help_count = 0
         self.user_task = prompt

@@ -11,43 +11,11 @@ import tempfile
 from datetime import datetime
 
 import gradio as gr
-from openai import OpenAI
 
 os.environ.setdefault("BIOMNI_PATH", "amplicon/data")
 
 from amplicon.agent import A1
 from amplicon.tool.support_tools import get_captured_plots, clear_captured_plots
-
-# ── Topic filter ──────────────────────────────────────────────────────────────
-_openai_client = OpenAI()
-
-_FILTER_PROMPT = """You are a strict topic classifier for a cancer genomics assistant.
-The assistant ONLY answers questions about:
-- Cancer amplicons (ecDNA, BFB, Linear, Complex-non-cyclic)
-- Oncogenes and their amplification
-- Cancer datasets: CCLE, TCGA, PCAWG
-- Genomic coordinates of genes
-- Cancer biology related to amplification
-
-Reply with exactly one word: RELEVANT or IRRELEVANT."""
-
-
-def _is_cancer_question(question: str) -> bool:
-    """Return True if the question is relevant to cancer amplicon biology."""
-    try:
-        resp = _openai_client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": _FILTER_PROMPT},
-                {"role": "user", "content": question},
-            ],
-            max_tokens=5,
-            temperature=0,
-        )
-        verdict = resp.choices[0].message.content.strip().upper()
-        return verdict == "RELEVANT"
-    except Exception:
-        return True  # fail open — let agent handle it
 
 # ── Logging setup ────────────────────────────────────────────────────────────
 LOG_DIR = "logs"
@@ -101,14 +69,6 @@ agent = A1(
 # ── Agent handler ─────────────────────────────────────────────────────────────
 def run_agent(message, history):
     """Run the agent and return (answer, gallery_update)."""
-    if not _is_cancer_question(message):
-        return (
-            "I can only answer questions about cancer amplicon data (ecDNA, BFB, Linear, "
-            "Complex-non-cyclic) and related cancer genomics topics. Please ask something "
-            "related to cancer amplification, oncogenes, or the CCLE/TCGA/PCAWG datasets.",
-            gr.update(visible=False, value=[]),
-        )
-
     clear_captured_plots()
     try:
         result = agent.go(message)
