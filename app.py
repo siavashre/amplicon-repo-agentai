@@ -85,7 +85,7 @@ def _extract_tool_log(messages: list) -> str:
 def _save_plot(b64_data: str) -> str:
     """Save a base64-encoded PNG to a temp file and return the path."""
     raw = base64.b64decode(b64_data.split(",")[1] if "," in b64_data else b64_data)
-    tmp = tempfile.NamedTemporaryFile(suffix=".png", delete=False, dir=LOG_DIR)
+    tmp = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
     tmp.write(raw)
     tmp.close()
     return tmp.name
@@ -177,6 +177,5 @@ with gr.Blocks(title="Biomni Amplicon Agent") as demo:
 
 print(f"\nLaunching Biomni Amplicon Agent demo...")
 print(f"Interactions will be logged to: {DEMO_LOG}")
-print("Share the public URL below with your testers.\n")
 
-demo.launch(share=True, server_name="0.0.0.0", css=CSS)
+demo.launch(share=False, server_name="0.0.0.0", css=CSS)

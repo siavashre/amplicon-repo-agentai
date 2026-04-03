@@ -235,3 +235,8 @@ data/ddinter_raw/
 # Sphinx build
 /docs/build/
 /docs/source/api/
+
+# Large data files — not tracked in git
+biomni/data/biomni_data/data_lake/genes/
+biomni/results_plots/ecDNA_BFB_cleaned_data.csv
+biomni/know_how/resource/addgene_grna_sequences.csv
