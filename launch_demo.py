@@ -145,9 +145,14 @@ def respond(message, history, session_state):
     response_q: queue.Queue = queue.Queue()
     result_container: dict = {}
 
+    HELP_TIMEOUT = 300  # seconds — abandon thread if user never responds
+
     def user_input_fn(help_question: str) -> str:
         question_q.put({"type": "help", "question": help_question})
-        return response_q.get()
+        try:
+            return response_q.get(timeout=HELP_TIMEOUT) or ""
+        except queue.Empty:
+            raise RuntimeError("Session timed out waiting for user response.")
 
     def run_in_thread():
         try:

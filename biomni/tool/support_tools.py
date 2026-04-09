@@ -1,13 +1,20 @@
 import base64
 import io
 import sys
+import threading
 from io import StringIO
 
 # Create a persistent namespace that will be shared across all executions
 _persistent_namespace = {}
 
-# Global list to store captured plots
-_captured_plots = []
+# Thread-local storage for captured plots — each user/thread gets its own list
+_thread_local = threading.local()
+
+
+def _get_captured_plots_list():
+    if not hasattr(_thread_local, "captured_plots"):
+        _thread_local.captured_plots = []
+    return _thread_local.captured_plots
 
 
 def ask_user(question: str) -> str:
@@ -76,7 +83,7 @@ def run_python_repl(command: str) -> str:
 
 def _capture_matplotlib_plots():
     """Capture any matplotlib plots that might have been generated during execution."""
-    global _captured_plots
+    captured = _get_captured_plots_list()
     try:
         import matplotlib.pyplot as plt
 
@@ -95,8 +102,8 @@ def _capture_matplotlib_plots():
                 plot_data = f"data:image/png;base64,{image_data}"
 
                 # Add to captured plots if not already there
-                if plot_data not in _captured_plots:
-                    _captured_plots.append(plot_data)
+                if plot_data not in captured:
+                    captured.append(plot_data)
 
                 # Close the figure to free memory
                 plt.close(fig)
@@ -157,15 +164,13 @@ def _apply_matplotlib_patches():
 
 
 def get_captured_plots():
-    """Get all captured matplotlib plots."""
-    global _captured_plots
-    return _captured_plots.copy()
+    """Get all captured matplotlib plots for the current thread."""
+    return _get_captured_plots_list().copy()
 
 
 def clear_captured_plots():
-    """Clear all captured matplotlib plots."""
-    global _captured_plots
-    _captured_plots = []
+    """Clear all captured matplotlib plots for the current thread."""
+    _get_captured_plots_list().clear()
 
 
 def read_function_source_code(function_name: str) -> str:
