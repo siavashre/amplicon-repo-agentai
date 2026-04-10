@@ -110,7 +110,7 @@ agent = A1(
 
 # ── Agent handler ─────────────────────────────────────────────────────────────
 def respond(message, history, session_state):
-    """Handle a user message. Returns (textbox, history, gallery, dataframe, session_state)."""
+    """Handle a user message. Generator — yields loading state then final answer."""
     history = history or []
     no_gallery = gr.update(visible=False, value=[])
     no_table = gr.update(visible=False, value=None)
@@ -121,14 +121,18 @@ def respond(message, history, session_state):
         question_q: queue.Queue = session_state["question_q"]
         result_container: dict = session_state["result"]
 
-        response_q.put(message)
+        # Show thinking indicator
+        thinking = history + [{"role": "user", "content": message},
+                               {"role": "assistant", "content": "⏳ Thinking..."}]
+        yield "", thinking, no_gallery, no_table, session_state
 
+        response_q.put(message)
         event = question_q.get()
 
         if event["type"] == "help":
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": event["question"]})
-            return "", history, no_gallery, no_table, session_state
+            yield "", history, no_gallery, no_table, session_state
         else:
             answer = result_container.get("answer", "")
             plots = result_container.get("plots", [])
@@ -137,10 +141,17 @@ def respond(message, history, session_state):
             gallery = gr.update(visible=True, value=[_save_plot(b) for b in plots]) if plots else no_gallery
             df = _parse_markdown_table(answer)
             table = gr.update(visible=True, value=df) if df is not None else no_table
-            return "", history, gallery, table, None
+            yield "", history, gallery, table, None
+        return
 
     # ── Fresh query ───────────────────────────────────────────────────────────
     clear_captured_plots()
+
+    # Show thinking indicator immediately
+    thinking = history + [{"role": "user", "content": message},
+                           {"role": "assistant", "content": "⏳ Thinking..."}]
+    yield "", thinking, no_gallery, no_table, session_state
+
     question_q: queue.Queue = queue.Queue()
     response_q: queue.Queue = queue.Queue()
     result_container: dict = {}
@@ -179,7 +190,7 @@ def respond(message, history, session_state):
         history.append({"role": "user", "content": message})
         history.append({"role": "assistant", "content": event["question"]})
         new_state = {"response_q": response_q, "question_q": question_q, "result": result_container}
-        return "", history, no_gallery, no_table, new_state
+        yield "", history, no_gallery, no_table, new_state
     else:
         answer = result_container.get("answer", "")
         plots = result_container.get("plots", [])
@@ -188,7 +199,7 @@ def respond(message, history, session_state):
         gallery = gr.update(visible=True, value=[_save_plot(b) for b in plots]) if plots else no_gallery
         df = _parse_markdown_table(answer)
         table = gr.update(visible=True, value=df) if df is not None else no_table
-        return "", history, gallery, table, None
+        yield "", history, gallery, table, None
 
 
 # ── Gradio UI ─────────────────────────────────────────────────────────────────
