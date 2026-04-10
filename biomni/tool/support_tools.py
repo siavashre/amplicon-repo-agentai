@@ -82,6 +82,13 @@ def run_python_repl(command: str) -> str:
         sys.stdout = mystdout = StringIO()
 
         try:
+            # Ensure non-interactive backend so plt.show() doesn't block
+            try:
+                import matplotlib
+                matplotlib.use("Agg")
+            except Exception:
+                pass
+
             # Apply matplotlib monkey patches before execution
             _apply_matplotlib_patches()
 
@@ -89,8 +96,9 @@ def run_python_repl(command: str) -> str:
             exec(command, _get_namespace())
             output = mystdout.getvalue()
 
-            # Capture any matplotlib plots that were generated
-            # _capture_matplotlib_plots()
+            # Capture any open matplotlib figures (catches fig.savefig() and
+            # any other plot creation that bypassed the plt.savefig/show patches)
+            _capture_matplotlib_plots()
 
         except Exception as e:
             output = f"Error: {str(e)}"
