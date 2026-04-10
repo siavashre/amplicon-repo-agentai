@@ -2,6 +2,8 @@ import glob
 import inspect
 import os
 import re
+import threading
+import uuid
 from collections.abc import Generator
 from datetime import datetime
 from pathlib import Path
@@ -19,7 +21,7 @@ from biomni.config import default_config
 from biomni.know_how import KnowHowLoader
 from biomni.llm import SourceType, get_llm
 from biomni.model.retriever import ToolRetriever
-from biomni.tool.support_tools import run_python_repl
+from biomni.tool.support_tools import run_python_repl, set_thread_ask_user
 from biomni.tool.tool_registry import ToolRegistry
 from biomni.utils import (
     check_and_download_s3_files,
@@ -247,6 +249,7 @@ class A1:
         
         self.thread_loggers = {}  # For gradio multi-thread logging
         self._help_count = 0  # Tracks help requests for the current go() session
+        self._go_lock = threading.Lock()  # Serialise concurrent go() calls (instance state is not thread-safe)
 
         if self.use_tool_retriever:
             self.tool_registry = ToolRegistry(module2api)
@@ -1943,6 +1946,22 @@ Each library is listed with its description to help you understand its functiona
         if not self._is_cancer_question(prompt):
             return ([self._OFF_TOPIC_REPLY],)
 
+        with self._go_lock:
+            return self._go_locked(prompt, user_input_fn)
+
+    def _go_locked(self, prompt, user_input_fn=None):
+        """Internal implementation of go() — called with _go_lock held."""
+        # Route ask_user() calls inside <execute> blocks through user_input_fn when provided
+        if user_input_fn is not None:
+            set_thread_ask_user(user_input_fn)
+
+        try:
+            return self._go_impl(prompt, user_input_fn)
+        finally:
+            set_thread_ask_user(None)
+
+    def _go_impl(self, prompt, user_input_fn=None):
+        """Core logic of go(), separated for clarity."""
         self.critic_count = 0
         self._help_count = 0
         self.user_task = prompt
@@ -1962,7 +1981,8 @@ Each library is listed with its description to help you understand its functiona
             self.update_system_prompt_with_selected_resources(selected_resources_names)
 
         inputs = {"messages": [HumanMessage(content=prompt)], "next_step": None, "help_question": None}
-        config = {"recursion_limit": 500, "configurable": {"thread_id": 42}}
+        # Use a unique thread_id per call so concurrent users don't share LangGraph checkpoint state
+        config = {"recursion_limit": 500, "configurable": {"thread_id": str(uuid.uuid4())}}
         self.log = []
 
         # Store the final conversation state for markdown generation
@@ -2044,7 +2064,7 @@ Each library is listed with its description to help you understand its functiona
             self.update_system_prompt_with_selected_resources(selected_resources_names)
 
         inputs = {"messages": [HumanMessage(content=prompt)], "next_step": None, "help_question": None}
-        config = {"recursion_limit": 500, "configurable": {"thread_id": 42}}
+        config = {"recursion_limit": 500, "configurable": {"thread_id": str(uuid.uuid4())}}
         self.log = []
 
         # Store the final conversation state for markdown generation

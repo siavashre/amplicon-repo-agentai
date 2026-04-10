@@ -4,12 +4,14 @@ Launch the Biomni amplicon agent as a public Gradio web demo.
 All interactions are logged to: logs/demo_interactions.log
 """
 
+import glob
 import os
 import re
 import base64
 import queue
 import tempfile
 import threading
+import time
 from datetime import datetime
 
 import pandas as pd
@@ -60,6 +62,17 @@ def _save_plot(b64_data: str) -> str:
     tmp.write(raw)
     tmp.close()
     return tmp.name
+
+
+def _cleanup_old_plots(max_age_seconds: int = 3600):
+    """Delete plot temp files in LOG_DIR older than max_age_seconds."""
+    now = time.time()
+    for path in glob.glob(os.path.join(LOG_DIR, "tmp*.png")):
+        try:
+            if now - os.path.getmtime(path) > max_age_seconds:
+                os.unlink(path)
+        except OSError:
+            pass
 
 
 def _parse_markdown_table(text: str):
@@ -127,7 +140,13 @@ def respond(message, history, session_state):
         yield "", thinking, no_gallery, no_table, session_state
 
         response_q.put(message)
-        event = question_q.get()
+        try:
+            event = question_q.get(timeout=600)
+        except queue.Empty:
+            history.append({"role": "user", "content": message})
+            history.append({"role": "assistant", "content": "The agent timed out. Please start a new question."})
+            yield "", history, no_gallery, no_table, None
+            return
 
         if event["type"] == "help":
             history.append({"role": "user", "content": message})
@@ -146,6 +165,7 @@ def respond(message, history, session_state):
 
     # ── Fresh query ───────────────────────────────────────────────────────────
     clear_captured_plots()
+    _cleanup_old_plots()
 
     # Show thinking indicator immediately
     thinking = history + [{"role": "user", "content": message},
@@ -157,6 +177,7 @@ def respond(message, history, session_state):
     result_container: dict = {}
 
     HELP_TIMEOUT = 300  # seconds — abandon thread if user never responds
+    AGENT_TIMEOUT = 600  # seconds — max time to wait for agent to finish/ask
 
     def user_input_fn(help_question: str) -> str:
         question_q.put({"type": "help", "question": help_question})
@@ -184,7 +205,13 @@ def respond(message, history, session_state):
     thread = threading.Thread(target=run_in_thread, daemon=True)
     thread.start()
 
-    event = question_q.get()
+    try:
+        event = question_q.get(timeout=AGENT_TIMEOUT)
+    except queue.Empty:
+        history.append({"role": "user", "content": message})
+        history.append({"role": "assistant", "content": "The agent timed out. Please try again with a more specific question."})
+        yield "", history, no_gallery, no_table, None
+        return
 
     if event["type"] == "help":
         history.append({"role": "user", "content": message})

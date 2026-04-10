@@ -26,6 +26,17 @@ def _get_namespace():
     return ns
 
 
+def _stdin_ask_user(question: str) -> str:
+    """Fallback: ask the user via stderr/stdin (terminal mode)."""
+    sys.stderr.write(f"\n[Agent question] {question}\nYour response: ")
+    sys.stderr.flush()
+    try:
+        response = sys.stdin.readline()
+        return response.rstrip("\n").strip() if response else ""
+    except EOFError:
+        return ""
+
+
 def ask_user(question: str) -> str:
     """Ask the user a question interactively and return their typed response.
 
@@ -42,14 +53,18 @@ def ask_user(question: str) -> str:
     Returns:
         The user's response as a stripped string, or "" if no input is available.
     """
-    # sys.stdout is captured by the REPL buffer; sys.stderr goes to the real terminal.
-    sys.stderr.write(f"\n[Agent question] {question}\nYour response: ")
-    sys.stderr.flush()
-    try:
-        response = sys.stdin.readline()
-        return response.rstrip("\n").strip() if response else ""
-    except EOFError:
-        return ""
+    override = getattr(_thread_local, "ask_user_override", None)
+    if override is not None:
+        return override(question) or ""
+    return _stdin_ask_user(question)
+
+
+def set_thread_ask_user(fn):
+    """Set a thread-local override for ask_user (e.g. to route through a web UI).
+
+    Call with fn=None to restore default stdin behaviour.
+    """
+    _thread_local.ask_user_override = fn
 
 
 # ask_user is injected into each thread's namespace on first access (see _get_namespace)
