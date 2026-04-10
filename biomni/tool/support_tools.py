@@ -4,10 +4,7 @@ import sys
 import threading
 from io import StringIO
 
-# Create a persistent namespace that will be shared across all executions
-_persistent_namespace = {}
-
-# Thread-local storage for captured plots — each user/thread gets its own list
+# Thread-local storage — each user/thread gets isolated namespace and plot list
 _thread_local = threading.local()
 
 
@@ -15,6 +12,18 @@ def _get_captured_plots_list():
     if not hasattr(_thread_local, "captured_plots"):
         _thread_local.captured_plots = []
     return _thread_local.captured_plots
+
+
+def _get_namespace():
+    """Return the persistent REPL namespace for the current thread.
+    Initialized lazily after _REPL_BUILTINS is defined."""
+    if not hasattr(_thread_local, "namespace"):
+        _thread_local.namespace = {}
+    ns = _thread_local.namespace
+    # Ensure builtins are always present (handles first access before _REPL_BUILTINS set)
+    for k, v in _REPL_BUILTINS.items():
+        ns.setdefault(k, v)
+    return ns
 
 
 def ask_user(question: str) -> str:
@@ -43,8 +52,8 @@ def ask_user(question: str) -> str:
         return ""
 
 
-# Make ask_user available to all code executed in the persistent REPL namespace.
-_persistent_namespace["ask_user"] = ask_user
+# ask_user is injected into each thread's namespace on first access (see _get_namespace)
+_REPL_BUILTINS = {"ask_user": ask_user}
 
 
 def run_python_repl(command: str) -> str:
@@ -57,15 +66,12 @@ def run_python_repl(command: str) -> str:
         old_stdout = sys.stdout
         sys.stdout = mystdout = StringIO()
 
-        # Use the persistent namespace
-        global _persistent_namespace
-
         try:
             # Apply matplotlib monkey patches before execution
             _apply_matplotlib_patches()
 
-            # Execute the command in the persistent namespace
-            exec(command, _persistent_namespace)
+            # Execute in the thread-local namespace (isolated per user)
+            exec(command, _get_namespace())
             output = mystdout.getvalue()
 
             # Capture any matplotlib plots that were generated
