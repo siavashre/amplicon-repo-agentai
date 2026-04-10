@@ -27,6 +27,11 @@ LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 DEMO_LOG = os.path.join(LOG_DIR, "demo_interactions.log")
 
+# ── Timeouts ──────────────────────────────────────────────────────────────────
+AGENT_TIMEOUT = 600   # seconds — max wait for agent to finish or ask a question
+HELP_TIMEOUT = 300    # seconds — max wait for user to reply to a clarification
+PLOT_MAX_AGE = 3600   # seconds — delete temp plot files older than this
+
 
 def _log_interaction(question: str, tool_log: str, answer: str):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -150,7 +155,7 @@ def respond(message, history, session_state):
 
         response_q.put(message)
         try:
-            event = question_q.get(timeout=600)
+            event = question_q.get(timeout=AGENT_TIMEOUT)
         except queue.Empty:
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": "The agent timed out. Please start a new question."})
@@ -174,7 +179,7 @@ def respond(message, history, session_state):
 
     # ── Fresh query ───────────────────────────────────────────────────────────
     clear_captured_plots()
-    _cleanup_old_plots()
+    _cleanup_old_plots(PLOT_MAX_AGE)
 
     # Show thinking indicator immediately
     thinking = history + [{"role": "user", "content": message},
@@ -184,9 +189,6 @@ def respond(message, history, session_state):
     question_q: queue.Queue = queue.Queue()
     response_q: queue.Queue = queue.Queue()
     result_container: dict = {}
-
-    HELP_TIMEOUT = 300  # seconds — abandon thread if user never responds
-    AGENT_TIMEOUT = 600  # seconds — max time to wait for agent to finish/ask
 
     def user_input_fn(help_question: str) -> str:
         question_q.put({"type": "help", "question": help_question})
@@ -206,9 +208,12 @@ def respond(message, history, session_state):
             result_container["plots"] = get_captured_plots()
             clear_captured_plots()
         except Exception as e:
-            result_container["answer"] = f"Error: {str(e)}"
+            result_container["answer"] = (
+                "Something went wrong while processing your request. "
+                "Please try again or rephrase your question."
+            )
             result_container["plots"] = []
-            _log_interaction(message, "(error)", result_container["answer"])
+            _log_interaction(message, f"(error: {type(e).__name__})", str(e))
         question_q.put({"type": "done"})
 
     thread = threading.Thread(target=run_in_thread, daemon=True)
