@@ -76,28 +76,37 @@ def _cleanup_old_plots(max_age_seconds: int = 3600):
 
 
 def _parse_markdown_table(text: str):
-    """Extract the first markdown table from text and return a DataFrame, or None."""
-    lines = text.splitlines()
-    table_lines = []
-    in_table = False
-    for line in lines:
+    """Extract all markdown tables from text, concatenate, and return a DataFrame, or None."""
+    # Collect each contiguous table block
+    blocks = []
+    current = []
+    for line in text.splitlines():
         if re.match(r"\s*\|.+\|", line):
-            in_table = True
-            table_lines.append(line.strip())
-        elif in_table:
-            break
-    if len(table_lines) < 2:
+            current.append(line.strip())
+        else:
+            if current:
+                blocks.append(current)
+                current = []
+    if current:
+        blocks.append(current)
+
+    dfs = []
+    for block in blocks:
+        rows = [l for l in block if not re.match(r"^\|[-| :]+\|$", l)]
+        if len(rows) < 1:
+            continue
+        headers = [c.strip() for c in rows[0].strip("|").split("|")]
+        data = [[c.strip() for c in r.strip("|").split("|")] for r in rows[1:]]
+        try:
+            dfs.append(pd.DataFrame(data, columns=headers))
+        except Exception:
+            continue
+
+    if not dfs:
         return None
-    # Remove separator row (---|---|---)
-    rows = [l for l in table_lines if not re.match(r"^\|[-| :]+\|$", l)]
-    if len(rows) < 1:
-        return None
-    headers = [c.strip() for c in rows[0].strip("|").split("|")]
-    data = [[c.strip() for c in r.strip("|").split("|")] for r in rows[1:]]
-    try:
-        return pd.DataFrame(data, columns=headers)
-    except Exception:
-        return None
+    if len(dfs) == 1:
+        return dfs[0]
+    return pd.concat(dfs, ignore_index=True)
 
 
 def _extract_answer(messages):
