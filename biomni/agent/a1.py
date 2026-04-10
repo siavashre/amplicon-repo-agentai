@@ -21,7 +21,7 @@ from biomni.config import default_config
 from biomni.know_how import KnowHowLoader
 from biomni.llm import SourceType, get_llm
 from biomni.model.retriever import ToolRetriever
-from biomni.tool.support_tools import run_python_repl, set_thread_ask_user
+from biomni.tool.support_tools import run_python_repl, set_thread_ask_user, get_thread_plot_list
 from biomni.tool.tool_registry import ToolRegistry
 from biomni.utils import (
     check_and_download_s3_files,
@@ -1604,7 +1604,12 @@ Each library is listed with its description to help you understand its functiona
 
                     # Inject custom functions into the Python execution environment
                     self._inject_custom_functions_to_repl()
-                    result = run_with_timeout(run_python_repl, [code], timeout=timeout)
+                    result = run_with_timeout(
+                        run_python_repl,
+                        [code],
+                        kwargs={"_plot_sink": get_thread_plot_list()},
+                        timeout=timeout,
+                    )
 
                     # Plots are now captured directly in the execution entry above
 

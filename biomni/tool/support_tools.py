@@ -71,9 +71,28 @@ def set_thread_ask_user(fn):
 _REPL_BUILTINS = {"ask_user": ask_user}
 
 
-def run_python_repl(command: str) -> str:
+def get_thread_plot_list() -> list:
+    """Return the current thread's mutable captured-plots list.
+
+    Pass the returned list as ``_plot_sink`` to ``run_python_repl`` so that
+    plots captured inside ``run_with_timeout``'s worker thread are written
+    directly into the calling thread's list.
+    """
+    return _get_captured_plots_list()
+
+
+def run_python_repl(command: str, _plot_sink: list | None = None) -> str:
     """Executes the provided Python command in a persistent environment and returns the output.
     Variables defined in one execution will be available in subsequent executions.
+
+    Args:
+        command: Python code to execute.
+        _plot_sink: Optional list owned by the *calling* thread.  When provided,
+            any matplotlib figures captured during execution are appended to this
+            list instead of (or in addition to) the worker-thread-local list.
+            Use this when ``run_python_repl`` is called from a different thread
+            (e.g. via ``run_with_timeout``) so that plots survive the thread
+            boundary.
     """
 
     def execute_in_repl(command: str) -> str:
@@ -104,6 +123,14 @@ def run_python_repl(command: str) -> str:
             output = f"Error: {str(e)}"
         finally:
             sys.stdout = old_stdout
+
+        # If a cross-thread sink was provided, move all locally captured plots
+        # into it so the calling thread can retrieve them via get_captured_plots().
+        if _plot_sink is not None:
+            local_plots = _get_captured_plots_list()
+            _plot_sink.extend(local_plots)
+            local_plots.clear()
+
         return output
 
     command = command.strip("```").strip()
