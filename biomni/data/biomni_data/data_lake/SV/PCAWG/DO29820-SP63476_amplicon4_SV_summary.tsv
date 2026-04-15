@@ -8,9 +8,9 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 12	46039428	12	46040830	foldback	18	unknown	++	46039427	46040829	None	None
 18	24461549	18	24461593	foldback	6	None	--	24461550	24461594	None	None
 18	24461463	18	24462474	foldback	14	None	++	24461462	24462473	None	None
-19	14732344	19	14734139	deletion-like	8	None	+-	14732343	14734140	None	None
+19	14732344	19	14734139	deletion-like	8	unknown	+-	14732343	14734140	None	None
 19	14962939	19	15014120	duplication-like	8	unknown	-+	14962940	15014119	None	None
-19	15046391	19	15049477	deletion-like	18	None	+-	15046390	15049478	None	None
+19	15046391	19	15049477	deletion-like	18	unknown	+-	15046390	15049478	None	None
 19	16308192	19	16309152	duplication-like	6	ecDNA	-+	16308193	16309151	None	None
 19	15103659	19	16884519	inversion	26	ecDNA	--	15103660	16884520	None	None
 19	16542786	19	17762643	inversion	34	ecDNA	++	16542785	17762642	None	None

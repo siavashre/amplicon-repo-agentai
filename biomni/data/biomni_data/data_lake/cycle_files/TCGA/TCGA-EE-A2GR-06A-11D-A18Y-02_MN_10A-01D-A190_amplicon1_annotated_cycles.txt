@@ -1,0 +1,32 @@
+List of cycle segments
+Segment	1	1	117784966	120536243
+Segment	2	1	117886576	120231706
+Segment	3	1	117891293	119888755
+Segment	4	1	117891293	120536243
+Segment	5	1	117964451	120231861
+Segment	6	1	119156285	120536243
+Segment	7	1	119293446	119295103
+Segment	8	1	119416678	120536243
+Segment	9	1	119681632	120236399
+Segment	10	1	119872740	120536243
+Segment	11	1	119881500	120536243
+Segment	12	1	120150781	120285413
+Segment	13	1	120562950	120633425
+Segment	14	1	120562950	120697199
+Segment	15	1	120747300	120797157
+Segment	16	1	121115320	121350378
+Segment	17	1	121216563	121350378
+Cycle=1;Copy_count=19.239094141;Length=134633;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=12+
+Cycle=2;Copy_count=14.7992698969;Length=1450435;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,6-,13-,0+
+Cycle=3;Copy_count=14.6074027301;Length=134250;IsCyclicPath=False;CycleClass=Linear;Segments=0+,14-,0+
+Cycle=4;Copy_count=11.6616136942;Length=1658;IsCyclicPath=True;CycleClass=Invalid;Segments=7+
+Cycle=5;Copy_count=5.51999810062;Length=688584;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,9-,17+,0+
+Cycle=6;Copy_count=2.92255499013;Length=49858;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,15-,0+
+Cycle=7;Copy_count=2.48979034383;Length=235059;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,16-,0+
+Cycle=8;Copy_count=2.24735406764;Length=654744;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,11-,0+
+Cycle=9;Copy_count=3.49382999749;Length=2239132;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,8-,8+,0+
+Cycle=10;Copy_count=2.0736651485;Length=2751278;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=11;Copy_count=1.36884541713;Length=4612542;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2+,5-
+Cycle=12;Copy_count=1.27988188987;Length=3994926;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=3+,3-
+Cycle=13;Copy_count=1.08593158686;Length=1327008;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,10-,10+,0+
+Cycle=14;Copy_count=1.49038025436;Length=5289902;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,4-,4+,0+

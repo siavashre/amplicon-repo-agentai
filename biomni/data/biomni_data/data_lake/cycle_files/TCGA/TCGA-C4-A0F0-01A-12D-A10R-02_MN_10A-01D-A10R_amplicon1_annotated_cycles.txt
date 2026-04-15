@@ -1,0 +1,27 @@
+List of cycle segments
+Segment	1	8	52711043	52731448
+Segment	2	11	38812707	39368879
+Segment	3	11	38917302	39263702
+Segment	4	11	100234065	100553832
+Segment	5	11	100796472	101548938
+Segment	6	11	100796472	101794826
+Segment	7	11	101409016	101548938
+Segment	8	11	101409016	101783315
+Segment	9	11	101580001	101783315
+Segment	10	11	101580001	101794826
+Segment	11	11	101907099	103000533
+Segment	12	11	101959490	102349525
+Segment	13	11	102406329	102619552
+Segment	14	11	102654327	102680784
+Segment	15	11	102684324	102858622
+Segment	16	11	103970899	104267752
+Segment	17	11	104070899	104267752
+Segment	18	11	104273226	104309203
+Segment	19	11	104273226	104410942
+Cycle=1;Copy_count=24.8090377988;Length=1093435;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=11+
+Cycle=2;Copy_count=22.1206314971;Length=213224;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=13+
+Cycle=3;Copy_count=17.8914128211;Length=2862449;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=3-,4+,14+,15-,6+,12-,8-,17+,18+
+Cycle=4;Copy_count=4.69190997477;Length=808177;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,10+,12-,9-,0+
+Cycle=5;Copy_count=2.47497573136;Length=1992148;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=3-,4+,14+,15-,5+,7-,17+,18+
+Cycle=6;Copy_count=1.96864312116;Length=434571;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,19-,16-,0+
+Cycle=7;Copy_count=1.94040513874;Length=576579;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,2-,1-,0+

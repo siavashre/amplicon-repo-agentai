@@ -1,0 +1,10 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+3	181196233	3	181197650	foldback	4	None	++	181196232	181197649	None	None
+3	181227825	3	181227825	foldback	3	None	--	181227826	181227826	None	None
+3	181248455	3	181249931	foldback	2	None	--	181248456	181249932	None	None
+3	181310616	3	181311324	foldback	2	None	++	181310615	181311323	None	None
+3	181320708	3	181321091	foldback	3	None	--	181320709	181321092	None	None
+3	181361922	3	181363734	foldback	2	None	--	181361923	181363735	None	None
+3	181367222	3	181367639	foldback	4	None	--	181367223	181367640	None	None
+3	181391731	3	181392635	foldback	2	None	--	181391732	181392636	None	None
+3	181407139	3	181408028	foldback	2	Complex-non-cyclic	++	181407138	181408027	None	None

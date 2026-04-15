@@ -52,5 +52,5 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 1	162599553	1	162600060	foldback	2	Complex-non-cyclic	--	162599554	162600061	None	None
 1	162649864	1	162653357	foldback	2	None	++	162649863	162653356	None	None
 1	160197364	1	162668453	inversion	12	None	--	160197365	162668454	None	None
-1	162671071	1	162671868	foldback	2	None	--	162671072	162671869	None	None
+1	162671071	1	162671868	foldback	2	Complex-non-cyclic	--	162671072	162671869	None	None
 1	150999457	1	162684884	inversion	13	Complex-non-cyclic	++	150999456	162684883	None	None

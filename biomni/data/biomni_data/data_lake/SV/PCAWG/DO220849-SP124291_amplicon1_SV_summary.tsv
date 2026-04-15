@@ -3,7 +3,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 9	113266936	11	60675451	interchromosomal	14	None	--	113266937	60675452	None	None
 9	113348617	11	68523829	interchromosomal	8	unknown	+-	113348616	68523830	None	None
 9	113349794	11	74899132	interchromosomal	11	None	-+	113349795	74899131	None	None
-9	113436340	11	70158129	interchromosomal	13	None	+-	113436339	70158130	None	None
+9	113436340	11	70158129	interchromosomal	13	unknown	+-	113436339	70158130	None	None
 11	67244634	17	18870607	interchromosomal	4	None	-+	67244635	18870606	None	None
 11	67330085	11	67332452	deletion-like	9	None	+-	67330084	67332453	None	None
 11	67484177	11	67507090	deletion-like	4	None	+-	67484176	67507091	None	None

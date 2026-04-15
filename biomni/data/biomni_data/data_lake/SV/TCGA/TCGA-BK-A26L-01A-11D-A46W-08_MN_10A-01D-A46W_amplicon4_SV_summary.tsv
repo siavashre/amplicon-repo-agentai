@@ -1,0 +1,6 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+17	20393295	17	20430877	inversion	18	Complex-non-cyclic	++	20393294	20430876	None	None
+17	18293789	17	20457257	inversion	11	Complex-non-cyclic	++	18293788	20457256	None	None
+17	18381647	17	35530844	inversion	64	Complex-non-cyclic	++	18381646	35530843	2	GA
+17	20164009	17	37765620	inversion	112	Complex-non-cyclic	--	20164010	37765621	1	C
+17	34942189	17	38258180	inversion	102	Complex-non-cyclic	++	34942188	38258179	1	G

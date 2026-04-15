@@ -1,0 +1,5 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+11	109752806	11	109754966	foldback	5	None	++	109752805	109754965	None	None
+11	129407142	11	129409903	foldback	28	ecDNA	--	129407143	129409904	None	None
+11	109754410	11	129540052	duplication-like	14	None	-+	109754411	129540051	None	None
+11	129719578	11	129720193	foldback	13	ecDNA	++	129719577	129720192	None	None

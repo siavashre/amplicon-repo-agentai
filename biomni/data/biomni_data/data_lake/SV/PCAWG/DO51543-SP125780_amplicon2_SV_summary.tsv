@@ -2,7 +2,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 6	74613597	6	74620403	deletion-like	20	Complex-non-cyclic	+-	74613596	74620404	None	None
 6	74832503	6	74833459	deletion-like	22	Complex-non-cyclic	+-	74832502	74833460	None	None
 6	74865447	6	74866584	deletion-like	43	Complex-non-cyclic	+-	74865446	74866585	None	None
-6	75021632	6	75022191	deletion-like	3	None	+-	75021631	75022192	None	None
+6	75021632	6	75022191	deletion-like	3	Complex-non-cyclic	+-	75021631	75022192	None	None
 6	75303768	6	75304387	deletion-like	4	Complex-non-cyclic	+-	75303767	75304388	None	None
 6	77097495	6	77102641	deletion-like	20	Complex-non-cyclic	+-	77097494	77102642	None	None
 6	77437221	6	77459089	deletion-like	8	Complex-non-cyclic	+-	77437220	77459090	None	None
@@ -11,9 +11,9 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 6	79286755	6	79288650	foldback	7	Complex-non-cyclic	--	79286756	79288651	None	None
 6	79521086	6	79530685	deletion-like	14	Complex-non-cyclic	+-	79521085	79530686	None	None
 6	80071656	6	80073659	duplication-like	7	Complex-non-cyclic	-+	80071657	80073658	None	None
-6	80513842	6	80514609	deletion-like	2	None	+-	80513841	80514610	None	None
-6	80805684	6	80806495	deletion-like	2	None	+-	80805683	80806496	None	None
+6	80513842	6	80514609	deletion-like	2	Complex-non-cyclic	+-	80513841	80514610	None	None
+6	80805684	6	80806495	deletion-like	2	Complex-non-cyclic	+-	80805683	80806496	None	None
 6	80961886	6	80962598	deletion-like	2	Complex-non-cyclic	+-	80961885	80962599	None	None
-6	81268393	6	81269011	deletion-like	2	None	+-	81268392	81269012	None	None
-6	81547311	6	81548109	deletion-like	2	None	+-	81547310	81548110	None	None
+6	81268393	6	81269011	deletion-like	2	Complex-non-cyclic	+-	81268392	81269012	None	None
+6	81547311	6	81548109	deletion-like	2	Complex-non-cyclic	+-	81547310	81548110	None	None
 6	81625975	6	81630663	deletion-like	5	Complex-non-cyclic	+-	81625974	81630664	None	None

@@ -1,0 +1,9 @@
+List of cycle segments
+Segment	1	8	36730570	37257899
+Segment	2	8	36830363	37050882
+Segment	3	8	37051853	37257899
+Segment	4	8	37051853	37347007
+Segment	5	8	37245831	37257899
+Cycle=1;Copy_count=4.57394006017;Length=527744;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,4-,2-,5+,0+
+Cycle=2;Copy_count=1.16759514348;Length=438636;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,3-,2-,5+,0+
+Cycle=3;Copy_count=0.627604760883;Length=527330;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+

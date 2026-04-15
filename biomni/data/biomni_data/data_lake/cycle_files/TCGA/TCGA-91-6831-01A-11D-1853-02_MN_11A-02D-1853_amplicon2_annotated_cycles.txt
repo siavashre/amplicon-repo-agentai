@@ -1,0 +1,26 @@
+List of cycle segments
+Segment	1	8	37034449	37935113
+Segment	2	8	37135090	37337823
+Segment	3	8	37136350	37935113
+Segment	4	8	37143190	37917974
+Segment	5	8	37143190	37935113
+Segment	6	8	37143190	38470869
+Segment	7	8	37847387	37935113
+Segment	8	8	37938322	37978465
+Segment	9	8	37938322	38470869
+Segment	10	8	37938322	38858399
+Segment	11	8	37938322	38943246
+Segment	12	8	38035162	38470869
+Segment	13	8	38069933	38470869
+Segment	14	8	38072915	38470869
+Segment	15	8	38074640	38470869
+Segment	16	8	38460653	38470869
+Segment	17	8	38461127	38470869
+Cycle=1;Copy_count=9.02630738497;Length=797167;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,13-,15+,0+
+Cycle=2;Copy_count=7.78678295459;Length=19960;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,16-,17+,0+
+Cycle=3;Copy_count=2.18171235273;Length=823009;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,9-,7-,2-,0+
+Cycle=4;Copy_count=1.30844949247;Length=1338764;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,14-,8-,1-,0+
+Cycle=5;Copy_count=1.16507491325;Length=1331312;IsCyclicPath=False;CycleClass=Linear;Segments=0+,9-,3-,0+
+Cycle=6;Copy_count=1.07087353724;Length=3121321;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,11-,5-,5+,9+,0+
+Cycle=7;Copy_count=1.07087353724;Length=3124529;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,11-,5-,6+,0+
+Cycle=8;Copy_count=0.543115531362;Length=2922495;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,12-,4-,5+,10+,0+

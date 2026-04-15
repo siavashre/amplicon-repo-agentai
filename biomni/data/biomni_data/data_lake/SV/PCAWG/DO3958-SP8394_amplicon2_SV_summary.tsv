@@ -21,7 +21,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 8	36355257	8	38558108	inversion	5	None	--	36355258	38558109	None	None
 8	38905641	7	20517038	interchromosomal	3	None	++	38905640	20517037	None	None
 8	39108961	8	39110958	foldback	3	Complex-non-cyclic	++	39108960	39110957	None	None
-8	39226894	8	39228190	foldback	3	None	--	39226895	39228191	None	None
+8	39226894	8	39228190	foldback	3	Complex-non-cyclic	--	39226895	39228191	None	None
 8	39231959	8	39387228	deletion-like	4	Complex-non-cyclic	+-	39231958	39387229	None	None
 8	39427063	8	39428076	foldback	2	Complex-non-cyclic	--	39427064	39428077	None	None
 8	36999844	8	39447231	inversion	7	Complex-non-cyclic	--	36999845	39447232	None	None
@@ -31,7 +31,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 8	39572997	8	39573673	foldback	3	Complex-non-cyclic	--	39572998	39573674	None	None
 8	39578854	8	39582598	foldback	3	Complex-non-cyclic	--	39578855	39582599	None	None
 8	40490735	8	40491683	foldback	2	Complex-non-cyclic	++	40490734	40491682	None	None
-8	40513898	8	40515489	foldback	2	None	--	40513899	40515490	None	None
+8	40513898	8	40515489	foldback	2	Complex-non-cyclic	--	40513899	40515490	None	None
 8	40538783	8	40539250	foldback	2	Complex-non-cyclic	--	40538784	40539251	None	None
 8	35015893	8	40545359	inversion	3	Complex-non-cyclic	--	35015894	40545360	None	None
 8	40547409	8	40547409	foldback	2	Complex-non-cyclic	++	40547408	40547408	None	None
@@ -44,7 +44,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 8	37121930	8	42514903	duplication-like	4	Complex-non-cyclic	-+	37121931	42514902	None	None
 8	42148680	8	42520408	inversion	8	Complex-non-cyclic	--	42148681	42520409	None	None
 8	42519763	8	42520959	duplication-like	4	Complex-non-cyclic	-+	42519764	42520958	None	None
-8	40431826	8	59108248	inversion	5	None	--	40431827	59108249	None	None
+8	40431826	8	59108248	inversion	5	Complex-non-cyclic	--	40431827	59108249	None	None
 8	59112301	8	59113610	foldback	2	None	++	59112300	59113609	None	None
 8	128489668	8	128490464	foldback	2	None	--	128489669	128490465	None	None
 8	39700459	8	128499726	inversion	2	None	--	39700460	128499727	None	None

@@ -1,0 +1,16 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+8	37812090	8	37812661	foldback	3	Complex-non-cyclic	--	37812091	37812662	None	None
+8	37863718	8	37864319	foldback	3	Complex-non-cyclic	++	37863717	37864318	15	GCCACCACGCCTGGC
+8	37896025	8	37896455	foldback	2	Complex-non-cyclic	--	37896026	37896456	None	None
+8	38178816	8	38179129	foldback	2	Complex-non-cyclic	++	38178815	38179128	None	None
+8	37737003	8	38228023	duplication-like	2	Complex-non-cyclic	-+	37737004	38228022	None	None
+8	38284348	8	38285078	foldback	2	Complex-non-cyclic	--	38284349	38285079	None	None
+8	38896164	8	38896164	foldback	2	Complex-non-cyclic	++	38896163	38896163	None	None
+8	39070712	8	39071027	foldback	2	None	--	39070713	39071028	None	None
+8	37994755	8	39131947	inversion	3	None	--	37994756	39131948	2	TA
+8	39145193	8	39145416	foldback	2	None	--	39145194	39145417	4	TATT
+8	39216330	8	39216657	foldback	2	None	++	39216329	39216656	3	TGA
+8	39358861	8	39359146	foldback	2	None	--	39358862	39359147	None	None
+8	39386587	8	39386587	foldback	4	None	--	39386588	39386588	None	None
+8	39552021	8	39552746	duplication-like	2	None	-+	39552022	39552745	6	AAAACT
+8	39606695	8	39607074	foldback	2	None	--	39606696	39607075	5	ACATA

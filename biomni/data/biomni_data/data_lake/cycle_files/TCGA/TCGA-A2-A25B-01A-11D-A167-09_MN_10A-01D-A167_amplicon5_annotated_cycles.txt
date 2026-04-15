@@ -1,0 +1,16 @@
+List of cycle segments
+Segment	1	17	46079647	46904651
+Segment	2	17	46099629	47179772
+Segment	3	17	46907548	47179772
+Segment	4	17	64200566	64265058
+Segment	5	17	64266111	65593815
+Segment	6	17	64266111	65594625
+Segment	7	17	65894096	66018460
+Segment	8	17	65913795	65998487
+Segment	9	17	67985183	68084015
+Segment	10	17	68004006	68082888
+Cycle=1;Copy_count=5.62338215097;Length=2635918;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,2-,10+,8-,5-,4-,0+
+Cycle=2;Copy_count=3.59644666546;Length=124365;IsCyclicPath=False;CycleClass=Linear;Segments=0+,7-,0+
+Cycle=3;Copy_count=3.26192611452;Length=98833;IsCyclicPath=False;CycleClass=Linear;Segments=0+,9-,0+
+Cycle=4;Copy_count=2.67536475882;Length=1393008;IsCyclicPath=False;CycleClass=Linear;Segments=0+,6-,4-,0+
+Cycle=5;Copy_count=1.28367014464;Length=1097230;IsCyclicPath=False;CycleClass=Linear;Segments=0+,3-,1-,0+

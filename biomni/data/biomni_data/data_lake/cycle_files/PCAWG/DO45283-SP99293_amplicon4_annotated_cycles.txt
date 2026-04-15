@@ -1,0 +1,10 @@
+List of cycle segments
+Segment	1	X	51575779	51625499
+Segment	2	X	51575779	52075036
+Segment	3	X	51575779	52077848
+Segment	4	X	51575779	52095162
+Segment	5	X	51965694	52073099
+Cycle=1;Copy_count=1.82149927613;Length=1001328;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,2+,3-,0+
+Cycle=2;Copy_count=0.932617599501;Length=519384;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,4-,0+
+Cycle=3;Copy_count=0.918746211999;Length=49721;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=4;Copy_count=0.386540168064;Length=107406;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,5-,0+

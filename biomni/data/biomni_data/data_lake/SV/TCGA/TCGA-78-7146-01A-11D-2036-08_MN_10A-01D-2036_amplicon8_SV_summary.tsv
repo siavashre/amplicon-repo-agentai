@@ -1,0 +1,16 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+17	62014888	17	62253376	inversion	9	Complex-non-cyclic	++	62014887	62253375	None	None
+17	52747494	17	62263292	duplication-like	15	Complex-non-cyclic	-+	52747495	62263291	None	None
+17	61872890	17	64882182	duplication-like	5	Complex-non-cyclic	-+	61872891	64882181	None	None
+17	67316215	17	67316228	foldback	9	Complex-non-cyclic	--	67316216	67316229	None	None
+17	62256131	17	67967475	inversion	11	Complex-non-cyclic	--	62256132	67967476	None	None
+17	64845316	17	68021266	inversion	7	Complex-non-cyclic	--	64845317	68021267	None	None
+17	61879227	17	68040670	inversion	19	Complex-non-cyclic	++	61879226	68040669	None	None
+17	61478161	17	68084768	inversion	5	Complex-non-cyclic	--	61478162	68084769	None	None
+17	61538497	17	68170947	inversion	6	None	++	61538496	68170946	None	None
+17	71250574	17	71711834	inversion	4	None	++	71250573	71711833	None	None
+17	52749870	17	72259889	inversion	4	Complex-non-cyclic	++	52749869	72259888	None	None
+17	62273055	17	73831116	inversion	10	None	--	62273056	73831117	None	None
+17	64906052	17	77000111	inversion	5	None	--	64906053	77000112	None	None
+17	71709397	17	77001497	inversion	8	None	++	71709396	77001496	None	None
+17	68167512	17	80458074	inversion	5	Complex-non-cyclic	++	68167511	80458073	None	None

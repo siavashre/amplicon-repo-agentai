@@ -1,0 +1,13 @@
+List of cycle segments
+Segment	1	1	201839096	201914228
+Segment	2	1	201839096	202312167
+Segment	3	1	201914343	202238907
+Segment	4	1	201936900	202208927
+Segment	5	1	201936900	202239535
+Segment	6	1	202238929	202239535
+Segment	7	1	202239536	202312167
+Cycle=1;Copy_count=3.0708721663;Length=473072;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,0+
+Cycle=2;Copy_count=1.19309494694;Length=72632;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,7-,0+
+Cycle=3;Copy_count=1.03739788799;Length=324565;IsCyclicPath=True;CycleClass=Invalid;Segments=3+
+Cycle=4;Copy_count=0.715209441536;Length=574664;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,5+,4-,0+
+Cycle=5;Copy_count=0.692081230118;Length=347768;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,4+,6-,1-,0+

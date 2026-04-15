@@ -24,7 +24,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 14	77135855	14	77137176	foldback	2	None	++	77135854	77137175	None	None
 14	77139479	14	77139601	foldback	3	None	--	77139480	77139602	None	None
 14	77157821	14	77158643	foldback	3	None	--	77157822	77158644	None	None
-14	77240687	6	11234701	interchromosomal	19	None	--	77240688	11234702	None	None
+14	77240687	6	11234701	interchromosomal	19	Complex-non-cyclic	--	77240688	11234702	None	None
 14	77299727	14	77301991	foldback	4	Complex-non-cyclic	--	77299728	77301992	None	None
 14	77310306	14	77312073	foldback	6	Complex-non-cyclic	++	77310305	77312072	None	None
 14	77317001	14	77318642	foldback	7	Complex-non-cyclic	++	77317000	77318641	None	None
@@ -49,7 +49,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 14	77530731	14	77531481	foldback	2	Complex-non-cyclic	--	77530732	77531482	None	None
 14	77534613	14	77534613	foldback	2	Complex-non-cyclic	--	77534614	77534614	None	None
 14	77543364	14	77544183	foldback	4	Complex-non-cyclic	++	77543363	77544182	None	None
-14	77545683	14	77547030	foldback	2	None	--	77545684	77547031	None	None
+14	77545683	14	77547030	foldback	2	Complex-non-cyclic	--	77545684	77547031	None	None
 14	77547075	14	77547974	foldback	4	Complex-non-cyclic	--	77547076	77547975	None	None
 14	77552922	14	77553037	foldback	5	Complex-non-cyclic	--	77552923	77553038	None	None
 14	77556932	14	77558900	foldback	2	Complex-non-cyclic	--	77556933	77558901	None	None

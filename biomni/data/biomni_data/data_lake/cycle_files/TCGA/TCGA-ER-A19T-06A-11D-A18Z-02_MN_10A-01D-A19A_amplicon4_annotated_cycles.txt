@@ -1,0 +1,69 @@
+List of cycle segments
+Segment	1	18	35217479	37709999
+Segment	2	18	37199636	37202718
+Segment	3	18	37199636	38101799
+Segment	4	18	37202502	38101799
+Segment	5	18	37568400	37701762
+Segment	6	18	37568400	38101799
+Segment	7	18	37568400	38259878
+Segment	8	18	38266772	38864775
+Segment	9	18	38868342	41031540
+Segment	10	18	39561628	39561883
+Segment	11	18	39561628	41031540
+Segment	12	18	39561663	40231829
+Segment	13	18	40247258	40387513
+Segment	14	18	40247258	41324047
+Segment	15	18	40476300	41031540
+Segment	16	18	41032526	41324047
+Segment	17	18	41032526	42500399
+Segment	18	18	41852768	44557499
+Segment	19	18	41852768	46123653
+Segment	20	18	42784500	43551744
+Segment	21	18	43433100	43551744
+Segment	22	18	43433100	45153299
+Segment	23	18	44545800	44557499
+Segment	24	18	44708615	46123653
+Segment	25	18	45567600	46099987
+Segment	26	18	46100534	47694960
+Segment	27	18	46554900	49898099
+Segment	28	18	47698446	48061324
+Segment	29	18	47926975	50166731
+Segment	30	18	49436480	49898099
+Segment	31	18	49436480	50166731
+Segment	32	18	49897753	49898099
+Segment	33	18	52951463	53037412
+Segment	34	18	52951463	53232090
+Segment	35	18	53057964	53122159
+Segment	36	18	53128907	53232090
+Segment	37	18	53857369	54035672
+Segment	38	18	53857369	54136238
+Segment	39	18	53957100	54035672
+Segment	40	18	53958116	54035672
+Segment	41	18	62737469	62884036
+Segment	42	18	62857500	63017795
+Segment	43	18	62857500	63117795
+Segment	44	18	62884174	63017795
+Cycle=1;Copy_count=23.8713747217;Length=11700;IsCyclicPath=False;CycleClass=Linear;Segments=0+,23-,0+
+Cycle=2;Copy_count=4.45287657617;Length=1957306;IsCyclicPath=True;CycleClass=Rearranged;Segments=26+,28+
+Cycle=3;Copy_count=4.43834185563;Length=3839951;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,3-,11+,17+,0+
+Cycle=4;Copy_count=4.07344951243;Length=260296;IsCyclicPath=False;CycleClass=Linear;Segments=0+,43-,0+
+Cycle=5;Copy_count=3.97288652478;Length=1720200;IsCyclicPath=False;CycleClass=Linear;Segments=0+,22-,0+
+Cycle=6;Copy_count=3.56632066649;Length=4811079;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,30-,19+,39-,0+
+Cycle=7;Copy_count=3.07713663801;Length=280628;IsCyclicPath=False;CycleClass=Linear;Segments=0+,34-,0+
+Cycle=8;Copy_count=2.90550453946;Length=278870;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,38-,0+
+Cycle=9;Copy_count=2.88579584334;Length=2772145;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,29-,25-,0+
+Cycle=10;Copy_count=2.63235680952;Length=1614008;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,20+,16-,15-,0+
+Cycle=11;Copy_count=2.62370794327;Length=146568;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,41-,0+
+Cycle=12;Copy_count=2.60677741722;Length=1709721;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,4-,12+,13-,0+
+Cycle=13;Copy_count=2.04114910558;Length=150493;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,32-,35-,33-,0+
+Cycle=14;Copy_count=1.30144400315;Length=3339;IsCyclicPath=True;CycleClass=Invalid;Segments=2+,10-
+Cycle=15;Copy_count=1.0590671096;Length=1626218;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,44+,24+,40-,0+
+Cycle=16;Copy_count=0.931341723049;Length=1844035;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,14+,20-,0+
+Cycle=17;Copy_count=0.746989526988;Length=103184;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,36-,0+
+Cycle=18;Copy_count=0.74421088381;Length=2492521;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=19;Copy_count=0.579040513754;Length=1753639;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,37+,24-,42-,0+
+Cycle=20;Copy_count=0.542371707156;Length=133363;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,5-,0+
+Cycle=21;Copy_count=0.507824704166;Length=533400;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,6-,0+
+Cycle=22;Copy_count=0.476657399054;Length=3862849;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,21+,16-,9-,8-,7-,0+
+Cycle=23;Copy_count=0.404295178685;Length=3343200;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,27-,0+
+Cycle=24;Copy_count=0.377069072317;Length=3434984;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,18-,31+,0+

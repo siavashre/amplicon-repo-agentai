@@ -8,11 +8,11 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 5	22230519	5	22230519	foldback	4	None	++	22230518	22230518	None	None
 5	22249596	5	22249596	foldback	4	None	++	22249595	22249595	None	None
 5	22252107	5	22252582	foldback	5	None	++	22252106	22252581	None	None
-5	22260120	5	22260120	foldback	4	None	--	22260121	22260121	None	None
+5	22260120	5	22260120	foldback	4	Linear	--	22260121	22260121	None	None
 5	22260740	5	22260740	foldback	4	Linear	++	22260739	22260739	None	None
 5	22296577	5	22296672	foldback	5	Linear	--	22296578	22296673	None	None
 5	22331657	5	22331771	foldback	4	Linear	++	22331656	22331770	None	None
-5	22345150	5	22345365	foldback	4	None	--	22345151	22345366	None	None
+5	22345150	5	22345365	foldback	4	Linear	--	22345151	22345366	None	None
 5	22352555	5	22352555	foldback	4	Linear	++	22352554	22352554	None	None
 5	22364094	5	22364232	foldback	5	Linear	++	22364093	22364231	None	None
 5	22372721	5	22372977	foldback	4	Linear	++	22372720	22372976	None	None
@@ -56,7 +56,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 5	22687325	5	22687325	foldback	4	None	++	22687324	22687324	None	None
 5	22704187	5	22704459	foldback	5	None	--	22704188	22704460	None	None
 5	22711942	5	22712498	foldback	7	None	--	22711943	22712499	None	None
-5	22719757	5	22720146	foldback	9	None	--	22719758	22720147	None	None
+5	22719757	5	22720146	foldback	9	Linear	--	22719758	22720147	None	None
 5	22720624	5	22720759	foldback	6	Linear	++	22720623	22720758	None	None
 5	22730578	5	22730578	foldback	4	Linear	++	22730577	22730577	None	None
 5	22738251	5	22738299	foldback	5	Linear	++	22738250	22738298	None	None

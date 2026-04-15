@@ -1,0 +1,36 @@
+List of cycle segments
+Segment	1	4	60052846	60073380
+Segment	2	4	60072531	60073380
+Segment	3	4	60399909	60420443
+Segment	4	4	60419415	60420443
+Segment	5	4	60804581	61330105
+Segment	6	4	60824522	61094744
+Segment	7	4	60824522	61330105
+Segment	8	4	60824522	61765855
+Segment	9	4	60824522	62173022
+Segment	10	4	60829500	61765855
+Segment	11	4	61333193	61438275
+Segment	12	4	61333193	61765855
+Segment	13	4	61333193	61939190
+Segment	14	4	61333193	62173621
+Segment	15	4	61438169	62173621
+Segment	16	4	61769916	61939190
+Segment	17	4	61942243	62173007
+Segment	18	4	61942243	62173022
+Segment	19	4	61942243	62173621
+Segment	20	10	70972896	70973281
+Segment	21	10	70972896	70983081
+Segment	22	10	70982896	70983081
+Segment	23	10	70982896	70983429
+Segment	24	10	70983082	70983429
+Cycle=1;Copy_count=2.50985168111;Length=1382823;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,5+,13+,17+,3-,0+
+Cycle=2;Copy_count=2.26511053452;Length=31750;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,1+,4+,21-,0+
+Cycle=3;Copy_count=1.09314387619;Length=348;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,24-,0+
+Cycle=4;Copy_count=1.00249660611;Length=1358842;IsCyclicPath=False;CycleClass=Linear;Segments=0+,19-,16-,12-,5-,0+
+Cycle=5;Copy_count=0.588735524001;Length=735453;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,15-,0+
+Cycle=6;Copy_count=0.312947566123;Length=1357132;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,10+,16+,18+,22+,3-,0+
+Cycle=7;Copy_count=0.150196212195;Length=2711145;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,23-,18-,16-,8-,9+,22+,3-,0+
+Cycle=8;Copy_count=0.136318311912;Length=1979889;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,11-,7-,9+,22+,3-,0+
+Cycle=9;Copy_count=0.115765686059;Length=386;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,20-,0+
+Cycle=10;Copy_count=0.0759993654709;Length=2709152;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,14-,7-,8+,16+,18+,22+,4-,1-,0+
+Cycle=11;Copy_count=0.0100997782583;Length=1613677;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,6-,8+,16+,18+,22+,4-,2-,0+

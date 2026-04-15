@@ -1,0 +1,40 @@
+List of cycle segments
+Segment	1	12	66351604	67190709
+Segment	2	12	66351604	69439009
+Segment	3	12	66352491	66360479
+Segment	4	12	66352491	70163030
+Segment	5	12	66361615	69439009
+Segment	6	12	67198585	69439009
+Segment	7	12	69090300	69439009
+Segment	8	12	69095071	70594863
+Segment	9	12	69443071	69557761
+Segment	10	12	69559691	70163030
+Segment	11	12	69559691	70547699
+Segment	12	12	69559691	70594863
+Segment	13	12	69559691	72189158
+Segment	14	12	70597577	70872265
+Segment	15	12	70597577	71602360
+Segment	16	12	70878217	72189158
+Segment	17	12	71256698	72356624
+Segment	18	12	71604473	71710316
+Segment	19	12	71709275	71709543
+Segment	20	12	71710318	72189158
+Segment	21	12	72136861	72905999
+Segment	22	12	72190573	72356624
+Segment	23	12	72190573	72397806
+Segment	24	12	72358130	72407699
+Segment	25	12	72358130	72898094
+Segment	26	12	72358130	72917585
+Segment	27	12	72398309	72399672
+Segment	28	12	72504461	72551281
+Segment	29	12	72650770	72905999
+Segment	30	12	72906000	72917585
+Cycle=1;Copy_count=2.32130391843;Length=6549198;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,26-,22-,13-,9-,6-,1-,0+
+Cycle=2;Copy_count=1.61056748029;Length=3803415;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=3+,5+,9+,10+
+Cycle=3;Copy_count=1.22416607299;Length=3794329;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,25-,22-,20-,19+,18-,15-,12-,9-,7-,0+
+Cycle=4;Copy_count=0.83724181288;Length=11586;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,30-,0+
+Cycle=5;Copy_count=0.70271174443;Length=3294022;IsCyclicPath=True;CycleClass=Invalid;Segments=8+,14+,16+,23+,27+
+Cycle=6;Copy_count=0.617165091389;Length=769139;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,21-,0+
+Cycle=7;Copy_count=0.435023636611;Length=5339603;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,24-,17-,11-,9-,2-,0+
+Cycle=8;Copy_count=0.428788960903;Length=302051;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,29-,28-,0+
+Cycle=9;Copy_count=0.298415709143;Length=3810540;IsCyclicPath=True;CycleClass=Invalid;Segments=4+

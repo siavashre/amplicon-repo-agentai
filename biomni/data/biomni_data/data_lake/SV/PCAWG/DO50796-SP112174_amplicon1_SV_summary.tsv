@@ -4,7 +4,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 6	66296491	6	66307218	deletion-like	11	unknown	+-	66296490	66307219	None	None
 6	66595054	6	66595830	deletion-like	47	unknown	+-	66595053	66595831	None	None
 6	67492560	6	67492583	foldback	7	unknown	++	67492559	67492582	None	None
-6	67492486	6	67492996	foldback	10	None	--	67492487	67492997	None	None
+6	67492486	6	67492996	foldback	10	unknown	--	67492487	67492997	None	None
 6	68283397	6	68285377	foldback	37	BFB	--	68283398	68285378	None	None
 6	68358045	2	17959524	interchromosomal	20	None	++	68358044	17959523	None	None
 6	68358422	2	17959405	interchromosomal	14	None	--	68358423	17959406	None	None

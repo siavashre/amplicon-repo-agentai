@@ -19,7 +19,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 17	52104472	17	56706914	inversion	8	ecDNA	++	52104471	56706913	None	None
 17	56698954	17	56712705	duplication-like	8	ecDNA	-+	56698955	56712704	None	None
 17	57525011	17	57531578	duplication-like	8	ecDNA	-+	57525012	57531577	None	None
-17	57549360	17	57555053	foldback	6	None	--	57549361	57555054	None	None
+17	57549360	17	57555053	foldback	6	unknown	--	57549361	57555054	None	None
 17	58096257	17	58156850	inversion	9	unknown	--	58096258	58156851	None	None
 17	57595965	17	58170534	deletion-like	16	unknown	+-	57595964	58170535	None	None
 17	59118769	17	59128792	deletion-like	24	None	+-	59118768	59128793	None	None
@@ -51,7 +51,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 17	60738996	17	68275991	duplication-like	5	None	-+	60738997	68275990	None	None
 17	68455095	17	68461176	deletion-like	12	None	+-	68455094	68461177	None	None
 17	63275912	17	68967622	inversion	10	unknown	--	63275913	68967623	None	None
-17	62858911	17	68976434	duplication-like	8	None	-+	62858912	68976433	None	None
+17	62858911	17	68976434	duplication-like	8	unknown	-+	62858912	68976433	None	None
 17	68964542	17	69729215	duplication-like	20	None	-+	68964543	69729214	None	None
 17	48435480	17	70942632	deletion-like	19	None	+-	48435479	70942633	None	None
 17	47391950	17	70988227	inversion	6	None	--	47391951	70988228	None	None

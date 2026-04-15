@@ -1,0 +1,36 @@
+List of cycle segments
+Segment	1	10	4200871	4290064
+Segment	2	10	4201095	4290064
+Segment	3	10	4291691	4708522
+Segment	4	10	4710526	5202034
+Segment	5	10	4710526	6251947
+Segment	6	10	5324804	9011083
+Segment	7	10	6252944	6411582
+Segment	8	10	6417636	9011475
+Segment	9	17	18929100	19340099
+Segment	10	17	18962700	19014299
+Segment	11	17	19050001	19144261
+Segment	12	17	19140900	20225099
+Segment	13	17	19140900	21545760
+Segment	14	17	19173323	20345699
+Segment	15	17	19346052	19354445
+Segment	16	17	20436300	21307728
+Segment	17	17	20668800	21321278
+Segment	18	17	20889900	21545760
+Segment	19	17	21207900	21254853
+Segment	20	17	21303153	21321278
+Segment	21	17	21308121	21545760
+Segment	22	17	21322826	21353699
+Segment	23	17	21322826	21545760
+Cycle=1;Copy_count=19.1024195472;Length=46954;IsCyclicPath=False;CycleClass=Linear;Segments=0+,19-,0+
+Cycle=2;Copy_count=15.5601752495;Length=49000;IsCyclicPath=False;CycleClass=Linear;Segments=0+,22-,20-,0+
+Cycle=3;Copy_count=6.29928301955;Length=2404861;IsCyclicPath=False;CycleClass=Linear;Segments=0+,13-,0+
+Cycle=4;Copy_count=4.82173988921;Length=655861;IsCyclicPath=False;CycleClass=Linear;Segments=0+,18-,0+
+Cycle=5;Copy_count=4.63864780628;Length=411000;IsCyclicPath=False;CycleClass=Linear;Segments=0+,9-,0+
+Cycle=6;Copy_count=3.04210032678;Length=4799927;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,8-,7-,5-,3-,1-,0+
+Cycle=7;Copy_count=3.03166601206;Length=340295;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,21-,15+,11-,0+
+Cycle=8;Copy_count=2.93892786408;Length=51600;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,10-,0+
+Cycle=9;Copy_count=2.03775684051;Length=1084200;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,12-,0+
+Cycle=10;Copy_count=2.03720614174;Length=875414;IsCyclicPath=False;CycleClass=Linear;Segments=0+,23-,17-,0+
+Cycle=11;Copy_count=1.53479673559;Length=2043806;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,14-,16-,0+
+Cycle=12;Copy_count=1.38564134503;Length=4683591;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2+,3+,4+,6+

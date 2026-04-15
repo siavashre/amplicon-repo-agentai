@@ -1,7 +1,7 @@
 chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
 1	43174857	19	30461125	interchromosomal	18	None	+-	43174856	30461126	None	None
 3	140058936	Y	9104744	interchromosomal	5	unknown	-+	140058937	9104743	None	None
-3	140058937	Y	9104743	interchromosomal	4	None	+-	140058936	9104744	None	None
+3	140058937	Y	9104743	interchromosomal	4	unknown	+-	140058936	9104744	None	None
 3	141269758	11	41545890	interchromosomal	3	None	--	141269759	41545891	None	None
 3	141363126	11	41548542	interchromosomal	5	None	+-	141363125	41548543	None	None
 3	141411079	20	6728510	interchromosomal	5	None	-+	141411080	6728509	None	None
@@ -39,14 +39,14 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 5	31582734	11	13434888	interchromosomal	44	unknown	--	31582735	13434889	None	None
 5	31634812	11	31356178	interchromosomal	4	None	--	31634813	31356179	None	None
 5	31634182	5	31636846	deletion-like	8	unknown	+-	31634181	31636847	None	None
-5	31729508	11	29400975	interchromosomal	5	None	--	31729509	29400976	None	None
+5	31729508	11	29400975	interchromosomal	5	unknown	--	31729509	29400976	None	None
 5	32436920	11	19133634	interchromosomal	32	unknown	+-	32436919	19133635	None	None
 5	32465331	11	2424517	interchromosomal	13	None	+-	32465330	2424518	None	None
 5	32723109	5	32725241	foldback	15	unknown	++	32723108	32725240	None	None
 6	47030041	11	30763615	interchromosomal	7	unknown	+-	47030040	30763616	None	None
 6	47030188	11	31195806	interchromosomal	5	None	--	47030189	31195807	None	None
 6	47034396	11	31454316	interchromosomal	3	None	+-	47034395	31454317	None	None
-6	47309723	22	44783134	interchromosomal	23	None	+-	47309722	44783135	None	None
+6	47309723	22	44783134	interchromosomal	23	unknown	+-	47309722	44783135	None	None
 6	47868544	22	44834289	interchromosomal	24	unknown	++	47868543	44834288	None	None
 6	47943992	11	2121165	interchromosomal	28	unknown	-+	47943993	2121164	None	None
 6	47954759	11	1422871	interchromosomal	25	unknown	++	47954758	1422870	None	None

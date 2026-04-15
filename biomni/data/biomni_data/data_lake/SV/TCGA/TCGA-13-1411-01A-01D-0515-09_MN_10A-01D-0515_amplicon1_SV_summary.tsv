@@ -1,0 +1,4 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+3	49216053	18	23902984	interchromosomal	5	None	+-	49216052	23902985	None	None
+18	23747807	18	23751321	deletion-like	8	None	+-	23747806	23751322	None	None
+18	23762966	18	23766133	deletion-like	6	None	+-	23762965	23766134	None	None

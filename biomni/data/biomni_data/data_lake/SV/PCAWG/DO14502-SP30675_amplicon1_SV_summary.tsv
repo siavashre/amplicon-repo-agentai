@@ -18,7 +18,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 6	135088292	6	135088796	deletion-like	3	None	+-	135088291	135088797	None	None
 6	135092762	6	135092762	foldback	2	None	++	135092761	135092761	None	None
 6	135233954	6	135233954	foldback	4	None	++	135233953	135233953	None	None
-6	133306437	6	135957727	inversion	8	None	--	133306438	135957728	None	None
+6	133306437	6	135957727	inversion	8	unknown	--	133306438	135957728	None	None
 6	136174446	6	136174955	deletion-like	3	unknown	+-	136174445	136174956	None	None
 6	136272491	6	136273061	deletion-like	3	unknown	+-	136272490	136273062	None	None
 6	136457289	6	136457910	duplication-like	5	unknown	-+	136457290	136457909	None	None
@@ -67,9 +67,9 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 6	141319666	6	141320194	deletion-like	2	None	+-	141319665	141320195	None	None
 6	141329260	6	141329926	deletion-like	2	None	+-	141329259	141329927	None	None
 6	137307493	6	141617699	inversion	13	None	--	137307494	141617700	None	None
-6	141712257	6	141712922	deletion-like	3	None	+-	141712256	141712923	None	None
+6	141712257	6	141712922	deletion-like	3	unknown	+-	141712256	141712923	None	None
 6	134152586	6	141795915	inversion	4	unknown	++	134152585	141795914	None	None
-6	142220853	6	142221595	duplication-like	6	None	-+	142220854	142221594	None	None
+6	142220853	6	142221595	duplication-like	6	unknown	-+	142220854	142221594	None	None
 6	142762046	6	142762572	deletion-like	3	None	+-	142762045	142762573	None	None
 6	142880457	14	59891804	interchromosomal	12	ecDNA	-+	142880458	59891803	None	None
 6	142890432	6	142891147	duplication-like	6	ecDNA	-+	142890433	142891146	None	None
@@ -179,7 +179,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 11	70289951	11	70558094	inversion	14	ecDNA	++	70289950	70558093	None	None
 11	70289801	11	70558646	duplication-like	19	ecDNA	-+	70289802	70558645	None	None
 11	70558111	11	70558646	foldback	9	ecDNA	++	70558110	70558645	None	None
-12	108621500	11	68956585	interchromosomal	29	None	--	108621501	68956586	None	None
+12	108621500	11	68956585	interchromosomal	29	unknown	--	108621501	68956586	None	None
 12	108621553	11	68956634	interchromosomal	25	unknown	++	108621552	68956633	None	None
 14	59512567	14	59513385	duplication-like	6	ecDNA	-+	59512568	59513384	None	None
 14	59519403	14	59520180	duplication-like	6	ecDNA	-+	59519404	59520179	None	None

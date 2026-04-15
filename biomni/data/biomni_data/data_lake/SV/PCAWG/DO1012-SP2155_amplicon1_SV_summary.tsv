@@ -5,14 +5,14 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 11	70246492	11	76803022	deletion-like	16	unknown	+-	70246491	76803023	None	None
 11	68773763	11	76807599	duplication-like	23	unknown	-+	68773764	76807598	None	None
 11	76903849	19	14706836	interchromosomal	12	unknown	-+	76903850	14706835	None	None
-11	76904494	19	14706785	interchromosomal	11	None	+-	76904493	14706786	None	None
+11	76904494	19	14706785	interchromosomal	11	unknown	+-	76904493	14706786	None	None
 11	77224367	17	14808600	interchromosomal	30	None	+-	77224366	14808601	None	None
 11	77347592	17	15616851	interchromosomal	22	ecDNA	-+	77347593	15616850	None	None
 11	77515467	11	77516139	deletion-like	20	ecDNA	+-	77515466	77516140	None	None
 11	77531657	17	14962566	interchromosomal	22	ecDNA	++	77531656	14962565	None	None
 11	70018756	11	77539334	deletion-like	17	ecDNA	+-	70018755	77539335	None	None
 11	78303591	17	18834745	interchromosomal	47	ecDNA	++	78303590	18834744	None	None
-11	78514127	17	20007586	interchromosomal	11	None	-+	78514128	20007585	None	None
+11	78514127	17	20007586	interchromosomal	11	unknown	-+	78514128	20007585	None	None
 11	69965058	11	78616222	inversion	23	None	++	69965057	78616221	None	None
 11	78726519	17	14159909	interchromosomal	21	ecDNA	++	78726518	14159908	None	None
 11	77229999	11	78726726	inversion	24	None	--	77230000	78726727	None	None
@@ -46,7 +46,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 17	18592822	17	18593409	deletion-like	5	None	+-	18592821	18593410	None	None
 17	15448764	17	18702671	inversion	7	ecDNA	--	15448765	18702672	None	None
 17	18791152	17	18792163	deletion-like	71	ecDNA	+-	18791151	18792164	None	None
-17	18107671	17	19152778	duplication-like	16	None	-+	18107672	19152777	None	None
-17	17782199	17	19154693	inversion	9	None	--	17782200	19154694	None	None
+17	18107671	17	19152778	duplication-like	16	unknown	-+	18107672	19152777	None	None
+17	17782199	17	19154693	inversion	9	unknown	--	17782200	19154694	None	None
 17	18106162	17	19154802	inversion	5	None	++	18106161	19154801	None	None
-17	18105444	17	19749000	inversion	11	None	--	18105445	19749001	None	None
+17	18105444	17	19749000	inversion	11	unknown	--	18105445	19749001	None	None

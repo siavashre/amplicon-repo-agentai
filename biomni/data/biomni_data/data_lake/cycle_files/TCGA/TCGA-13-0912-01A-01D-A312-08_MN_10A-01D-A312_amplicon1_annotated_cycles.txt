@@ -1,0 +1,20 @@
+List of cycle segments
+Segment	1	12	19939832	20048325
+Segment	2	12	20040016	20048325
+Segment	3	12	20040016	20050774
+Segment	4	12	20041366	20048325
+Segment	5	12	20043713	20048325
+Segment	6	12	20049327	20050774
+Segment	7	12	20049327	20103250
+Segment	8	12	20050816	20107504
+Segment	9	12	20050816	20619781
+Segment	10	12	24910483	25536641
+Segment	11	12	25010026	25436178
+Segment	12	12	25012029	25436178
+Segment	13	12	25019400	25436178
+Cycle=1;Copy_count=5.71864983665;Length=2007751;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,9-,6+,2+,11-,12+,2-,6-,9+,0+
+Cycle=2;Copy_count=4.75787716769;Length=110613;IsCyclicPath=True;CycleClass=BFB-like;Segments=7-,8+
+Cycle=3;Copy_count=3.70681306602;Length=861876;IsCyclicPath=True;CycleClass=BFB-like;Segments=5-,4+,12-,11+
+Cycle=4;Copy_count=2.41493461778;Length=10759;IsCyclicPath=True;CycleClass=Rearranged;Segments=3+
+Cycle=5;Copy_count=2.02517389031;Length=626159;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,10-,0+
+Cycle=6;Copy_count=1.08057065263;Length=525273;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,1+,13-,0+

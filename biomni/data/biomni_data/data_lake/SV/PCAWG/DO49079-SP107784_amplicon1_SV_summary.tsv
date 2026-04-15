@@ -4,6 +4,6 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 7	90018979	7	90031428	foldback	16	BFB	--	90018980	90031429	None	None
 7	90040703	7	90049867	foldback	20	BFB	++	90040702	90049866	None	None
 7	90071967	7	90077674	foldback	6	None	++	90071966	90077673	None	None
-7	92030191	7	92103375	deletion-like	3	None	+-	92030190	92103376	None	None
+7	92030191	7	92103375	deletion-like	3	unknown	+-	92030190	92103376	None	None
 7	92152333	7	92152333	foldback	37	BFB|unknown	--	92152334	92152334	None	None
 7	92526992	7	92531034	foldback	48	BFB	++	92526991	92531033	None	None

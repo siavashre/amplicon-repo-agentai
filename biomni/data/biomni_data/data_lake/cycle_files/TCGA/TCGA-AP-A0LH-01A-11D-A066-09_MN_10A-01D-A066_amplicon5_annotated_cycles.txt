@@ -1,0 +1,36 @@
+List of cycle segments
+Segment	1	19	29082193	29453999
+Segment	2	19	29082193	29950201
+Segment	3	19	29182049	29950201
+Segment	4	19	29184619	29950201
+Segment	5	19	29859092	29950201
+Segment	6	19	29859786	29950201
+Segment	7	19	29866971	29950201
+Segment	8	19	29956161	30388818
+Segment	9	19	30058500	30388818
+Segment	10	19	30393092	30490858
+Segment	11	19	30393092	30493267
+Segment	12	19	30393092	30496799
+Segment	13	19	30411900	30490778
+Segment	14	19	30491772	30493267
+Segment	15	19	30491772	31287507
+Segment	16	19	30671400	31287507
+Segment	17	19	30696252	31287507
+Segment	18	19	30697875	31287507
+Segment	19	19	31289711	31610999
+Segment	20	19	31289711	31612387
+Segment	21	19	31289711	31614490
+Segment	22	19	31399298	31614490
+Segment	23	19	31406595	31612387
+Segment	24	19	31419000	31610999
+Cycle=1;Copy_count=8.88074163654;Length=508461;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,13+,14+,10-,9-,0+
+Cycle=2;Copy_count=7.7238541485;Length=420986;IsCyclicPath=True;CycleClass=BFB-like;Segments=22+,23-
+Cycle=3;Copy_count=6.78059822723;Length=1195904;IsCyclicPath=False;CycleClass=Linear;Segments=0+,19-,15-,13-,0+
+Cycle=4;Copy_count=3.58424581609;Length=619597;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,12-,8-,7-,0+
+Cycle=5;Copy_count=3.41824244409;Length=192000;IsCyclicPath=False;CycleClass=Linear;Segments=0+,24-,0+
+Cycle=6;Copy_count=3.35488803882;Length=1828346;IsCyclicPath=True;CycleClass=BFB-like;Segments=21+,20-,18-,17+
+Cycle=7;Copy_count=3.25357222688;Length=2596995;IsCyclicPath=True;CycleClass=BFB-like;Segments=8+,11+,10-,8-,4-,3+
+Cycle=8;Copy_count=2.65805015958;Length=1244785;IsCyclicPath=True;CycleClass=BFB-like;Segments=8+,10+,11-,8-,5-,6+
+Cycle=9;Copy_count=1.55387584514;Length=2014499;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,2+,8+,11+,10-,8-,7-,0+
+Cycle=10;Copy_count=1.27854990146;Length=371807;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=11;Copy_count=1.27048326936;Length=1879673;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,16+,20+,21-,16-,0+

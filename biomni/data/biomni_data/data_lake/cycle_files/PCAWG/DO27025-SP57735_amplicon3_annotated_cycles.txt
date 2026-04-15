@@ -1,0 +1,70 @@
+List of cycle segments
+Segment	1	5	180061437	180071853
+Segment	2	5	180061837	180062403
+Segment	3	5	180062404	180071853
+Segment	4	11	64061404	65642110
+Segment	5	11	65643519	66018698
+Segment	6	11	65643519	67330080
+Segment	7	11	66019086	66019897
+Segment	8	11	66019974	68920185
+Segment	9	11	67332459	69089699
+Segment	10	11	67974543	67975742
+Segment	11	11	68236204	68244449
+Segment	12	11	68237686	68244449
+Segment	13	11	68262000	68919652
+Segment	14	11	68267518	69089699
+Segment	15	11	68920278	68921040
+Segment	16	11	69144000	69400842
+Segment	17	11	69144000	69949564
+Segment	18	11	69401401	69710699
+Segment	19	11	69780600	70004800
+Segment	20	11	69780600	70006073
+Segment	21	11	69894900	70006073
+Segment	22	11	69902708	70004800
+Segment	23	11	69902708	71405435
+Segment	24	11	69923541	69924081
+Segment	25	11	70013114	70649488
+Segment	26	11	70013114	71402461
+Segment	27	11	70695971	70696458
+Segment	28	11	70789700	70790182
+Segment	29	11	70870134	70870616
+Segment	30	11	71048042	71163803
+Segment	31	11	71048042	71310952
+Segment	32	11	71048652	71162756
+Segment	33	11	71048652	71310952
+Segment	34	11	71279869	71279986
+Segment	35	11	71290790	71290808
+Segment	36	11	71311224	71402461
+Segment	37	11	71311224	71405435
+Segment	38	11	71311224	71611245
+Segment	39	11	71611032	71611245
+Segment	40	11	71611032	80487989
+Segment	41	11	71611032	80489827
+Segment	42	11	72277500	80487989
+Segment	43	11	72277500	80489827
+Segment	44	11	72277500	80508297
+Segment	45	17	30166678	30377093
+Cycle=1;Copy_count=5.60435895361;Length=2892076;IsCyclicPath=True;CycleClass=BFB-like;Segments=23+,26-
+Cycle=2;Copy_count=4.21431634674;Length=566142;IsCyclicPath=False;CycleClass=Linear;Segments=0+,18-,16-,0+
+Cycle=3;Copy_count=3.91445117633;Length=137;IsCyclicPath=True;CycleClass=Invalid;Segments=34+,35-
+Cycle=4;Copy_count=2.70590016058;Length=541;IsCyclicPath=True;CycleClass=Invalid;Segments=24+
+Cycle=5;Copy_count=2.16983730987;Length=229867;IsCyclicPath=True;CycleClass=BFB-like;Segments=32-,30+
+Cycle=6;Copy_count=2.11162342237;Length=449675;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,19+,20-,0+
+Cycle=7;Copy_count=2.10144337283;Length=8230798;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,44-,0+
+Cycle=8;Copy_count=2.08205819538;Length=210416;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,45-,0+
+Cycle=9;Copy_count=1.96900366126;Length=300022;IsCyclicPath=True;CycleClass=Rearranged;Segments=38+
+Cycle=10;Copy_count=1.93395096532;Length=1659374;IsCyclicPath=False;CycleClass=BFB-like;Segments=0+,14-,11-,12+,14+,0+
+Cycle=11;Copy_count=1.63049018581;Length=488;IsCyclicPath=True;CycleClass=Invalid;Segments=27+
+Cycle=12;Copy_count=1.5423152076;Length=483;IsCyclicPath=True;CycleClass=Invalid;Segments=29+
+Cycle=13;Copy_count=1.45605440245;Length=10417;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=14;Copy_count=1.37761295301;Length=483;IsCyclicPath=True;CycleClass=Invalid;Segments=28+
+Cycle=15;Copy_count=1.37165165686;Length=5024510;IsCyclicPath=False;CycleClass=Linear;Segments=0+,9-,6-,4-,0+
+Cycle=16;Copy_count=1.2710549662;Length=1200;IsCyclicPath=True;CycleClass=Invalid;Segments=10+
+Cycle=17;Copy_count=1.04353552862;Length=18280966;IsCyclicPath=True;CycleClass=BFB-like;Segments=41+,40-,33-,31+
+Cycle=18;Copy_count=0.930811265183;Length=711090;IsCyclicPath=True;CycleClass=BFB-like_Invalid;Segments=39+,37+,36-,39-,33-,31+
+Cycle=19;Copy_count=0.712303184681;Length=805565;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,17-,0+
+Cycle=20;Copy_count=0.604584748661;Length=849642;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,25-,22+,21-,0+
+Cycle=21;Copy_count=0.597085395509;Length=9450;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,3-,0+
+Cycle=22;Copy_count=0.544858463606;Length=5515327;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,4+,5+,7-,8+,15-,13-,0+
+Cycle=23;Copy_count=0.504918679697;Length=567;IsCyclicPath=True;CycleClass=Invalid;Segments=2+
+Cycle=24;Copy_count=0.434102124804;Length=16422818;IsCyclicPath=False;CycleClass=BFB-like_Invalid;Segments=0+,43+,42-,0+

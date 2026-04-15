@@ -1,0 +1,34 @@
+List of cycle segments
+Segment	1	17	37408656	37641200
+Segment	2	17	37409012	37524899
+Segment	3	17	37409012	37641200
+Segment	4	17	37409012	38365864
+Segment	5	17	37777112	38365864
+Segment	6	17	37839347	38365864
+Segment	7	17	37913100	37968599
+Segment	8	17	41753731	41929399
+Segment	9	17	41753869	41929399
+Segment	10	17	42403819	42502030
+Segment	11	17	42403819	42511811
+Segment	12	17	42502497	42511811
+Segment	13	17	44784289	45148769
+Segment	14	17	79593897	79603188
+Segment	15	17	79603673	79705499
+Segment	16	17	79767600	80070924
+Segment	17	17	79767600	80090895
+Segment	18	X	75419537	75450043
+Segment	19	X	75429062	75430043
+Segment	20	X	75429079	75430920
+Cycle=1;Copy_count=6.37142136874;Length=364481;IsCyclicPath=False;CycleClass=Linear;Segments=0+,13-,0+
+Cycle=2;Copy_count=4.11956050191;Length=690580;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,5-,15+,0+
+Cycle=3;Copy_count=3.93999822378;Length=408076;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,9-,1-,0+
+Cycle=4;Copy_count=3.54822254697;Length=404361;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,16+,20-,19+,10-,0+
+Cycle=5;Copy_count=2.12658262997;Length=18607;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,12-,14-,0+
+Cycle=6;Copy_count=2.03991713962;Length=30507;IsCyclicPath=False;CycleClass=Linear;Segments=0+,18-,0+
+Cycle=7;Copy_count=1.88349249806;Length=55500;IsCyclicPath=False;CycleClass=Linear;Segments=0+,7-,0+
+Cycle=8;Copy_count=1.35283930305;Length=107993;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,11-,0+
+Cycle=9;Copy_count=1.3203874543;Length=323296;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,17-,0+
+Cycle=10;Copy_count=1.31318893818;Length=934238;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,6-,3+,9+,0+
+Cycle=11;Copy_count=1.28538987261;Length=642406;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,6-,2+,0+
+Cycle=12;Copy_count=1.15350298234;Length=175669;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,8-,0+
+Cycle=13;Copy_count=1.13438666602;Length=1483371;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,4-,6+,0+

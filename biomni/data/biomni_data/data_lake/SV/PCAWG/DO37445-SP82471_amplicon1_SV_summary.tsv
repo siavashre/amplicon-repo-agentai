@@ -22,7 +22,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 12	50389362	8	21138959	interchromosomal	8	None	--	50389363	21138960	None	None
 12	40693075	12	50426561	duplication-like	5	Complex-non-cyclic	-+	40693076	50426560	None	None
 12	42463567	12	51221857	deletion-like	20	None	+-	42463566	51221858	None	None
-12	48678900	12	51222909	deletion-like	14	None	+-	48678899	51222910	None	None
+12	48678900	12	51222909	deletion-like	14	Complex-non-cyclic	+-	48678899	51222910	None	None
 12	48781986	12	51342171	inversion	9	None	--	48781987	51342172	None	None
 12	46919169	12	51620954	inversion	12	Complex-non-cyclic	++	46919168	51620953	None	None
 12	48781613	12	52040907	duplication-like	15	Complex-non-cyclic	-+	48781614	52040906	None	None
@@ -51,7 +51,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 12	59935795	12	59952859	deletion-like	9	Complex-non-cyclic	+-	59935794	59952860	None	None
 12	59946632	12	59952986	duplication-like	22	Complex-non-cyclic	-+	59946633	59952985	None	None
 12	60521844	12	60525035	deletion-like	5	Complex-non-cyclic	+-	60521843	60525036	None	None
-12	51344213	12	66318363	duplication-like	5	None	-+	51344214	66318362	None	None
+12	51344213	12	66318363	duplication-like	5	Complex-non-cyclic	-+	51344214	66318362	None	None
 12	66377038	8	21148713	interchromosomal	3	None	++	66377037	21148712	None	None
 12	52050175	12	66411996	inversion	27	Complex-non-cyclic	--	52050176	66411997	None	None
 12	69580059	12	69585811	deletion-like	4	None	+-	69580058	69585812	None	None
@@ -69,7 +69,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 12	82252793	8	16602594	interchromosomal	7	None	++	82252792	16602593	None	None
 12	59523821	12	82259762	inversion	8	None	--	59523822	82259763	None	None
 12	40174985	12	82365843	duplication-like	12	None	-+	40174986	82365842	None	None
-12	83620558	12	83620558	foldback	4	None	--	83620559	83620559	None	None
+12	83620558	12	83620558	foldback	4	Complex-non-cyclic	--	83620559	83620559	None	None
 12	83844059	12	83844607	deletion-like	23	Complex-non-cyclic	+-	83844058	83844608	None	None
 12	48968778	12	83966729	duplication-like	8	Complex-non-cyclic	-+	48968779	83966728	None	None
 12	59560303	12	83967151	deletion-like	18	Complex-non-cyclic	+-	59560302	83967152	None	None

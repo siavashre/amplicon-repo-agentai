@@ -1,0 +1,9 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+11	34998772	11	34998772	foldback	8	Complex-non-cyclic	--	34998773	34998773	None	None
+11	35112584	19	31449096	interchromosomal	5	Complex-non-cyclic	++	35112583	31449095	None	None
+11	35135485	11	35137544	deletion-like	35	Complex-non-cyclic	+-	35135484	35137545	None	None
+11	34998854	11	35326332	duplication-like	7	Complex-non-cyclic	-+	34998855	35326331	None	None
+11	35551418	11	35553669	deletion-like	7	Complex-non-cyclic	+-	35551417	35553670	None	None
+11	35556007	11	35562989	deletion-like	8	Complex-non-cyclic	+-	35556006	35562990	None	None
+11	35735906	19	29761239	interchromosomal	6	Complex-non-cyclic	+-	35735905	29761240	None	None
+19	29950185	19	29956187	deletion-like	13	Complex-non-cyclic	+-	29950184	29956188	None	None

@@ -1,0 +1,7 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+20	47783555	20	47950363	duplication-like	3	Complex-non-cyclic	-+	47783556	47950362	None	None
+20	47835034	20	48665572	inversion	7	Complex-non-cyclic	--	47835035	48665573	None	None
+20	50759201	20	50760940	deletion-like	6	Complex-non-cyclic	+-	50759200	50760941	None	None
+20	47814221	20	53304074	inversion	4	Complex-non-cyclic	++	47814220	53304073	None	None
+20	50624667	20	53339116	duplication-like	3	Complex-non-cyclic	-+	50624668	53339115	None	None
+20	51246671	20	56296336	deletion-like	3	Complex-non-cyclic	+-	51246670	56296337	None	None

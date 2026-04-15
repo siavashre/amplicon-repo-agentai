@@ -1,0 +1,11 @@
+List of cycle segments
+Segment	1	chr9	4310215	4376420
+Segment	2	chr9	4377644	6480324
+Segment	3	chr9	5525828	5525972
+Segment	4	chr9	6722403	6729121
+Segment	5	chr9	6730106	6732175
+Segment	6	chr9	6730106	6732921
+Segment	7	chr9	6732403	6732921
+Cycle=1;Copy_count=5.23620727669;Length=2168887;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,1-,0+
+Cycle=2;Copy_count=3.26043754363;Length=9535;IsCyclicPath=False;CycleClass=Linear;Segments=0+,6-,4-,0+
+Cycle=3;Copy_count=1.79721874458;Length=9453;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,7-,3-,5-,4-,0+

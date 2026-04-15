@@ -1,0 +1,67 @@
+List of cycle segments
+Segment	1	8	100011549	102184199
+Segment	2	8	100011549	105512678
+Segment	3	8	101328323	105369989
+Segment	4	8	101460147	108781418
+Segment	5	8	101686671	101689398
+Segment	6	8	102542100	104444790
+Segment	7	8	102542100	104450699
+Segment	8	8	102542100	105512678
+Segment	9	8	104847600	105379199
+Segment	10	8	106401872	108781418
+Segment	11	8	106409100	109536022
+Segment	12	8	108782413	111151680
+Segment	13	8	108782413	112792640
+Segment	14	8	108782413	112812561
+Segment	15	8	111168968	111878418
+Segment	16	8	115968008	116043899
+Segment	17	8	115968008	117144245
+Segment	18	8	115968381	116053804
+Segment	19	8	116279671	117143869
+Segment	20	15	43370238	43497270
+Segment	21	15	43390197	43497270
+Segment	22	15	43390197	43497640
+Segment	23	15	43497271	43497640
+Segment	24	15	45797317	45818171
+Segment	25	15	45813916	45818171
+Segment	26	15	46049379	46121022
+Segment	27	15	46049730	46121022
+Segment	28	15	46049730	46121844
+Segment	29	15	46766248	46817879
+Segment	30	15	46766811	46817879
+Segment	31	15	46766811	46818008
+Segment	32	15	46817880	46818008
+Segment	33	15	53936202	53947055
+Segment	34	15	54891172	55214919
+Segment	35	15	54982800	55218177
+Segment	36	15	54991172	55224685
+Segment	37	15	55224484	55224685
+Segment	38	15	59698346	59853344
+Segment	39	15	59698485	59853344
+Segment	40	15	59698485	59853626
+Segment	41	15	59853345	59853626
+Cycle=1;Copy_count=4.21900899449;Length=4041667;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=3+
+Cycle=2;Copy_count=4.12631799391;Length=323748;IsCyclicPath=False;CycleClass=Linear;Segments=0+,34-,0+
+Cycle=3;Copy_count=3.51646262398;Length=6544917;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,13-,10-,40+,0+
+Cycle=4;Copy_count=3.48566633524;Length=10854;IsCyclicPath=False;CycleClass=Linear;Segments=0+,33-,0+
+Cycle=5;Copy_count=2.82129411728;Length=6684445;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,2+,19-,18+,21+,30+,27+,25-,0+
+Cycle=6;Copy_count=2.33460473033;Length=178231;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,31-,20-,0+
+Cycle=7;Copy_count=2.15276179892;Length=1176238;IsCyclicPath=False;CycleClass=Linear;Segments=0+,17-,0+
+Cycle=8;Copy_count=2.04769035872;Length=123747;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,28-,29-,0+
+Cycle=9;Copy_count=1.95144584983;Length=92499;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,24+,26-,0+
+Cycle=10;Copy_count=1.90508665432;Length=235580;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,37-,35-,0+
+Cycle=11;Copy_count=1.58221271911;Length=154999;IsCyclicPath=False;CycleClass=Linear;Segments=0+,38-,0+
+Cycle=12;Copy_count=1.52570749407;Length=6564556;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,39-,10+,14+,0+
+Cycle=13;Copy_count=1.37039519871;Length=942965;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,36-,15+,0+
+Cycle=14;Copy_count=1.18456189449;Length=129;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,32-,0+
+Cycle=15;Copy_count=1.10919018711;Length=282;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,41-,0+
+Cycle=16;Copy_count=1.02165022449;Length=2728;IsCyclicPath=True;CycleClass=Invalid;Segments=5+
+Cycle=17;Copy_count=0.991177029764;Length=4027646;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,22-,18-,19+,8-,0+
+Cycle=18;Copy_count=0.961590527454;Length=9701394;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,33-,12-,4-,0+
+Cycle=19;Copy_count=0.959150768308;Length=2172651;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+
+Cycle=20;Copy_count=0.82129737867;Length=531600;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,9-,0+
+Cycle=21;Copy_count=0.729276904982;Length=75892;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,16-,0+
+Cycle=22;Copy_count=0.724351086796;Length=3126923;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,11-,0+
+Cycle=23;Copy_count=0.639447630143;Length=370;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,23-,0+
+Cycle=24;Copy_count=0.603593650475;Length=1908600;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,7-,0+
+Cycle=25;Copy_count=0.588790262338;Length=1902691;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,6-,0+

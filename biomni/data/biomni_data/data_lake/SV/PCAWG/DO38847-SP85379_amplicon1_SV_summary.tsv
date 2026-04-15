@@ -3,7 +3,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 6	100815375	X	11732486	interchromosomal	6	None	--	100815376	11732487	None	None
 8	42190447	8	42194370	deletion-like	18	unknown	+-	42190446	42194371	None	None
 8	43235719	8	48570178	inversion	22	None	++	43235718	48570177	None	None
-8	66759493	8	66760341	deletion-like	21	None	+-	66759492	66760342	None	None
+8	66759493	8	66760341	deletion-like	21	unknown	+-	66759492	66760342	None	None
 8	76770222	8	76770790	deletion-like	7	ecDNA	+-	76770221	76770791	None	None
 8	77337384	8	77338426	deletion-like	14	ecDNA	+-	77337383	77338427	None	None
 8	42391509	8	78236532	duplication-like	7	None	-+	42391510	78236531	None	None
@@ -13,7 +13,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 8	77594578	8	104397105	inversion	23	ecDNA	++	77594577	104397104	None	None
 8	105886966	X	11732358	interchromosomal	14	None	--	105886967	11732359	None	None
 8	105886972	X	11732701	interchromosomal	14	None	++	105886971	11732700	None	None
-8	40922151	8	106416320	inversion	7	None	--	40922152	106416321	None	None
+8	40922151	8	106416320	inversion	7	unknown	--	40922152	106416321	None	None
 8	43023345	8	107390828	inversion	7	unknown	++	43023344	107390827	None	None
 8	107783337	8	107788004	deletion-like	7	unknown	+-	107783336	107788005	None	None
 8	66173425	8	108740585	duplication-like	25	None	-+	66173426	108740584	None	None

@@ -35,7 +35,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 7	16171772	7	16174072	deletion-like	15	unknown	+-	16171771	16174073	None	None
 7	4353753	7	16550935	inversion	8	ecDNA	--	4353754	16550936	None	None
 7	4825799	7	17132329	duplication-like	10	ecDNA	-+	4825800	17132328	None	None
-7	16394865	7	17579234	deletion-like	4	None	+-	16394864	17579235	None	None
+7	16394865	7	17579234	deletion-like	4	unknown	+-	16394864	17579235	None	None
 7	44887250	7	44888606	foldback	12	None	++	44887249	44888605	None	None
 7	4157532	7	65693046	duplication-like	6	None	-+	4157533	65693045	None	None
 8	143267111	7	2890275	interchromosomal	4	None	+-	143267110	2890276	None	None
@@ -62,7 +62,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 22	30841893	22	30845742	foldback	4	None	++	30841892	30845741	None	None
 22	32369348	6	31703848	interchromosomal	5	None	+-	32369347	31703849	None	None
 22	30841991	22	32369400	duplication-like	9	None	-+	30841992	32369399	None	None
-22	32956768	6	31794567	interchromosomal	4	None	--	32956769	31794568	None	None
+22	32956768	6	31794567	interchromosomal	4	unknown	--	32956769	31794568	None	None
 22	31527003	22	33750968	inversion	19	unknown	++	31527002	33750967	None	None
 22	35234567	6	20237567	interchromosomal	10	None	-+	35234568	20237566	None	None
 22	38734826	11	37589838	interchromosomal	3	None	-+	38734827	37589837	None	None
@@ -71,7 +71,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 22	30845671	22	39056173	inversion	2	None	--	30845672	39056174	None	None
 22	31019586	22	39056271	inversion	3	None	--	31019587	39056272	None	None
 22	35234717	22	39218648	deletion-like	8	None	+-	35234716	39218649	None	None
-22	39218701	6	504103	interchromosomal	7	None	--	39218702	504104	None	None
+22	39218701	6	504103	interchromosomal	7	unknown	--	39218702	504104	None	None
 22	31519589	22	40374495	duplication-like	6	None	-+	31519590	40374494	None	None
 22	40739091	6	21991596	interchromosomal	7	None	--	40739092	21991597	None	None
 22	33667685	22	40757429	inversion	3	None	--	33667686	40757430	None	None

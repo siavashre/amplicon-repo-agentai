@@ -1,0 +1,3 @@
+chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
+X	66020454	X	66200514	inversion	25	ecDNA|unknown	--	66020455	66200515	None	None
+X	66151675	X	66272547	inversion	21	ecDNA	++	66151674	66272546	None	None

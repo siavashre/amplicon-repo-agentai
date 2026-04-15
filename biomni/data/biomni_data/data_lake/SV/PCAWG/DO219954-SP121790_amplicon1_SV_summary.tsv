@@ -19,9 +19,9 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 12	2038936	12	54764176	inversion	42	ecDNA	--	2038937	54764177	None	None
 12	51820528	12	54787786	duplication-like	259	ecDNA	-+	51820529	54787785	None	None
 12	48701019	12	55337518	deletion-like	19	unknown	+-	48701018	55337519	None	None
-12	55704729	12	55705650	foldback	2	None	--	55704730	55705651	None	None
+12	55704729	12	55705650	foldback	2	unknown	--	55704730	55705651	None	None
 12	55706117	12	55708067	foldback	2	unknown	++	55706116	55708066	None	None
-12	55706383	12	55709462	foldback	2	None	--	55706384	55709463	None	None
+12	55706383	12	55709462	foldback	2	unknown	--	55706384	55709463	None	None
 12	55727213	12	55728183	deletion-like	27	unknown	+-	55727212	55728184	None	None
 12	48528770	12	55863122	inversion	11	unknown	--	48528771	55863123	None	None
 12	54154517	12	55865160	duplication-like	12	None	-+	54154518	55865159	None	None
@@ -47,7 +47,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 12	60116551	12	60117267	foldback	2	None	++	60116550	60117266	None	None
 12	60119180	12	60121184	foldback	2	None	--	60119181	60121185	None	None
 12	60278490	12	60278688	foldback	5	None	--	60278491	60278689	None	None
-12	60521844	12	60525035	deletion-like	15	None	+-	60521843	60525036	None	None
+12	60521844	12	60525035	deletion-like	15	unknown	+-	60521843	60525036	None	None
 12	56454973	12	60830455	inversion	12	None	++	56454972	60830454	None	None
 12	60855958	12	60856570	foldback	2	None	--	60855959	60856571	None	None
 12	60880869	12	60881389	foldback	4	unknown	++	60880868	60881388	None	None
@@ -127,7 +127,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 12	72337907	12	73122092	deletion-like	62	ecDNA	+-	72337906	73122093	None	None
 12	72595829	12	73128273	duplication-like	73	ecDNA	-+	72595830	73128272	None	None
 12	47885188	12	73249226	inversion	9	None	--	47885189	73249227	None	None
-12	48007964	12	73317079	inversion	10	None	--	48007965	73317080	None	None
+12	48007964	12	73317079	inversion	10	unknown	--	48007965	73317080	None	None
 12	69327591	12	73352217	duplication-like	15	None	-+	69327592	73352216	None	None
 12	57915364	12	73431883	inversion	11	None	++	57915363	73431882	None	None
 12	72235916	12	73439559	duplication-like	72	None	-+	72235917	73439558	None	None

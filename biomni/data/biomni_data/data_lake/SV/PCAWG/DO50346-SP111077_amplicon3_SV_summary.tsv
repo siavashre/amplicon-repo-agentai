@@ -12,6 +12,6 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 14	106127822	14	106201039	deletion-like	6	None	+-	106127821	106201040	None	None
 14	106192076	14	106221448	deletion-like	4	None	+-	106192075	106221449	None	None
 14	106082829	14	106227180	deletion-like	6	Complex-non-cyclic	+-	106082828	106227181	None	None
-14	106082752	14	106227316	duplication-like	6	None	-+	106082753	106227315	None	None
+14	106082752	14	106227316	duplication-like	6	Complex-non-cyclic	-+	106082753	106227315	None	None
 14	106085757	14	106229785	duplication-like	3	None	-+	106085758	106229784	None	None
 14	43987535	14	106312178	inversion	5	None	++	43987534	106312177	None	None

@@ -7,11 +7,11 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 11	77403087	11	77403588	deletion-like	5	unknown	+-	77403086	77403589	None	None
 11	77519454	11	77519974	deletion-like	4	unknown	+-	77519453	77519975	None	None
 11	82064564	17	51569519	interchromosomal	10	None	-+	82064565	51569518	None	None
-11	82078689	11	82282413	deletion-like	11	None	+-	82078688	82282414	None	None
+11	82078689	11	82282413	deletion-like	11	unknown	+-	82078688	82282414	None	None
 11	84837861	17	48267981	interchromosomal	4	unknown	++	84837860	48267980	None	None
 11	86578151	17	75990174	interchromosomal	4	None	+-	86578150	75990175	None	None
 11	72515615	11	86596796	inversion	11	None	--	72515616	86596797	None	None
-11	87031879	17	72678885	interchromosomal	6	None	+-	87031878	72678886	None	None
+11	87031879	17	72678885	interchromosomal	6	unknown	+-	87031878	72678886	None	None
 11	87116130	17	72677978	interchromosomal	6	None	++	87116129	72677977	None	None
 11	78513403	11	87543008	deletion-like	18	unknown	+-	78513402	87543009	None	None
 11	87546483	17	64355081	interchromosomal	4	None	+-	87546482	64355082	None	None
@@ -59,7 +59,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 17	56734287	17	71792379	inversion	12	ecDNA	++	56734286	71792378	None	None
 17	72092162	17	72100242	foldback	4	unknown	++	72092161	72100241	None	None
 17	49600526	17	72539170	inversion	5	None	++	49600525	72539169	None	None
-17	72728970	17	72729572	deletion-like	12	None	+-	72728969	72729573	None	None
+17	72728970	17	72729572	deletion-like	12	unknown	+-	72728969	72729573	None	None
 17	55365049	17	73222475	deletion-like	5	None	+-	55365048	73222476	None	None
 17	54661249	17	73269197	inversion	6	None	++	54661248	73269196	None	None
 17	51970997	17	73376318	duplication-like	6	None	-+	51970998	73376317	None	None

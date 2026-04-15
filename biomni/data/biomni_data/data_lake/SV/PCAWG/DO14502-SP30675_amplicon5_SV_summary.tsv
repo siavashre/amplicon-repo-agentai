@@ -87,7 +87,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 18	22924045	18	22924603	deletion-like	2	unknown	+-	22924044	22924604	None	None
 18	22924860	18	22925409	deletion-like	2	unknown	+-	22924859	22925410	None	None
 18	22932700	18	22933270	deletion-like	2	unknown	+-	22932699	22933271	None	None
-18	22956727	18	22957357	deletion-like	2	None	+-	22956726	22957358	None	None
+18	22956727	18	22957357	deletion-like	2	unknown	+-	22956726	22957358	None	None
 18	22989163	18	22989680	deletion-like	2	unknown	+-	22989162	22989681	None	None
 18	23092923	18	23092923	foldback	4	unknown	--	23092924	23092924	None	None
 18	23132063	18	23132590	deletion-like	2	unknown	+-	23132062	23132591	None	None
@@ -103,8 +103,8 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 18	23352022	18	23352548	deletion-like	2	unknown	+-	23352021	23352549	None	None
 18	23373020	18	23373524	deletion-like	2	unknown	+-	23373019	23373525	None	None
 18	23382176	18	23382678	deletion-like	2	unknown	+-	23382175	23382679	None	None
-18	23398109	18	23398634	deletion-like	2	None	+-	23398108	23398635	None	None
-18	23421446	18	23421990	deletion-like	2	None	+-	23421445	23421991	None	None
+18	23398109	18	23398634	deletion-like	2	unknown	+-	23398108	23398635	None	None
+18	23421446	18	23421990	deletion-like	2	unknown	+-	23421445	23421991	None	None
 18	23520170	18	23520753	deletion-like	2	unknown	+-	23520169	23520754	None	None
 18	23610141	18	23610873	deletion-like	2	unknown	+-	23610140	23610874	None	None
 18	23834716	18	23835232	deletion-like	2	unknown	+-	23834715	23835233	None	None
@@ -124,7 +124,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 18	24401288	18	24401865	deletion-like	2	unknown	+-	24401287	24401866	None	None
 18	24432347	18	24432877	deletion-like	3	unknown	+-	24432346	24432878	None	None
 18	27216478	18	27217150	deletion-like	2	None	+-	27216477	27217151	None	None
-18	24502327	18	27234885	deletion-like	8	None	+-	24502326	27234886	None	None
+18	24502327	18	27234885	deletion-like	8	unknown	+-	24502326	27234886	None	None
 18	27306939	18	27307508	deletion-like	2	unknown	+-	27306938	27307509	None	None
 18	27338571	18	27339117	deletion-like	2	unknown	+-	27338570	27339118	None	None
 18	27363952	18	27364683	deletion-like	2	unknown	+-	27363951	27364684	None	None
@@ -138,7 +138,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 18	27591901	18	27592427	deletion-like	2	unknown	+-	27591900	27592428	None	None
 18	27645887	18	27646400	deletion-like	2	unknown	+-	27645886	27646401	None	None
 18	27675900	18	27676504	deletion-like	2	unknown	+-	27675899	27676505	None	None
-18	27693889	18	27694401	deletion-like	3	None	+-	27693888	27694402	None	None
+18	27693889	18	27694401	deletion-like	3	unknown	+-	27693888	27694402	None	None
 18	27702461	18	27703097	deletion-like	3	unknown	+-	27702460	27703098	None	None
 18	27730496	18	27730496	foldback	2	unknown	--	27730497	27730497	None	None
 18	27745767	18	27746340	deletion-like	2	unknown	+-	27745766	27746341	None	None

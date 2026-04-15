@@ -1,0 +1,36 @@
+List of cycle segments
+Segment	1	1	39478151	42553360
+Segment	2	1	39574200	42553360
+Segment	3	1	41912516	42553360
+Segment	4	1	41940001	42655299
+Segment	5	1	41941614	42553360
+Segment	6	1	61143017	62456272
+Segment	7	1	61245900	62456272
+Segment	8	1	61245900	62567386
+Segment	9	1	61945720	62456272
+Segment	10	1	61980001	62456272
+Segment	11	1	61982781	62456272
+Segment	12	1	62211801	62456272
+Segment	13	1	115142771	116006434
+Segment	14	1	116004072	116005117
+Segment	15	1	116004072	116006434
+Segment	16	1	116004072	116519290
+Segment	17	1	116004072	116537878
+Segment	18	1	116004072	116918505
+Segment	19	1	116183607	120129599
+Segment	20	1	116185200	116519290
+Segment	21	1	117336719	117342841
+Segment	22	1	117339300	120129599
+Segment	23	1	117389700	117761099
+Segment	24	1	120096300	120530281
+Cycle=1;Copy_count=14.845604237;Length=2790562;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=16+,17-,12-,5-,3+,12+
+Cycle=2;Copy_count=7.47432179472;Length=1431110;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=9+,18+,21-
+Cycle=3;Copy_count=6.57773440813;Length=433982;IsCyclicPath=False;CycleClass=Linear;Segments=0+,24-,0+
+Cycle=4;Copy_count=4.66777878699;Length=4091531;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,2+,12+,17+,20-,0+
+Cycle=5;Copy_count=4.32125348835;Length=2790300;IsCyclicPath=False;CycleClass=Linear;Segments=0+,22-,0+
+Cycle=6;Copy_count=2.60793262481;Length=2527038;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,7+,14+,15-,6-,0+
+Cycle=7;Copy_count=2.24909000731;Length=715299;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,4-,0+
+Cycle=8;Copy_count=2.19920636162;Length=3799363;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,1+,12+,15+,14-,10-,0+
+Cycle=9;Copy_count=2.15854259786;Length=371400;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,23-,0+
+Cycle=10;Copy_count=1.81133942873;Length=1321487;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,8-,0+
+Cycle=11;Copy_count=1.32558978103;Length=5284195;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,19-,11+,14+,13-,0+

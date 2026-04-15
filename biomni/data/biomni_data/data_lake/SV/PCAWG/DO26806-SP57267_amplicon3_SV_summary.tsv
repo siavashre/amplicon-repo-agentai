@@ -9,7 +9,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 11	76903856	19	14706836	interchromosomal	13	Complex-non-cyclic	-+	76903857	14706835	None	None
 11	76903955	19	14706785	interchromosomal	8	Complex-non-cyclic	+-	76903954	14706786	None	None
 11	76904406	19	14706754	interchromosomal	5	Complex-non-cyclic	-+	76904407	14706753	None	None
-11	76904504	19	14706525	interchromosomal	6	None	+-	76904503	14706526	None	None
+11	76904504	19	14706525	interchromosomal	6	Complex-non-cyclic	+-	76904503	14706526	None	None
 11	77909768	11	77910240	duplication-like	5	Complex-non-cyclic	-+	77909769	77910239	None	None
 11	78037387	11	78038261	duplication-like	7	Complex-non-cyclic	-+	78037388	78038260	None	None
 11	78540389	11	78540958	duplication-like	8	Complex-non-cyclic	-+	78540390	78540957	None	None

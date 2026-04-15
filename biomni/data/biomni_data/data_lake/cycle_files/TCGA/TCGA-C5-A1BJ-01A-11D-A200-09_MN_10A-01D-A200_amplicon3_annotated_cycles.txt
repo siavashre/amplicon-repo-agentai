@@ -1,0 +1,12 @@
+List of cycle segments
+Segment	1	17	21191741	21254399
+Segment	2	17	21191741	21321278
+Segment	3	17	21191741	21359099
+Segment	4	17	21300698	21533822
+Segment	5	17	21302535	21321278
+Segment	6	17	21322837	21359099
+Segment	7	17	21322837	21533822
+Cycle=1;Copy_count=4.75231614268;Length=62659;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+
+Cycle=2;Copy_count=3.41444740055;Length=288132;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,4-,5+,6+,0+
+Cycle=3;Copy_count=1.7400232855;Length=340524;IsCyclicPath=False;CycleClass=Linear;Segments=0+,7-,2-,0+
+Cycle=4;Copy_count=0.612234692472;Length=167359;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,3-,0+

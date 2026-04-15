@@ -1,0 +1,5 @@
+SequenceEdge: StartPosition, EndPosition, PredictedCopyCount, AverageCoverage, Size, NumberReadsMapped
+sequence	1:190338878-	1:190502434+	6.404674566868505	32.1092768882	163556	51997
+BreakpointEdge: StartPosition->EndPosition, PredictedCopyCount, NumberOfReadPairs, HomologySizeIfAvailable(<0ForInsertions), Homology/InsertionSequence
+source	1:-1-->1:190338878-	6.404674566868505	39	None	None
+source	1:-1-->1:190502434+	6.404674566868505	14	None	None

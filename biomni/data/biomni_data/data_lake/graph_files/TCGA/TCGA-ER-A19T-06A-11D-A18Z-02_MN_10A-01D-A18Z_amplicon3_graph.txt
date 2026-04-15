@@ -1,0 +1,11 @@
+SequenceEdge: StartPosition, EndPosition, PredictedCopyCount, AverageCoverage, Size, NumberReadsMapped
+sequence	15:60430922-	15:60532199+	4.523138049842211	11.2103517052	101277	22262
+sequence	15:60532200-	15:60600899+	6.3665494522421495	15.8248471616	68699	21317
+sequence	15:60600900-	15:60709686+	4.523657526143144	11.183367498	108786	23855
+BreakpointEdge: StartPosition->EndPosition, PredictedCopyCount, NumberOfReadPairs, HomologySizeIfAvailable(<0ForInsertions), Homology/InsertionSequence
+source	15:-1-->15:60430922-	4.523138049842211	32	None	None
+source	15:-1-->15:60532200-	1.8434114050064931	23	None	None
+concordant	15:60532199+->15:60532200-	4.523138049842211	31	None	None
+source	15:-1-->15:60600899+	1.8428919287055616	2	None	None
+concordant	15:60600899+->15:60600900-	4.523657526143144	31	None	None
+source	15:-1-->15:60709686+	4.523657526143144	36	None	None

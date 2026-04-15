@@ -1,12 +1,12 @@
 chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
 17	57213040	17	57213907	foldback	6	None	--	57213041	57213908	None	None
-17	57229054	17	57229598	deletion-like	2	None	+-	57229053	57229599	None	None
+17	57229054	17	57229598	deletion-like	2	unknown	+-	57229053	57229599	None	None
 17	57628972	22	18065038	interchromosomal	2	None	-+	57628973	18065037	None	None
 17	57710051	17	57710626	deletion-like	2	unknown	+-	57710050	57710627	None	None
 17	57817605	17	57818216	deletion-like	2	unknown	+-	57817604	57818217	None	None
 17	57834452	17	57835008	deletion-like	2	unknown	+-	57834451	57835009	None	None
 17	57870515	17	57871169	deletion-like	6	unknown	+-	57870514	57871170	None	None
-17	57877840	17	57878423	deletion-like	2	None	+-	57877839	57878424	None	None
+17	57877840	17	57878423	deletion-like	2	unknown	+-	57877839	57878424	None	None
 17	57986358	17	57992558	duplication-like	3	unknown	-+	57986359	57992557	None	None
 17	58030871	17	58032307	foldback	4	unknown	++	58030870	58032306	None	None
 17	58411843	17	58414039	deletion-like	3	None	+-	58411842	58414040	None	None
@@ -24,5 +24,5 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 17	60929818	17	60992272	deletion-like	5	unknown	+-	60929817	60992273	None	None
 17	60830719	17	61594304	duplication-like	6	None	-+	60830720	61594303	None	None
 17	59228479	17	61598601	deletion-like	4	None	+-	59228478	61598602	None	None
-17	60461639	17	61676420	inversion	3	None	--	60461640	61676421	None	None
+17	60461639	17	61676420	inversion	3	unknown	--	60461640	61676421	None	None
 22	18057663	22	18060457	deletion-like	5	None	+-	18057662	18060458	None	None

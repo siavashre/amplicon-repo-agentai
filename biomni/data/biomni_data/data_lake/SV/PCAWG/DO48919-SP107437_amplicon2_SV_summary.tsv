@@ -5,7 +5,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 3	83853127	3	83855350	deletion-like	6	None	+-	83853126	83855351	None	None
 3	84104941	3	84107384	deletion-like	11	None	+-	84104940	84107385	None	None
 3	85254869	3	85255911	foldback	3	None	++	85254868	85255910	None	None
-4	6005210	4	6005967	duplication-like	2	None	-+	6005211	6005966	None	None
+4	6005210	4	6005967	duplication-like	2	unknown	-+	6005211	6005966	None	None
 4	6005322	4	6006485	deletion-like	4	unknown	+-	6005321	6006486	None	None
 17	17230381	17	17231231	deletion-like	31	ecDNA	+-	17230380	17231232	None	None
 17	17363483	4	6006131	interchromosomal	4	None	++	17363482	6006130	None	None

@@ -66,7 +66,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 11	73813718	11	79817866	inversion	18	ecDNA	++	73813717	79817865	None	None
 11	79792174	11	80269637	deletion-like	30	None	+-	79792173	80269638	None	None
 11	75097723	11	80269637	inversion	14	None	--	75097724	80269638	None	None
-11	80269307	11	80269637	foldback	23	None	--	80269308	80269638	None	None
+11	80269307	11	80269637	foldback	23	unknown	--	80269308	80269638	None	None
 11	79792021	11	80269643	inversion	18	None	--	79792022	80269644	None	None
 11	75098319	11	80269654	deletion-like	3	None	+-	75098318	80269655	None	None
 11	79792046	11	80269683	inversion	5	None	--	79792047	80269684	None	None
@@ -95,7 +95,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 11	80270184	11	83634510	deletion-like	4	None	+-	80270183	83634511	None	None
 11	83826377	11	83845236	duplication-like	22	ecDNA	-+	83826378	83845235	None	None
 11	83802337	11	86198075	inversion	6	None	--	83802338	86198076	None	None
-11	58916864	11	87225256	deletion-like	5	None	+-	58916863	87225257	None	None
+11	58916864	11	87225256	deletion-like	5	unknown	+-	58916863	87225257	None	None
 11	74790900	11	87257580	deletion-like	8	ecDNA	+-	74790899	87257581	None	None
 11	80842952	11	87257688	inversion	2	None	++	80842951	87257687	None	None
 11	79065452	11	87257703	inversion	4	ecDNA	++	79065451	87257702	None	None
@@ -119,7 +119,7 @@ chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_
 11	74739511	11	87270288	inversion	5	None	++	74739510	87270287	None	None
 11	71193882	11	87270342	deletion-like	2	None	+-	71193881	87270343	None	None
 11	71193882	11	87270342	deletion-like	2	None	+-	71193881	87270343	None	None
-11	87258907	11	87270342	deletion-like	3	None	+-	87258906	87270343	None	None
+11	87258907	11	87270342	deletion-like	3	unknown	+-	87258906	87270343	None	None
 11	80843036	11	87270486	duplication-like	3	unknown	-+	80843037	87270485	None	None
 11	70424955	11	87270535	duplication-like	4	unknown	-+	70424956	87270534	None	None
 11	70515362	11	87342518	deletion-like	13	unknown	+-	70515361	87342519	None	None

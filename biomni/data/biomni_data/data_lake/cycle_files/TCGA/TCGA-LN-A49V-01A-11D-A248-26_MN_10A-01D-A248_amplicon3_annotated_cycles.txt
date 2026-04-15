@@ -1,0 +1,42 @@
+List of cycle segments
+Segment	1	6	18798236	19685576
+Segment	2	6	18904123	19216167
+Segment	3	6	18904123	19685576
+Segment	4	6	18913920	19685576
+Segment	5	6	18913920	22052771
+Segment	6	6	19686506	22052771
+Segment	7	6	20092200	22052771
+Segment	8	6	22053724	22739961
+Segment	9	6	22053724	22742999
+Segment	10	6	22053724	23743255
+Segment	11	6	23745943	24408639
+Segment	12	6	23745943	24811887
+Segment	13	6	23745943	25023259
+Segment	14	6	24817954	24916158
+Segment	15	6	50530020	50928166
+Segment	16	6	50630653	50682229
+Segment	17	6	50823513	50828166
+Segment	18	18	0	60386
+Segment	19	18	0	100386
+Segment	20	18	118596	3696665
+Segment	21	18	118596	3697837
+Segment	22	18	581669	629873
+Segment	23	18	2749500	3697837
+Segment	24	18	3615871	3696665
+Segment	25	18	3615871	5324615
+Segment	26	18	4343400	5209626
+Segment	27	18	5210691	5324615
+Segment	28	18	5326264	6031276
+Segment	29	18	5326264	6296216
+Segment	30	18	5775239	5805778
+Segment	31	18	5775239	5809225
+Cycle=1;Copy_count=10.9233347313;Length=100387;IsCyclicPath=False;CycleClass=Linear;Segments=0+,19-,0+
+Cycle=2;Copy_count=5.21742021494;Length=12105469;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,17+,16+,14-,12-,10-,6-,4-,3+,6+,10+,12+,14+,16-,17-,0+
+Cycle=3;Copy_count=5.1996220612;Length=7157312;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,21+,20-,0+
+Cycle=4;Copy_count=3.04542049638;Length=64527;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=30-,31+
+Cycle=5;Copy_count=2.82472576761;Length=1793757;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,26+,27+,28+,22+,18-,0+
+Cycle=6;Copy_count=2.59283100285;Length=398147;IsCyclicPath=False;CycleClass=Linear;Segments=0+,15-,0+
+Cycle=7;Copy_count=2.21816592694;Length=2649848;IsCyclicPath=False;CycleClass=Linear;Segments=0+,9-,7-,0+
+Cycle=8;Copy_count=1.85362405718;Length=8284534;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,29-,25-,11-,10-,6-,1-,0+
+Cycle=9;Copy_count=1.69071488382;Length=4136206;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2-,4+,6+,8+
+Cycle=10;Copy_count=1.36456316425;Length=12634783;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,13-,10-,6-,3-,5+,10+,11+,24+,23-,0+
