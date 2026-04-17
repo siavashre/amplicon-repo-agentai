@@ -42,6 +42,7 @@ scripts/gradio
 !biomni/data/biomni_data/
 !biomni/data/biomni_data/data_lake/
 !biomni/data/biomni_data/data_lake/**
+biomni/data/amplicon_data/data_lake/
 __pycache__/
 *.py[cod]
 *$py.class
