@@ -1,8 +1,0 @@
-chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
-3	172133999	3	172191757	duplication-like	7	unknown	-+	172134000	172191756	None	None
-3	172210272	3	172373537	duplication-like	24	ecDNA	-+	172210273	172373536	None	None
-3	172397994	7	100173786	interchromosomal	28	None	--	172397995	100173787	None	None
-3	172398612	7	100174611	interchromosomal	30	None	+-	172398611	100174612	None	None
-3	172399185	7	100176180	interchromosomal	24	None	++	172399184	100176179	None	None
-3	172274460	3	172399529	duplication-like	27	ecDNA	-+	172274461	172399528	None	None
-3	172276787	3	172400614	duplication-like	21	ecDNA	-+	172276788	172400613	None	None

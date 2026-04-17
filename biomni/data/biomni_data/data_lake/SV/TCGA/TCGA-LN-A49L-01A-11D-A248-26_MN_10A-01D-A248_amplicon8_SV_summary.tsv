@@ -1,6 +1,0 @@
-chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
-10	82718647	10	82721455	foldback	6	BFB	--	82718648	82721456	None	None
-10	83540693	10	83555008	foldback	3	BFB	++	83540692	83555007	None	None
-10	84237975	10	84238492	deletion-like	18	None	+-	84237974	84238493	None	None
-10	84511283	10	84515826	deletion-like	19	BFB	+-	84511282	84515827	None	None
-10	85208264	10	85214033	foldback	6	None	++	85208263	85214032	None	None

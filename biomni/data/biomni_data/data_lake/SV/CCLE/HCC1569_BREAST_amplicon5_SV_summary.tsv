@@ -1,8 +1,0 @@
-chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
-chr6	36614755	chr6	36839105	duplication-like	4	Complex-non-cyclic	-+	36614756	36839104	None	None
-chr6	36591122	chr6	37030425	duplication-like	7	Complex-non-cyclic	-+	36591123	37030424	None	None
-chr20	50005193	chr6	36565544	interchromosomal	5	None	+-	50005192	36565545	None	None
-chr20	49971404	chr20	50074639	inversion	11	Complex-non-cyclic	--	49971405	50074640	None	None
-chr20	50218095	chr20	50428325	duplication-like	4	Complex-non-cyclic	-+	50218096	50428324	None	None
-chr20	50005153	chr20	50475435	deletion-like	10	Complex-non-cyclic	+-	50005152	50475436	None	None
-chr20	50475556	chr6	36565572	interchromosomal	8	Complex-non-cyclic	+-	50475555	36565573	None	None

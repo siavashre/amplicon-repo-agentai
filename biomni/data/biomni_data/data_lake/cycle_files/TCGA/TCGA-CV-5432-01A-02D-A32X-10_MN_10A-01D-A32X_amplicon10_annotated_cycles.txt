@@ -1,9 +1,0 @@
-List of cycle segments
-Segment	1	Y	9429842	9538499
-Segment	2	Y	9429842	9578699
-Segment	3	Y	9429842	9767019
-Segment	4	Y	9643500	9767019
-Cycle=1;Copy_count=5.37582066194;Length=108658;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+
-Cycle=2;Copy_count=4.29506721111;Length=337178;IsCyclicPath=False;CycleClass=Linear;Segments=0+,3-,0+
-Cycle=3;Copy_count=1.45223209384;Length=123520;IsCyclicPath=False;CycleClass=Linear;Segments=0+,4-,0+
-Cycle=4;Copy_count=1.10574692463;Length=148858;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,2-,0+

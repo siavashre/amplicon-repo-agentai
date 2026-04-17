@@ -1,8 +1,0 @@
-List of cycle segments
-Segment	1	chr6	63187942	64322798
-Segment	2	chr6	63188682	64322798
-Segment	3	chr6	63188767	64295342
-Segment	4	chr6	64295343	64322798
-Cycle=1;Copy_count=3.10415002371;Length=1134857;IsCyclicPath=False;CycleClass=Linear;Segments=0+,1-,0+
-Cycle=2;Copy_count=1.45854628464;Length=2240693;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,3-,2+,0+
-Cycle=3;Copy_count=1.01264628127;Length=27456;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,4-,0+

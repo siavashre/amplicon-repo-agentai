@@ -1,7 +1,0 @@
-List of cycle segments
-Segment	1	chr15	92845609	92930078
-Segment	2	chr15	92845609	92950613
-Segment	3	chr15	92861521	92932151
-Cycle=1;Copy_count=3.27910059506;Length=105005;IsCyclicPath=False;CycleClass=Linear;Segments=0+,2-,0+
-Cycle=2;Copy_count=1.4066555792;Length=70631;IsCyclicPath=True;CycleClass=Invalid;Segments=3+
-Cycle=3;Copy_count=0.968953478674;Length=84470;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+

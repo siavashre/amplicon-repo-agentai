@@ -1,8 +1,0 @@
-SequenceEdge: StartPosition, EndPosition, PredictedCopyCount, AverageCoverage, Size, NumberReadsMapped
-sequence	chr10:74900398-	chr10:75114096+	5.846061286298118	29.2791075093	213698	61995
-sequence	chr10:75114097-	chr10:75115399+	4.610687945482266	27.2647743479	1302	352
-BreakpointEdge: StartPosition->EndPosition, PredictedCopyCount, NumberOfReadPairs, HomologySizeIfAvailable(<0ForInsertions), Homology/InsertionSequence
-source	chr10:-1-->chr10:74900398-	5.846061286298118	34	None	None
-concordant	chr10:75114096+->chr10:75114097-	4.610687945482266	25	None	None
-source	chr10:-1-->chr10:75115399+	4.610687945482266	14	None	None
-source	chr10:-1-->chr10:75114096+	1.23537334081861	7	None	None

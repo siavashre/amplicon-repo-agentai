@@ -1,8 +1,0 @@
-chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
-11	32653066	11	32654227	foldback	3	Complex-non-cyclic	++	32653065	32654226	None	None
-11	32673899	11	32674194	foldback	2	Complex-non-cyclic	--	32673900	32674195	3	TTT
-11	32806576	11	32807098	foldback	3	Complex-non-cyclic	--	32806577	32807099	5	TGGTG
-11	32836783	11	32836783	foldback	4	Complex-non-cyclic	++	32836782	32836782	None	None
-11	32845077	11	32845245	foldback	2	Complex-non-cyclic	++	32845076	32845244	6	ATTTGA
-11	33032299	11	33032877	foldback	2	None	--	33032300	33032878	8	CCTCAGCC
-11	33050766	11	33051567	foldback	2	None	--	33050767	33051568	None	None

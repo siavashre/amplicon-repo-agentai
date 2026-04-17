@@ -1,9 +1,0 @@
-List of cycle segments
-Segment	1	chr9	31646587	31747499
-Segment	2	chr9	31666537	31751743
-Segment	3	chr9	31666537	32196614
-Segment	4	chr9	31716192	31749787
-Segment	5	chr9	31716192	32196614
-Cycle=1;Copy_count=2.91317624354;Length=1010501;IsCyclicPath=False;CycleClass=Rearranged;Segments=0+,3-,5+,0+
-Cycle=2;Copy_count=1.54557586096;Length=118803;IsCyclicPath=True;CycleClass=ecDNA-like;Segments=2+,4-
-Cycle=3;Copy_count=0.947667855946;Length=100913;IsCyclicPath=False;CycleClass=Invalid;Segments=0+,1-,0+

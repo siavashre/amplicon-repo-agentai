@@ -1,6 +1,0 @@
-chrom1	pos1	chrom2	pos2	sv_type	read_support	features	orientation	pos1_flanking_coordinate	pos2_flanking_coordinate	homology_length	homology_sequence
-8	28246406	8	28246677	foldback	2	Complex-non-cyclic	++	28246405	28246676	6	AATCAT
-8	28342980	8	28343347	foldback	2	Complex-non-cyclic	--	28342981	28343348	4	GGCA
-8	28493402	8	28493402	foldback	4	Complex-non-cyclic	++	28493401	28493401	None	None
-17	60561910	17	60561910	foldback	4	Complex-non-cyclic	--	60561911	60561911	None	None
-17	60564792	8	28486217	interchromosomal	2	Complex-non-cyclic	--	60564793	28486218	None	None
